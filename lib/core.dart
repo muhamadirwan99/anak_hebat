@@ -12,6 +12,8 @@ export 'package:anak_hebat/module/home/controller/home_controller.dart';
 export 'package:anak_hebat/module/home/view/home_view.dart';
 export 'package:anak_hebat/module/login/controller/login_controller.dart';
 export 'package:anak_hebat/module/login/view/login_view.dart';
+export 'package:anak_hebat/module/login/widget/custom_button.dart';
+export 'package:anak_hebat/module/login/widget/custom_formfield.dart';
 export 'package:anak_hebat/module/materi/controller/materi_controller.dart';
 export 'package:anak_hebat/module/materi/view/materi_view.dart';
 export 'package:anak_hebat/state_util.dart';

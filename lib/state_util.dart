@@ -1,3 +1,5 @@
+// ignore_for_file: invalid_use_of_protected_member
+
 import 'package:flutter/material.dart';
 
 BuildContext get globalContext {
@@ -37,8 +39,7 @@ class Get {
     return MediaQuery.of(currentContext).size.width;
   }
 
-  static ValueNotifier<ThemeData> mainTheme =
-      ValueNotifier<ThemeData>(ThemeData());
+  static ValueNotifier<ThemeData> mainTheme = ValueNotifier<ThemeData>(ThemeData());
   static changeTheme(ThemeData theme) {
     mainTheme.value = theme;
   }
@@ -47,3 +48,13 @@ class Get {
     return Theme.of(Get.currentContext);
   }
 }
+
+extension ChangeNotifierExtension on State {
+  update() {
+    if (mounted) {
+      setState(() {});
+    }
+  }
+}
+
+class MvcController {}
