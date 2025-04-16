@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--
+    If you are serving your web app in a path other than the root, change the
+    href value below to reflect the base path you are serving from.
+
+    The path provided below has to start and end with a slash "/" in order for
+    it to work correctly.
+
+    For more details:
+    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+
+    This is a placeholder for base href that will be replaced by the value of
+    the `--base-href` argument provided to `flutter build`.
+  -->
+    <base href="$FLUTTER_BASE_HREF" />
+
+    <meta charset="UTF-8" />
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible" />
+    <meta name="description" content="Project Anak Hebat" />
+
+    <!-- iOS meta tags & icons -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-title" content="anak_hebat" />
+
+    <!-- Favicon -->
+    <link
+      rel="apple-touch-icon"
+      sizes="57x57"
+      href="icons/apple-icon-57x57.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="60x60"
+      href="icons/apple-icon-60x60.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="72x72"
+      href="icons/apple-icon-72x72.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="icons/apple-icon-76x76.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="icons/apple-icon-114x114.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="icons/apple-icon-120x120.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="icons/apple-icon-144x144.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="icons/apple-icon-152x152.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="icons/apple-icon-180x180.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="icons/android-icon-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="icons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="icons/favicon-96x96.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="icons/favicon-16x16.png"
+    />
+
+    <title>"Anak Hebat"</title>
+    <link rel="manifest" href="manifest.json" />
+
+    <script>
+      // The value below is injected by flutter build, do not touch.
+      const serviceWorkerVersion = null;
+    </script>
+    <!-- This script adds the flutter initialization JS code -->
+    <script src="flutter.js" defer></script>
+
+    <style>
+      .outer-container {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+      }
+  
+      .inner-container {
+        width: 500px;
+        height: 500px;
+      }
+    </style>
+  </head>
+  </head>
+  <body>
+    <!-- Include Lottie library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.6/lottie.min.js" defer></script>
+
+    <script src="https://unpkg.com/@zxing/library@0.19.1" type="application/javascript"></script>
+    <script>
+      window.addEventListener('load', function (ev) {
+        // Check for and clear existing caches
+        if ('caches' in window) {
+          caches.keys().then(function (cacheNames) {
+            cacheNames.forEach(function (cacheName) {
+              caches.delete(cacheName);
+            });
+          }).catch(function (error) {
+            console.error('Error while clearing caches:', error);
+          });
+        }
+        // Download main.dart.js
+        _flutter.loader.loadEntrypoint({
+          entrypointUrl: "main.dart.js?v=" + serviceWorkerVersion,
+          serviceWorker: {
+            serviceWorkerVersion: serviceWorkerVersion,
+          }
+        }).then(function (engineInitializer) {
+          return engineInitializer.initializeEngine();
+        }).then(function (appRunner) {
+          return appRunner.runApp();
+        });
+
+        // Load Lottie animation
+        lottie.loadAnimation({
+          container: document.getElementById('loading_indicator'), // the container element
+          renderer: 'svg',
+          loop: true,
+          autoplay: true,
+          path: './assets/loading.json' // path to your Lottie JSON file
+        });
+      });
+    </script>
+
+    <!-- Centered loading animation container -->
+    <div class="outer-container">
+      <!-- Inner container untuk membatasi ukuran Lottie -->
+      <div id="loading_indicator" class="inner-container"></div>
+    </div>
+  </body>
+</html>
