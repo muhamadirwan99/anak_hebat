@@ -90,7 +90,7 @@ class LoginView extends StatefulWidget {
         CustomButton(
           text: "Masuk",
           onPressed: () {
-            // aksi masuk
+            controller.login();
           },
           isPrimary: true,
         ),
@@ -149,7 +149,7 @@ class LoginView extends StatefulWidget {
           label: 'Nama Lengkap',
           hint: 'Masukkan nama lengkap',
           icon: Icons.person,
-          controller: controller.namaC,
+          controller: controller.nameC,
         ),
         const SizedBox(
           height: 32.0,
@@ -181,9 +181,7 @@ class LoginView extends StatefulWidget {
         CustomButton(
           text: "Buat Akun",
           onPressed: () {
-            controller.clearTextFields();
-            controller.isContentLogin = true;
-            controller.update();
+            controller.addUser();
           },
           isPrimary: true,
         ),

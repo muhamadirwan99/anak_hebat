@@ -1,3 +1,9 @@
+// ignore_for_file: use_build_context_synchronously
+
+import 'dart:developer';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:anak_hebat/core.dart';
 import '../view/login_view.dart';
@@ -6,7 +12,10 @@ class LoginController extends State<LoginView> {
   static late LoginController instance;
   late LoginView view;
 
-  final namaC = TextEditingController();
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+
+  final nameC = TextEditingController();
   final usernameLoginC = TextEditingController();
   final passwordLoginC = TextEditingController();
   final usernameSignupC = TextEditingController();
@@ -16,16 +25,124 @@ class LoginController extends State<LoginView> {
   bool isContentLogin = true;
 
   void clearTextFields() {
-    namaC.clear();
+    nameC.clear();
     usernameLoginC.clear();
     passwordLoginC.clear();
     usernameSignupC.clear();
     passwordSignupC.clear();
   }
 
+  _handleAuth() {
+    _auth.authStateChanges().listen((User? user) {
+      if (user == null) {
+        log('User is currently signed out!');
+      } else {
+        log('User is signed in!');
+
+        newRouter.go(RouterUtils.home);
+      }
+    });
+  }
+
+  void login() async {
+    if (usernameLoginC.text.isEmpty || passwordLoginC.text.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text("Please fill all fields"),
+          backgroundColor: Colors.orange,
+        ),
+      );
+      return;
+    }
+
+    showCircleLoading();
+    try {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: "${usernameLoginC.text}@anakhebat.com",
+        password: passwordLoginC.text,
+      );
+
+      newRouter.go(RouterUtils.home);
+    } on FirebaseAuthException catch (e) {
+      Get.back();
+
+      showCustomSnackBar(
+        context: context,
+        message:
+            "Login error: ${e.message?.replaceAll(RegExp(r'email address|Email Address|Email address|email Address'), "username")}",
+        backgroundColor: Colors.red,
+      );
+    } catch (e) {
+      Get.back();
+
+      showCustomSnackBar(
+        context: context,
+        message: "Unexpected error: $e",
+        backgroundColor: Colors.red,
+      );
+    }
+  }
+
+  void addUser() async {
+    if (nameC.text.isEmpty || usernameSignupC.text.isEmpty || passwordSignupC.text.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text("Please fill all fields"),
+          backgroundColor: Colors.orange,
+        ),
+      );
+      return;
+    }
+
+    showCircleLoading();
+
+    CollectionReference users = _firestore.collection('users');
+
+    try {
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: "${usernameSignupC.text}@anakhebat.com",
+        password: passwordSignupC.text,
+      );
+
+      await users.add({
+        'name': nameC.text,
+        'username': usernameSignupC.text,
+      });
+
+      showCustomSnackBar(
+        context: context,
+        message: "User successfully added!",
+      );
+
+      Get.back();
+
+      clearTextFields();
+      isContentLogin = true;
+      update();
+    } on FirebaseAuthException catch (e) {
+      Get.back();
+
+      showCustomSnackBar(
+        context: context,
+        message:
+            "Auth error: ${e.message?.replaceAll(RegExp(r'email address|Email Address|Email address|email Address'), "username")}",
+        backgroundColor: Colors.red,
+      );
+    } catch (e) {
+      Get.back();
+
+      showCustomSnackBar(
+        context: context,
+        message: "Unexpected error: $e",
+        backgroundColor: Colors.red,
+      );
+    }
+  }
+
   @override
   void initState() {
     instance = this;
+    _handleAuth();
     super.initState();
   }
 
