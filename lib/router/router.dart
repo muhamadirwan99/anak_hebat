@@ -6,6 +6,7 @@ final GoRouter newRouter = GoRouter(
   navigatorKey: Get.navigatorKey,
   initialLocation: RouterUtils.root,
   errorBuilder: RouteConfigs.errorBuilder,
+  redirect: RouteConfigs.redirect, // handle auth check di sini
   routes: <RouteBase>[
     GoRoute(
       path: RouterUtils.root,

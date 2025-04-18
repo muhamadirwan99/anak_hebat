@@ -1,18 +1,15 @@
 // ignore_for_file: use_build_context_synchronously
 
-import 'dart:developer';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:anak_hebat/core.dart';
-import '../view/login_view.dart';
+import 'package:universal_html/html.dart' as html;
 
 class LoginController extends State<LoginView> {
   static late LoginController instance;
   late LoginView view;
 
-  final FirebaseAuth _auth = FirebaseAuth.instance;
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
   final nameC = TextEditingController();
@@ -30,18 +27,6 @@ class LoginController extends State<LoginView> {
     passwordLoginC.clear();
     usernameSignupC.clear();
     passwordSignupC.clear();
-  }
-
-  _handleAuth() {
-    _auth.authStateChanges().listen((User? user) {
-      if (user == null) {
-        log('User is currently signed out!');
-      } else {
-        log('User is signed in!');
-
-        newRouter.go(RouterUtils.home);
-      }
-    });
   }
 
   void login() async {
@@ -62,7 +47,7 @@ class LoginController extends State<LoginView> {
         password: passwordLoginC.text,
       );
 
-      newRouter.go(RouterUtils.home);
+      html.window.location.replace("/");
     } on FirebaseAuthException catch (e) {
       Get.back();
 
@@ -142,7 +127,6 @@ class LoginController extends State<LoginView> {
   @override
   void initState() {
     instance = this;
-    _handleAuth();
     super.initState();
   }
 

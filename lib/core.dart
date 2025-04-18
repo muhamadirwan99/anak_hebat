@@ -22,4 +22,5 @@ export 'package:anak_hebat/module/materi/view/materi_view.dart';
 export 'package:anak_hebat/router/router.dart';
 export 'package:anak_hebat/router/router_utils.dart';
 export 'package:anak_hebat/router/route_configs.dart';
+export 'package:anak_hebat/router/route_guards.dart';
 export 'package:anak_hebat/state_util.dart';
