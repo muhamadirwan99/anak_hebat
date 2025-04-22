@@ -10,4 +10,10 @@ class ButtonRes {
   String get retry => '${ButtonRes.basePath}/retry.svg';
   String get speakerOff => '${ButtonRes.basePath}/speaker_off.svg';
   String get speakerOn => '${ButtonRes.basePath}/speaker_on.svg';
+  String get belajar => '${ButtonRes.basePath}/belajar.png';
+  String get belajarAngka => '${ButtonRes.basePath}/belajar_angka.png';
+  String get belajarHuruf => '${ButtonRes.basePath}/belajar_huruf.png';
+  String get quiz => '${ButtonRes.basePath}/quiz.png';
+  String get quizAngka => '${ButtonRes.basePath}/quiz_angka.png';
+  String get quizHuruf => '${ButtonRes.basePath}/quiz_huruf.png';
 }

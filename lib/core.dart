@@ -3,16 +3,20 @@ We believe, the class name must be unique.
 If there is a conflicting class name in this file,
 it means you have to rename it to something more unique.
 */
+export 'package:anak_hebat/core/color/color.dart';
 export 'package:anak_hebat/core/media_res/background_res.dart';
 export 'package:anak_hebat/core/media_res/button_res.dart';
 export 'package:anak_hebat/core/media_res/image_res.dart';
 export 'package:anak_hebat/core/media_res/logo_res.dart';
 export 'package:anak_hebat/core/media_res/media_res.dart';
 export 'package:anak_hebat/core/utils/scaffold_message.dart';
+export 'package:anak_hebat/core/utils/show_base_dialog.dart';
 export 'package:anak_hebat/core/utils/show_circle_dialog_loading.dart';
 export 'package:anak_hebat/firebase_options.dart';
 export 'package:anak_hebat/module/home/controller/home_controller.dart';
 export 'package:anak_hebat/module/home/view/home_view.dart';
+export 'package:anak_hebat/module/home/widget/dialog_pilih_belajar.dart';
+export 'package:anak_hebat/module/home/widget/dialog_pilih_quiz.dart';
 export 'package:anak_hebat/module/login/controller/login_controller.dart';
 export 'package:anak_hebat/module/login/view/login_view.dart';
 export 'package:anak_hebat/module/login/widget/custom_button.dart';

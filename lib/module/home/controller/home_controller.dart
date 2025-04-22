@@ -6,6 +6,8 @@ class HomeController extends State<HomeView> {
   static late HomeController instance;
   late HomeView view;
 
+  bool isSoundPlay = true;
+
   @override
   void initState() {
     instance = this;
