@@ -2,7 +2,6 @@
 // ignore_for_file: type=lint
 import 'package:firebase_core/firebase_core.dart' show FirebaseOptions;
 import 'package:flutter/foundation.dart' show defaultTargetPlatform, kIsWeb, TargetPlatform;
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 /// Default [FirebaseOptions] for use with your Firebase apps.
 ///
@@ -52,8 +51,10 @@ class DefaultFirebaseOptions {
     }
   }
 
+  static get apiKey => const String.fromEnvironment('API_KEY');
+
   static FirebaseOptions web = FirebaseOptions(
-    apiKey: dotenv.env['API_KEY'] ?? "",
+    apiKey: apiKey,
     appId: '1:508209313206:web:58314c685e4c3dd03e3d17',
     messagingSenderId: '508209313206',
     projectId: 'anakhebat-20505',
