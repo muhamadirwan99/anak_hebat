@@ -11,21 +11,7 @@ void main() async {
 
   runApp(const MyApp());
 
-  WidgetsBinding.instance.addPostFrameCallback((_) {
-    final context = Get.navigatorKey.currentContext;
-    if (context != null) {
-      precacheImage(AssetImage(MediaRes.images.login), context);
-      precacheImage(AssetImage(MediaRes.background.kelas), context);
-      precacheImage(AssetImage(MediaRes.background.outside), context);
-      precacheImage(AssetImage(MediaRes.button.belajar), context);
-      precacheImage(AssetImage(MediaRes.button.belajarAngka), context);
-      precacheImage(AssetImage(MediaRes.button.belajarHuruf), context);
-      precacheImage(AssetImage(MediaRes.button.quiz), context);
-      precacheImage(AssetImage(MediaRes.button.quizAngka), context);
-      precacheImage(AssetImage(MediaRes.button.quizHuruf), context);
-      precacheImage(AssetImage(MediaRes.logo.logo), context);
-    }
-  });
+  loadImage();
 }
 
 class MyApp extends StatelessWidget {

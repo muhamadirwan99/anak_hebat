@@ -83,6 +83,9 @@ class LoginView extends StatefulWidget {
           controller: controller.passwordLoginC,
           obscureText: controller.obscure,
           isPassword: true,
+          onEditingComplete: () {
+            controller.login();
+          },
         ),
         const SizedBox(
           height: 40.0,

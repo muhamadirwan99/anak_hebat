@@ -7,4 +7,5 @@ class MediaRes {
   static final images = ImageRes();
   static final background = BackgroundRes();
   static final logo = LogoRes();
+  static final materi = MateriRes();
 }

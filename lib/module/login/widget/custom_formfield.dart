@@ -8,6 +8,7 @@ class CustomFormField extends StatefulWidget {
   final TextEditingController controller;
   final bool obscureText;
   final bool isPassword;
+  final VoidCallback? onEditingComplete;
 
   const CustomFormField({
     super.key,
@@ -17,6 +18,7 @@ class CustomFormField extends StatefulWidget {
     required this.controller,
     this.obscureText = false,
     this.isPassword = false,
+    this.onEditingComplete,
   });
 
   @override
@@ -49,6 +51,7 @@ class _CustomFormFieldState extends State<CustomFormField> {
         TextFormField(
           controller: widget.controller,
           obscureText: _obscure,
+          onEditingComplete: widget.onEditingComplete,
           decoration: InputDecoration(
             hintText: widget.hint,
             prefixIcon: Icon(widget.icon, size: 20),
