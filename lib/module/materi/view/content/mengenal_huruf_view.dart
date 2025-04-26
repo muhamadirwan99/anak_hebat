@@ -1,10 +1,16 @@
 import 'package:anak_hebat/core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class MengenalHurufView extends StatefulWidget {
-  const MengenalHurufView({super.key});
+  final MateriController controller;
+
+  const MengenalHurufView({
+    super.key,
+    required this.controller,
+  });
 
   @override
   State<MengenalHurufView> createState() => _MengenalHurufViewState();
@@ -30,7 +36,7 @@ class _MengenalHurufViewState extends State<MengenalHurufView> {
             ),
             const Spacer(),
             Text(
-              "Ayo Belajar!",
+              "Mengenal Huruf",
               style: GoogleFonts.balsamiqSans(
                 fontSize: 90,
                 fontWeight: FontWeight.bold,
@@ -41,28 +47,19 @@ class _MengenalHurufViewState extends State<MengenalHurufView> {
           ],
         ),
         const SizedBox(
-          height: 100,
+          height: 70,
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            InkWell(
-              onTap: () {},
-              child: Image.asset(
-                MediaRes.button.mengenalAngka,
-              ),
-            ),
-            const SizedBox(
-              width: 100,
-            ),
-            InkWell(
-              onTap: () {},
-              child: Image.asset(
-                MediaRes.button.mencocokanAngka,
-              ),
-            ),
-          ],
-        ),
+        SizedBox(
+          width: 1529,
+          child: StaggeredGrid.count(
+            crossAxisCount: 9,
+            mainAxisSpacing: 50,
+            crossAxisSpacing: 50,
+            children: widget.controller.listMengenalHuruf().map((model) {
+              return ContainerMengenal(model: model);
+            }).toList(),
+          ),
+        )
       ],
     );
   }

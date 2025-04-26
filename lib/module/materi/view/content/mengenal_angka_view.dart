@@ -56,7 +56,7 @@ class _MengenalAngkaViewState extends State<MengenalAngkaView> {
             mainAxisSpacing: 50,
             crossAxisSpacing: 50,
             children: widget.controller.listMengenalAngka().map((model) {
-              return ContainerMengenalAngka(model: model);
+              return ContainerMengenal(model: model);
             }).toList(),
           ),
         )

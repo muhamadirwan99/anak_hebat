@@ -2,11 +2,11 @@ import 'package:anak_hebat/core.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class ContainerMengenalAngka extends StatefulWidget {
+class ContainerMengenal extends StatefulWidget {
   final double? height, width;
-  final MengenalAngkaModel model;
+  final MengenalModel model;
 
-  const ContainerMengenalAngka({
+  const ContainerMengenal({
     super.key,
     this.height,
     this.width,
@@ -14,10 +14,10 @@ class ContainerMengenalAngka extends StatefulWidget {
   });
 
   @override
-  State<ContainerMengenalAngka> createState() => _ContainerMengenalAngkaState();
+  State<ContainerMengenal> createState() => _ContainerMengenalState();
 }
 
-class _ContainerMengenalAngkaState extends State<ContainerMengenalAngka> {
+class _ContainerMengenalState extends State<ContainerMengenal> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
