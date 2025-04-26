@@ -1,3 +1,4 @@
+import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
 import 'package:anak_hebat/core.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -26,23 +27,64 @@ class HomeView extends StatefulWidget {
               children: [
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Spacer(),
                     Padding(
-                      padding: const EdgeInsets.only(left: 110),
+                      padding: const EdgeInsets.all(50),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Colors.white.withOpacity(0.8),
+                          borderRadius: const BorderRadius.all(
+                            Radius.circular(
+                              56,
+                            ),
+                          ),
+                        ),
+                        padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 24),
+                        child: Row(
+                          children: [
+                            InkWell(
+                              onTap: () {},
+                              child: Text(
+                                "Home",
+                                style: GoogleFonts.roboto(
+                                  fontSize: 24,
+                                  fontWeight: FontWeight.w600,
+                                  color: yellow900,
+                                ),
+                              ),
+                            ),
+                            const SizedBox(
+                              width: 24.0,
+                            ),
+                            InkWell(
+                              onTap: () {},
+                              child: Text(
+                                "Dashboard",
+                                style: GoogleFonts.roboto(
+                                  fontSize: 24,
+                                  fontWeight: FontWeight.w600,
+                                  color: yellow900,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(right: 220),
                       child: Image.asset(
                         MediaRes.logo.logo,
                         height: 200,
                         width: 200,
                       ),
                     ),
-                    const Spacer(),
                     Padding(
                       padding: const EdgeInsets.all(30),
                       child: InkWell(
                         onTap: () {
-                          controller.isSoundPlay = !controller.isSoundPlay;
-                          controller.update();
+                          controller.toggleMute();
                         },
                         child: SvgPicture.asset(
                           controller.isSoundPlay

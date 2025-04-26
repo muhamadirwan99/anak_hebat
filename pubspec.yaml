@@ -75,9 +75,9 @@ flutter:
     - assets/background/
     - assets/logo/
     - assets/materi/
-    - assets/music/
-    - assets/music/angka/
-    - assets/music/huruf/
+    - assets/audio/
+    - assets/audio/angka/
+    - assets/audio/huruf/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

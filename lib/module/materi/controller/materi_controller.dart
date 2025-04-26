@@ -20,7 +20,7 @@ class MateriController extends State<MateriView> {
       MengenalAngkaModel(
         title: "0",
         subtitle: "Nol",
-        audio: MediaRes.music.angka.nol,
+        audio: MediaRes.audio.angka.nol,
         onTap: () {
           pageState = EnumPageState.mengenalAngkaContent;
           modelMengenalAngka = listMengenalAngka()[0];
@@ -30,7 +30,7 @@ class MateriController extends State<MateriView> {
       MengenalAngkaModel(
         title: "1",
         subtitle: "Satu",
-        audio: MediaRes.music.angka.satu,
+        audio: MediaRes.audio.angka.satu,
         onTap: () {
           pageState = EnumPageState.mengenalAngkaContent;
           modelMengenalAngka = listMengenalAngka()[1];
@@ -40,7 +40,7 @@ class MateriController extends State<MateriView> {
       MengenalAngkaModel(
         title: "2",
         subtitle: "Dua",
-        audio: MediaRes.music.angka.dua,
+        audio: MediaRes.audio.angka.dua,
         onTap: () {
           pageState = EnumPageState.mengenalAngkaContent;
           modelMengenalAngka = listMengenalAngka()[2];
@@ -50,7 +50,7 @@ class MateriController extends State<MateriView> {
       MengenalAngkaModel(
         title: "3",
         subtitle: "Tiga",
-        audio: MediaRes.music.angka.tiga,
+        audio: MediaRes.audio.angka.tiga,
         onTap: () {
           pageState = EnumPageState.mengenalAngkaContent;
           modelMengenalAngka = listMengenalAngka()[3];
@@ -60,7 +60,7 @@ class MateriController extends State<MateriView> {
       MengenalAngkaModel(
         title: "4",
         subtitle: "Empat",
-        audio: MediaRes.music.angka.empat,
+        audio: MediaRes.audio.angka.empat,
         onTap: () {
           pageState = EnumPageState.mengenalAngkaContent;
           modelMengenalAngka = listMengenalAngka()[4];
@@ -70,7 +70,7 @@ class MateriController extends State<MateriView> {
       MengenalAngkaModel(
         title: "5",
         subtitle: "Lima",
-        audio: MediaRes.music.angka.lima,
+        audio: MediaRes.audio.angka.lima,
         onTap: () {
           pageState = EnumPageState.mengenalAngkaContent;
           modelMengenalAngka = listMengenalAngka()[5];
@@ -80,7 +80,7 @@ class MateriController extends State<MateriView> {
       MengenalAngkaModel(
         title: "6",
         subtitle: "Enam",
-        audio: MediaRes.music.angka.enam,
+        audio: MediaRes.audio.angka.enam,
         onTap: () {
           pageState = EnumPageState.mengenalAngkaContent;
           modelMengenalAngka = listMengenalAngka()[6];
@@ -90,7 +90,7 @@ class MateriController extends State<MateriView> {
       MengenalAngkaModel(
         title: "7",
         subtitle: "Tujuh",
-        audio: MediaRes.music.angka.tujuh,
+        audio: MediaRes.audio.angka.tujuh,
         onTap: () {
           pageState = EnumPageState.mengenalAngkaContent;
           modelMengenalAngka = listMengenalAngka()[7];
@@ -100,7 +100,7 @@ class MateriController extends State<MateriView> {
       MengenalAngkaModel(
         title: "8",
         subtitle: "Delapan",
-        audio: MediaRes.music.angka.delapan,
+        audio: MediaRes.audio.angka.delapan,
         onTap: () {
           pageState = EnumPageState.mengenalAngkaContent;
           modelMengenalAngka = listMengenalAngka()[8];
@@ -110,7 +110,7 @@ class MateriController extends State<MateriView> {
       MengenalAngkaModel(
         title: "9",
         subtitle: "Sembilan",
-        audio: MediaRes.music.angka.sembilan,
+        audio: MediaRes.audio.angka.sembilan,
         onTap: () {
           pageState = EnumPageState.mengenalAngkaContent;
           modelMengenalAngka = listMengenalAngka()[9];
