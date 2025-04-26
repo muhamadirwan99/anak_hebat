@@ -1,5 +1,5 @@
 class MusicRes {
-  static String basePath = 'assets/music';
+  static String basePath = 'music';
 
   final angka = _Angka();
   final huruf = _Huruf();

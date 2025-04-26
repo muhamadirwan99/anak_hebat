@@ -1,10 +1,17 @@
 import 'package:anak_hebat/core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class MengenalAngkaView extends StatefulWidget {
-  const MengenalAngkaView({super.key});
+  final MateriController controller;
+
+  const MengenalAngkaView({
+    super.key,
+    required this.controller,
+  });
 
   @override
   State<MengenalAngkaView> createState() => _MengenalAngkaViewState();
@@ -30,7 +37,7 @@ class _MengenalAngkaViewState extends State<MengenalAngkaView> {
             ),
             const Spacer(),
             Text(
-              "Ayo Belajar!",
+              "Mengenal Angka",
               style: GoogleFonts.balsamiqSans(
                 fontSize: 90,
                 fontWeight: FontWeight.bold,
@@ -41,28 +48,19 @@ class _MengenalAngkaViewState extends State<MengenalAngkaView> {
           ],
         ),
         const SizedBox(
-          height: 100,
+          height: 190,
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            InkWell(
-              onTap: () {},
-              child: Image.asset(
-                MediaRes.button.mengenalAngka,
-              ),
-            ),
-            const SizedBox(
-              width: 100,
-            ),
-            InkWell(
-              onTap: () {},
-              child: Image.asset(
-                MediaRes.button.mencocokanAngka,
-              ),
-            ),
-          ],
-        ),
+        SizedBox(
+          width: 872,
+          child: StaggeredGrid.count(
+            crossAxisCount: 5,
+            mainAxisSpacing: 50,
+            crossAxisSpacing: 50,
+            children: widget.controller.listAngka().map((model) {
+              return ContainerData(model: model);
+            }).toList(),
+          ),
+        )
       ],
     );
   }

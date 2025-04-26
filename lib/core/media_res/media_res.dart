@@ -8,4 +8,5 @@ class MediaRes {
   static final background = BackgroundRes();
   static final logo = LogoRes();
   static final materi = MateriRes();
+  static final music = MusicRes();
 }

@@ -17,7 +17,7 @@ class MateriView extends StatefulWidget {
         decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage(MediaRes.background.kelas),
-            fit: BoxFit.fitHeight,
+            fit: BoxFit.fill,
           ),
         ),
         child: ConstrainedBox(
@@ -27,19 +27,22 @@ class MateriView extends StatefulWidget {
           ),
           child: SingleChildScrollView(
             child: Padding(
-              padding: const EdgeInsets.symmetric(
-                vertical: 40,
-                horizontal: 30,
-              ),
+              padding: const EdgeInsets.all(30),
               child: Builder(
                 builder: (context) {
                   switch (controller.pageState) {
                     case EnumPageState.ayoBelajar:
-                      return const AyoBelajarView();
+                      return AyoBelajarView(
+                        controller: controller,
+                      );
                     case EnumPageState.mengenalAngka:
-                      return const MengenalAngkaView();
+                      return MengenalAngkaView(
+                        controller: controller,
+                      );
                     case EnumPageState.mengenalAngkaContent:
-                      return const MengenalAngkaContentView();
+                      return MengenalAngkaContentView(
+                        controller: controller,
+                      );
                     case EnumPageState.mengenalHuruf:
                       return const MengenalHurufView();
                     case EnumPageState.mengenalHurufContent:

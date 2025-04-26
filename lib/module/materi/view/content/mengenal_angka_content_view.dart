@@ -4,7 +4,12 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class MengenalAngkaContentView extends StatefulWidget {
-  const MengenalAngkaContentView({super.key});
+  final MateriController controller;
+
+  const MengenalAngkaContentView({
+    super.key,
+    required this.controller,
+  });
 
   @override
   State<MengenalAngkaContentView> createState() => _MengenalAngkaContentViewState();
@@ -17,6 +22,7 @@ class _MengenalAngkaContentViewState extends State<MengenalAngkaContentView> {
       children: [
         Row(
           crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             InkWell(
               onTap: () {
@@ -28,37 +34,114 @@ class _MengenalAngkaContentViewState extends State<MengenalAngkaContentView> {
                 height: 100,
               ),
             ),
-            const Spacer(),
             Text(
-              "Ayo Belajar!",
+              "Mengenal Angka",
               style: GoogleFonts.balsamiqSans(
                 fontSize: 90,
                 fontWeight: FontWeight.bold,
                 color: gray900,
               ),
             ),
-            const Spacer(),
+            InkWell(
+              onTap: () {
+                widget.controller.changePageState(EnumPageState.mengenalAngka);
+              },
+              child: SvgPicture.asset(
+                MediaRes.button.dashboard,
+                width: 100,
+                height: 100,
+              ),
+            ),
           ],
         ),
         const SizedBox(
-          height: 100,
+          height: 140,
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             InkWell(
-              onTap: () {},
-              child: Image.asset(
-                MediaRes.button.mengenalAngka,
+              onTap: () {
+                widget.controller.backAngka();
+              },
+              child: SvgPicture.asset(
+                MediaRes.button.kembali,
+                width: 125,
+                height: 125,
+              ),
+            ),
+            const SizedBox(
+              width: 100,
+            ),
+            Container(
+              width: 440,
+              height: 376,
+              decoration: BoxDecoration(
+                color: Colors.white.withOpacity(0.8),
+                borderRadius: const BorderRadius.all(
+                  Radius.circular(
+                    16,
+                  ),
+                ),
+              ),
+              padding: const EdgeInsets.symmetric(horizontal: 60),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        widget.controller.model.title,
+                        style: GoogleFonts.balsamiqSans(
+                          fontSize: 200,
+                          fontWeight: FontWeight.bold,
+                          height: 0.9,
+                          color: gray900,
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 6.0,
+                      ),
+                      Text(
+                        widget.controller.model.subtitle,
+                        style: GoogleFonts.balsamiqSans(
+                          fontSize: 50,
+                          fontWeight: FontWeight.bold,
+                          color: gray900,
+                        ),
+                      ),
+                    ],
+                  ),
+                  InkWell(
+                    onTap: () async {
+                      await SoundUtils.playSound(widget.controller.model.audio);
+                    },
+                    child: SvgPicture.asset(
+                      MediaRes.button.speakerOn,
+                      width: 100,
+                      height: 100,
+                    ),
+                  ),
+                ],
               ),
             ),
             const SizedBox(
               width: 100,
             ),
             InkWell(
-              onTap: () {},
-              child: Image.asset(
-                MediaRes.button.mencocokanAngka,
+              onTap: () {
+                widget.controller.nextAngka();
+              },
+              child: Transform.rotate(
+                angle: 3.14159, // 180 degrees in radians
+                child: SvgPicture.asset(
+                  MediaRes.button.kembali,
+                  width: 125,
+                  height: 125,
+                ),
               ),
             ),
           ],

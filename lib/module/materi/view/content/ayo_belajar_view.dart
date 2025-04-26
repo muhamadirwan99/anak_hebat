@@ -4,7 +4,12 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AyoBelajarView extends StatefulWidget {
-  const AyoBelajarView({super.key});
+  final MateriController controller;
+
+  const AyoBelajarView({
+    super.key,
+    required this.controller,
+  });
 
   @override
   State<AyoBelajarView> createState() => _AyoBelajarViewState();
@@ -47,7 +52,9 @@ class _AyoBelajarViewState extends State<AyoBelajarView> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             InkWell(
-              onTap: () {},
+              onTap: () {
+                widget.controller.changePageState(EnumPageState.mengenalAngka);
+              },
               child: Image.asset(
                 MediaRes.button.mengenalAngka,
               ),
@@ -56,7 +63,9 @@ class _AyoBelajarViewState extends State<AyoBelajarView> {
               width: 100,
             ),
             InkWell(
-              onTap: () {},
+              onTap: () {
+                widget.controller.changePageState(EnumPageState.menghitung);
+              },
               child: Image.asset(
                 MediaRes.button.mencocokanAngka,
               ),
