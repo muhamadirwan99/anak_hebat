@@ -51,6 +51,15 @@ class LoginController extends State<LoginView> {
     } on FirebaseAuthException catch (e) {
       Get.back();
 
+      if (e.code == 'invalid-credential') {
+        showCustomSnackBar(
+          context: context,
+          message: "Login error: Username or password is incorrect",
+          backgroundColor: Colors.red,
+        );
+        return;
+      }
+
       showCustomSnackBar(
         context: context,
         message:
