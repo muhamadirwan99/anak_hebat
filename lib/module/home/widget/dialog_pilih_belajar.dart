@@ -1,4 +1,5 @@
 import 'package:anak_hebat/core.dart';
+import 'package:flame_audio/flame_audio.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -42,7 +43,8 @@ class _DialogPilihBelajarState extends State<DialogPilihBelajar> {
           Row(
             children: [
               InkWell(
-                onTap: () {
+                onTap: () async {
+                  await FlameAudio.bgm.pause();
                   newRouter.go(
                     RouterUtils.materi,
                     extra: EnumPageState.ayoBelajar,
@@ -56,7 +58,8 @@ class _DialogPilihBelajarState extends State<DialogPilihBelajar> {
                 width: 32,
               ),
               InkWell(
-                onTap: () {
+                onTap: () async {
+                  await FlameAudio.bgm.pause();
                   newRouter.go(
                     RouterUtils.materi,
                     extra: EnumPageState.mengenalHuruf,

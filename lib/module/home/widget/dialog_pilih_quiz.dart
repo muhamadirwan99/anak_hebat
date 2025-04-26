@@ -1,4 +1,5 @@
 import 'package:anak_hebat/core.dart';
+import 'package:flame_audio/flame_audio.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -42,7 +43,9 @@ class _DialogPilihQuizState extends State<DialogPilihQuiz> {
           Row(
             children: [
               InkWell(
-                onTap: () {},
+                onTap: () async {
+                  await FlameAudio.bgm.pause();
+                },
                 child: Image.asset(
                   MediaRes.button.belajarAngka,
                 ),
@@ -51,7 +54,9 @@ class _DialogPilihQuizState extends State<DialogPilihQuiz> {
                 width: 32,
               ),
               InkWell(
-                onTap: () {},
+                onTap: () async {
+                  await FlameAudio.bgm.pause();
+                },
                 child: Image.asset(
                   MediaRes.button.belajarHuruf,
                 ),
