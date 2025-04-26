@@ -2,11 +2,11 @@ import 'package:anak_hebat/core.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class ContainerData extends StatefulWidget {
+class ContainerMenghitungAngka extends StatefulWidget {
   final double? height, width;
-  final ContainerDataModel model;
+  final MenghitungAngkaModel model;
 
-  const ContainerData({
+  const ContainerMenghitungAngka({
     super.key,
     this.height,
     this.width,
@@ -14,10 +14,10 @@ class ContainerData extends StatefulWidget {
   });
 
   @override
-  State<ContainerData> createState() => _ContainerDataState();
+  State<ContainerMenghitungAngka> createState() => _ContainerMenghitungAngkaState();
 }
 
-class _ContainerDataState extends State<ContainerData> {
+class _ContainerMenghitungAngkaState extends State<ContainerMenghitungAngka> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -39,7 +39,7 @@ class _ContainerDataState extends State<ContainerData> {
         ),
         child: Center(
           child: Text(
-            widget.model.title,
+            widget.model.level,
             style: GoogleFonts.balsamiqSans(
               fontSize: 96,
               fontWeight: FontWeight.bold,
@@ -51,16 +51,4 @@ class _ContainerDataState extends State<ContainerData> {
       ),
     );
   }
-}
-
-class ContainerDataModel {
-  final String title, subtitle, audio;
-  final VoidCallback onTap;
-
-  ContainerDataModel({
-    required this.title,
-    required this.subtitle,
-    required this.audio,
-    required this.onTap,
-  });
 }

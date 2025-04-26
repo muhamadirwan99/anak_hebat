@@ -48,9 +48,13 @@ class MateriView extends StatefulWidget {
                     case EnumPageState.mengenalHurufContent:
                       return const MengenalHurufContentView();
                     case EnumPageState.menghitung:
-                      return const MenghitungView();
+                      return MenghitungView(
+                        controller: controller,
+                      );
                     case EnumPageState.pilihLevel:
-                      return const PilihLevelView();
+                      return PilihLevelView(
+                        controller: controller,
+                      );
                     default:
                       return Container();
                   }

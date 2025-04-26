@@ -62,7 +62,7 @@ class _MengenalAngkaContentViewState extends State<MengenalAngkaContentView> {
           children: [
             InkWell(
               onTap: () {
-                widget.controller.backAngka();
+                widget.controller.backMengenalAngka();
               },
               child: SvgPicture.asset(
                 MediaRes.button.kembali,
@@ -94,7 +94,7 @@ class _MengenalAngkaContentViewState extends State<MengenalAngkaContentView> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        widget.controller.model.title,
+                        widget.controller.modelMengenalAngka.title,
                         style: GoogleFonts.balsamiqSans(
                           fontSize: 200,
                           fontWeight: FontWeight.bold,
@@ -106,7 +106,7 @@ class _MengenalAngkaContentViewState extends State<MengenalAngkaContentView> {
                         height: 6.0,
                       ),
                       Text(
-                        widget.controller.model.subtitle,
+                        widget.controller.modelMengenalAngka.subtitle,
                         style: GoogleFonts.balsamiqSans(
                           fontSize: 50,
                           fontWeight: FontWeight.bold,
@@ -117,7 +117,7 @@ class _MengenalAngkaContentViewState extends State<MengenalAngkaContentView> {
                   ),
                   InkWell(
                     onTap: () async {
-                      await SoundUtils.playSound(widget.controller.model.audio);
+                      await SoundUtils.playSound(widget.controller.modelMengenalAngka.audio);
                     },
                     child: SvgPicture.asset(
                       MediaRes.button.speakerOn,
@@ -133,7 +133,7 @@ class _MengenalAngkaContentViewState extends State<MengenalAngkaContentView> {
             ),
             InkWell(
               onTap: () {
-                widget.controller.nextAngka();
+                widget.controller.nextMengenalAngka();
               },
               child: Transform.rotate(
                 angle: 3.14159, // 180 degrees in radians

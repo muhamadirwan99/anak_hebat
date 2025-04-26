@@ -47,7 +47,7 @@ class _MengenalAngkaViewState extends State<MengenalAngkaView> {
           ],
         ),
         const SizedBox(
-          height: 190,
+          height: 150,
         ),
         SizedBox(
           width: 872,
@@ -55,8 +55,8 @@ class _MengenalAngkaViewState extends State<MengenalAngkaView> {
             crossAxisCount: 5,
             mainAxisSpacing: 50,
             crossAxisSpacing: 50,
-            children: widget.controller.listAngka().map((model) {
-              return ContainerData(model: model);
+            children: widget.controller.listMengenalAngka().map((model) {
+              return ContainerMengenalAngka(model: model);
             }).toList(),
           ),
         )
