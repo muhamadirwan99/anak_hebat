@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:anak_hebat/core.dart';
-import '../view/materi_view.dart';
 
 class MateriController extends State<MateriView> {
   static late MateriController instance;
   late MateriView view;
 
+  late EnumPageState pageState;
+
   @override
   void initState() {
     instance = this;
+    pageState = EnumPageState.mengenalAngka;
+    // pageState = widget.pageState;
     super.initState();
   }
 

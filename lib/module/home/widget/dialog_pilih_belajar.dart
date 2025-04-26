@@ -42,7 +42,12 @@ class _DialogPilihBelajarState extends State<DialogPilihBelajar> {
           Row(
             children: [
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  newRouter.go(
+                    RouterUtils.materi,
+                    extra: EnumPageState.ayoBelajar,
+                  );
+                },
                 child: Image.asset(
                   MediaRes.button.belajarAngka,
                 ),

@@ -1,23 +1,59 @@
 import 'package:flutter/material.dart';
 import 'package:anak_hebat/core.dart';
-import '../controller/materi_controller.dart';
 
 class MateriView extends StatefulWidget {
-  const MateriView({super.key});
+  final EnumPageState pageState;
+
+  const MateriView({
+    super.key,
+    required this.pageState,
+  });
 
   Widget build(context, MateriController controller) {
     controller.view = this;
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Materi"),
-        actions: const [],
-      ),
-      body: SingleChildScrollView(
-        child: Container(
-          padding: const EdgeInsets.all(10.0),
-          child: const Column(
-            children: [],
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage(MediaRes.background.kelas),
+            fit: BoxFit.fitHeight,
+          ),
+        ),
+        child: ConstrainedBox(
+          constraints: BoxConstraints(
+            minHeight: MediaQuery.of(context).size.height,
+            minWidth: MediaQuery.of(context).size.width,
+          ),
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(
+                vertical: 40,
+                horizontal: 30,
+              ),
+              child: Builder(
+                builder: (context) {
+                  switch (controller.pageState) {
+                    case EnumPageState.ayoBelajar:
+                      return const AyoBelajarView();
+                    case EnumPageState.mengenalAngka:
+                      return const MengenalAngkaView();
+                    case EnumPageState.mengenalAngkaContent:
+                      return const MengenalAngkaContentView();
+                    case EnumPageState.mengenalHuruf:
+                      return const MengenalHurufView();
+                    case EnumPageState.mengenalHurufContent:
+                      return const MengenalHurufContentView();
+                    case EnumPageState.menghitung:
+                      return const MenghitungView();
+                    case EnumPageState.pilihLevel:
+                      return const PilihLevelView();
+                    default:
+                      return Container();
+                  }
+                },
+              ),
+            ),
           ),
         ),
       ),

@@ -20,5 +20,15 @@ final GoRouter newRouter = GoRouter(
         return const HomeView();
       },
     ),
+    GoRoute(
+      path: RouterUtils.materi,
+      builder: (BuildContext context, GoRouterState state) {
+        final EnumPageState pageState = state.extra as EnumPageState;
+
+        return MateriView(
+          pageState: pageState,
+        );
+      },
+    ),
   ],
 );
