@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/assets/:match*",
+      "destination": "/assets/assets/:match*"
+    }
+  ]
+}
