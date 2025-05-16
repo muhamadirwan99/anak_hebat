@@ -95,15 +95,26 @@ class QuizController extends State<QuizView> {
   }) async {
     showCircleLoading();
 
+    final userId = FirebaseAuth.instance.currentUser?.uid;
+    final quizName = widget.pageState.name;
+    final docId = "${userId}_$quizName";
+
     CollectionReference users = _firestore.collection('users');
-    CollectionReference leaderboards = _firestore.collection('leaderboards');
+    DocumentReference leaderboards = _firestore.collection('leaderboards').doc(docId);
 
     try {
       // Update user history_quiz as a list (append if exists, else create)
-      final userDoc = users.doc(FirebaseAuth.instance.currentUser?.uid);
+      final userDoc = users.doc(userId);
       final userSnapshot = await userDoc.get();
+      Map<String, dynamic>? data;
+      String name = 'Anonymous';
 
       if (userSnapshot.exists) {
+        final rawData = userSnapshot.data();
+        if (rawData != null && rawData is Map<String, dynamic>) {
+          data = rawData;
+          name = data['name'] ?? 'Anonymous';
+        }
         // If user exists, append to history_quiz array
         await userDoc.update({
           'history_quiz': FieldValue.arrayUnion([
@@ -131,16 +142,40 @@ class QuizController extends State<QuizView> {
         });
       }
 
-      // Add leaderboard entry as a new document (each entry is a document in the collection)
-      await leaderboards.add({
-        "id_user": FirebaseAuth.instance.currentUser?.uid,
-        "username": FirebaseAuth.instance.currentUser?.email,
-        'quiz': widget.pageState.name,
-        'point': point,
-        'jawaban_benar': jawabanBenar,
-        'jawaban_salah': jawabanSalah,
-        'list_jawaban_salah': listQuizPayload.map((e) => e.toJson()).toList(),
-      });
+      // Ambil data lama (jika ada)
+      final existing = await leaderboards.get();
+
+      if (existing.exists) {
+        final data = existing.data() as Map<String, dynamic>?;
+        final existingPointRaw = data?['point'];
+        final existingPoint = existingPointRaw is int
+            ? existingPointRaw
+            : int.tryParse(existingPointRaw.toString()) ?? 0;
+
+        if (int.parse(point) > existingPoint) {
+          // Update jika point baru lebih tinggi
+          await leaderboards.set({
+            "id_user": userId,
+            "name": name,
+            "quiz": quizName,
+            "point": int.parse(point),
+            "jawaban_benar": jawabanBenar,
+            "jawaban_salah": jawabanSalah,
+            "list_jawaban_salah": listQuizPayload.map((e) => e.toJson()).toList(),
+          });
+        }
+      } else {
+        // Buat data baru
+        await leaderboards.set({
+          "id_user": userId,
+          "name": name,
+          "quiz": quizName,
+          "point": point,
+          "jawaban_benar": jawabanBenar,
+          "jawaban_salah": jawabanSalah,
+          "list_jawaban_salah": listQuizPayload.map((e) => e.toJson()).toList(),
+        });
+      }
 
       Get.back();
 

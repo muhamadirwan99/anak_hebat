@@ -1,3 +1,4 @@
+import 'package:flame_audio/flame_audio.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
 import 'package:anak_hebat/core.dart';
@@ -58,7 +59,11 @@ class HomeView extends StatefulWidget {
                               width: 24.0,
                             ),
                             InkWell(
-                              onTap: () {},
+                              onTap: () async {
+                                await FlameAudio.bgm.pause();
+
+                                newRouter.go(RouterUtils.leaderboard);
+                              },
                               child: Text(
                                 "Dashboard",
                                 style: GoogleFonts.roboto(
@@ -82,16 +87,32 @@ class HomeView extends StatefulWidget {
                     ),
                     Padding(
                       padding: const EdgeInsets.all(30),
-                      child: InkWell(
-                        onTap: () {
-                          controller.toggleMute();
-                        },
-                        child: SvgPicture.asset(
-                          controller.isSoundPlay
-                              ? MediaRes.button.speakerOff
-                              : MediaRes.button.speakerOn,
-                          width: 50,
-                        ),
+                      child: Row(
+                        children: [
+                          InkWell(
+                            onTap: () {
+                              controller.toggleMute();
+                            },
+                            child: SvgPicture.asset(
+                              controller.isSoundPlay
+                                  ? MediaRes.button.speakerOff
+                                  : MediaRes.button.speakerOn,
+                              width: 50,
+                            ),
+                          ),
+                          const SizedBox(
+                            width: 16.0,
+                          ),
+                          InkWell(
+                            onTap: () {
+                              controller.logout();
+                            },
+                            child: SvgPicture.asset(
+                              MediaRes.button.keluar,
+                              width: 50,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ],

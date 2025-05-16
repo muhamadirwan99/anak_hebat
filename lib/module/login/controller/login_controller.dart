@@ -77,7 +77,9 @@ class LoginController extends State<LoginView> {
   }
 
   void addUser() async {
-    if (nameC.text.isEmpty || usernameSignupC.text.isEmpty || passwordSignupC.text.isEmpty) {
+    if (nameC.text.isEmpty ||
+        usernameSignupC.text.isEmpty ||
+        passwordSignupC.text.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text("Please fill all fields"),
@@ -92,7 +94,8 @@ class LoginController extends State<LoginView> {
     CollectionReference users = _firestore.collection('users');
 
     try {
-      final userCredential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+      final userCredential =
+          await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: "${usernameSignupC.text}@anakhebat.com",
         password: passwordSignupC.text,
       );

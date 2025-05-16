@@ -121,8 +121,8 @@ class MateriController extends State<MateriView> {
   }
 
   void nextMengenalAngka() {
-    int currentIndex =
-        listMengenalAngka().indexWhere((element) => element.title == modelMengenalAngka.title);
+    int currentIndex = listMengenalAngka()
+        .indexWhere((element) => element.title == modelMengenalAngka.title);
 
     if (currentIndex != -1 && currentIndex < listMengenalAngka().length - 1) {
       modelMengenalAngka = listMengenalAngka()[currentIndex + 1];
@@ -131,8 +131,8 @@ class MateriController extends State<MateriView> {
   }
 
   void backMengenalAngka() {
-    int currentIndex =
-        listMengenalAngka().indexWhere((element) => element.title == modelMengenalAngka.title);
+    int currentIndex = listMengenalAngka()
+        .indexWhere((element) => element.title == modelMengenalAngka.title);
     if (currentIndex > 0) {
       modelMengenalAngka = listMengenalAngka()[currentIndex - 1];
       update();
@@ -220,7 +220,8 @@ class MateriController extends State<MateriView> {
       int currentIndex = listMenghitungAngka()
           .indexWhere((element) => element.level == modelMenghitungAngka.level);
 
-      if (currentIndex != -1 && currentIndex < listMenghitungAngka().length - 1) {
+      if (currentIndex != -1 &&
+          currentIndex < listMenghitungAngka().length - 1) {
         modelMenghitungAngka = listMenghitungAngka()[currentIndex + 1];
         update();
       } else {
@@ -538,8 +539,8 @@ class MateriController extends State<MateriView> {
   }
 
   void nextMengenalHuruf() {
-    int currentIndex =
-        listMengenalHuruf().indexWhere((element) => element.title == modelMengenalHuruf.title);
+    int currentIndex = listMengenalHuruf()
+        .indexWhere((element) => element.title == modelMengenalHuruf.title);
 
     if (currentIndex != -1 && currentIndex < listMengenalHuruf().length - 1) {
       modelMengenalHuruf = listMengenalHuruf()[currentIndex + 1];
@@ -548,8 +549,8 @@ class MateriController extends State<MateriView> {
   }
 
   void backMengenalHuruf() {
-    int currentIndex =
-        listMengenalHuruf().indexWhere((element) => element.title == modelMengenalHuruf.title);
+    int currentIndex = listMengenalHuruf()
+        .indexWhere((element) => element.title == modelMengenalHuruf.title);
     if (currentIndex > 0) {
       modelMengenalHuruf = listMengenalHuruf()[currentIndex - 1];
       update();

@@ -143,7 +143,8 @@ class _DialogSelesaiQuizState extends State<DialogSelesaiQuiz> {
     required String value,
     required bool isJawabanBenar,
   }) {
-    String image = isJawabanBenar ? MediaRes.images.benar : MediaRes.images.salah;
+    String image =
+        isJawabanBenar ? MediaRes.images.benar : MediaRes.images.salah;
     String text = isJawabanBenar ? "Jawaban Benar" : "Jawaban Salah";
 
     return Container(

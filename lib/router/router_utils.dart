@@ -6,4 +6,5 @@ class RouterUtils {
   static const String notFound = '/404';
   static const String materi = '/materi';
   static const String quiz = '/quiz';
+  static const String leaderboard = '/leaderboard';
 }

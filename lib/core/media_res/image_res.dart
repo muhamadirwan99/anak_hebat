@@ -8,4 +8,8 @@ class ImageRes {
   String get salah => '${ImageRes.basePath}/salah.svg';
   String get silang => '${ImageRes.basePath}/silang.svg';
   String get star => '${ImageRes.basePath}/star.svg';
+  String get gold => '${ImageRes.basePath}/gold.svg';
+  String get silver => '${ImageRes.basePath}/silver.svg';
+  String get bronze => '${ImageRes.basePath}/bronze.svg';
+  String get leaderboard => '${ImageRes.basePath}/leaderboard.svg';
 }

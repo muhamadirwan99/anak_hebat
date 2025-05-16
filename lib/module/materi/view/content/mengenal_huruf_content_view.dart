@@ -12,7 +12,8 @@ class MengenalHurufContentView extends StatefulWidget {
   });
 
   @override
-  State<MengenalHurufContentView> createState() => _MengenalHurufContentViewState();
+  State<MengenalHurufContentView> createState() =>
+      _MengenalHurufContentViewState();
 }
 
 class _MengenalHurufContentViewState extends State<MengenalHurufContentView> {
@@ -44,7 +45,8 @@ class _MengenalHurufContentViewState extends State<MengenalHurufContentView> {
             ),
             InkWell(
               onTap: () {
-                widget.controller.changePageState(EnumMateriState.mengenalHuruf);
+                widget.controller
+                    .changePageState(EnumMateriState.mengenalHuruf);
               },
               child: SvgPicture.asset(
                 MediaRes.button.dashboard,
@@ -125,7 +127,8 @@ class _MengenalHurufContentViewState extends State<MengenalHurufContentView> {
                   ),
                   InkWell(
                     onTap: () async {
-                      await SoundUtils.playSound(widget.controller.modelMengenalHuruf.audio);
+                      await SoundUtils.playSound(
+                          widget.controller.modelMengenalHuruf.audio);
                     },
                     child: SvgPicture.asset(
                       MediaRes.button.speakerOn,

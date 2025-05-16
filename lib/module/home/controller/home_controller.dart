@@ -1,6 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flame_audio/flame_audio.dart';
 import 'package:flutter/material.dart';
 import 'package:anak_hebat/core.dart';
+import 'package:universal_html/html.dart' as html;
 
 class HomeController extends State<HomeView> {
   static late HomeController instance;
@@ -36,10 +38,15 @@ class HomeController extends State<HomeView> {
     update();
   }
 
+  logout() {
+    FirebaseAuth.instance.signOut();
+    html.window.location.replace("/");
+  }
+
   @override
   void initState() {
     instance = this;
-    // playBackgroundMusic();
+    playBackgroundMusic();
     super.initState();
   }
 
