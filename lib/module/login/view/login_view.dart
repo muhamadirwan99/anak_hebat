@@ -177,6 +177,9 @@ class LoginView extends StatefulWidget {
           controller: controller.passwordSignupC,
           obscureText: controller.obscure,
           isPassword: true,
+          onEditingComplete: () {
+            controller.addUser();
+          },
         ),
         const SizedBox(
           height: 40.0,
@@ -187,6 +190,16 @@ class LoginView extends StatefulWidget {
             controller.addUser();
           },
           isPrimary: true,
+        ),
+        const SizedBox(
+          height: 16.0,
+        ),
+        CustomButton(
+          text: "Kembali",
+          onPressed: () {
+            Get.back();
+          },
+          isPrimary: false,
         ),
       ],
     );

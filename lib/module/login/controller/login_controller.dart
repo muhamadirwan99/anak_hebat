@@ -1,5 +1,4 @@
 // ignore_for_file: use_build_context_synchronously
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -78,9 +77,7 @@ class LoginController extends State<LoginView> {
   }
 
   void addUser() async {
-    if (nameC.text.isEmpty ||
-        usernameSignupC.text.isEmpty ||
-        passwordSignupC.text.isEmpty) {
+    if (nameC.text.isEmpty || usernameSignupC.text.isEmpty || passwordSignupC.text.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text("Please fill all fields"),
@@ -95,12 +92,14 @@ class LoginController extends State<LoginView> {
     CollectionReference users = _firestore.collection('users');
 
     try {
-      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+      final userCredential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: "${usernameSignupC.text}@anakhebat.com",
         password: passwordSignupC.text,
       );
 
-      await users.add({
+      final uid = userCredential.user!.uid;
+
+      await users.doc(uid).set({
         'name': nameC.text,
         'username': usernameSignupC.text,
       });

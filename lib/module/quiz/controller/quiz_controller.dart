@@ -1,3 +1,7 @@
+// ignore_for_file: use_build_context_synchronously
+
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:anak_hebat/core.dart';
 
@@ -8,6 +12,8 @@ class QuizController extends State<QuizView> {
   int currentIndex = 0;
   List<String?> userAnswers = [];
   List dataQuiz = [];
+
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
   bool isSelected(String value) => userAnswers[currentIndex] == value;
 
@@ -52,14 +58,11 @@ class QuizController extends State<QuizView> {
         }
       }
 
-      showDialogBase(
-        maxWidth: 500,
-        barrierDismissible: true,
-        content: DialogSelesaiQuiz(
-          point: correctAnswers * 10,
-          jawabanBenar: correctAnswers.toString(),
-          jawabanSalah: incorrectAnswers.length.toString(),
-        ),
+      submitQuizResult(
+        point: (correctAnswers * 10).toString(),
+        jawabanBenar: correctAnswers.toString(),
+        jawabanSalah: incorrectAnswers.length.toString(),
+        listQuizPayload: incorrectAnswers,
       );
     }
 
@@ -82,6 +85,83 @@ class QuizController extends State<QuizView> {
     currentIndex = 0;
     quiz = dataQuiz[currentIndex]; // Reset soal ke nomor 1
     update();
+  }
+
+  void submitQuizResult({
+    required String point,
+    required String jawabanBenar,
+    required String jawabanSalah,
+    required List<QuizPayload> listQuizPayload,
+  }) async {
+    showCircleLoading();
+
+    CollectionReference users = _firestore.collection('users');
+    CollectionReference leaderboards = _firestore.collection('leaderboards');
+
+    try {
+      // Update user history_quiz as a list (append if exists, else create)
+      final userDoc = users.doc(FirebaseAuth.instance.currentUser?.uid);
+      final userSnapshot = await userDoc.get();
+
+      if (userSnapshot.exists) {
+        // If user exists, append to history_quiz array
+        await userDoc.update({
+          'history_quiz': FieldValue.arrayUnion([
+            {
+              'quiz': widget.pageState.name,
+              'point': point,
+              'jawabanBenar': jawabanBenar,
+              'jawabanSalah': jawabanSalah,
+              'listQuizPayload': listQuizPayload.map((e) => e.toJson()).toList(),
+            }
+          ]),
+        });
+      } else {
+        // If user doesn't exist, create with history_quiz as a list
+        await userDoc.set({
+          'history_quiz': [
+            {
+              'quiz': widget.pageState.name,
+              'point': point,
+              'jawaban_benar': jawabanBenar,
+              'jawaban_salah': jawabanSalah,
+              'list_jawaban_salah': listQuizPayload.map((e) => e.toJson()).toList(),
+            }
+          ],
+        });
+      }
+
+      // Add leaderboard entry as a new document (each entry is a document in the collection)
+      await leaderboards.add({
+        "id_user": FirebaseAuth.instance.currentUser?.uid,
+        "username": FirebaseAuth.instance.currentUser?.email,
+        'quiz': widget.pageState.name,
+        'point': point,
+        'jawaban_benar': jawabanBenar,
+        'jawaban_salah': jawabanSalah,
+        'list_jawaban_salah': listQuizPayload.map((e) => e.toJson()).toList(),
+      });
+
+      Get.back();
+
+      showDialogBase(
+        maxWidth: 500,
+        barrierDismissible: true,
+        content: DialogSelesaiQuiz(
+          point: int.parse(point),
+          jawabanBenar: jawabanBenar,
+          jawabanSalah: jawabanSalah,
+        ),
+      );
+    } catch (e) {
+      Get.back();
+
+      showCustomSnackBar(
+        context: context,
+        message: "Unexpected error: $e",
+        backgroundColor: Colors.red,
+      );
+    }
   }
 
   @override
@@ -114,4 +194,9 @@ class QuizPayload {
     required this.noSoal,
     this.jawabanUser,
   });
+
+  Map<String, dynamic> toJson() => {
+        'noSoal': noSoal,
+        'jawabanUser': jawabanUser,
+      };
 }
