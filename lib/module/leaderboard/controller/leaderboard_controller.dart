@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:anak_hebat/core.dart';
@@ -70,7 +72,11 @@ class LeaderboardController extends State<LeaderboardView> {
         leaderboardList = list;
       });
     } catch (e) {
-      print("Error fetching leaderboard data: $e");
+      showCustomSnackBar(
+        context: context,
+        message: "Error fetching leaderboard data: $e",
+        backgroundColor: Colors.red,
+      );
     }
   }
 
