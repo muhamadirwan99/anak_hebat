@@ -315,7 +315,7 @@ class QuizUtils {
         jawabanB: MediaRes.quiz.literasi.jawaban3B,
         jawabanC: MediaRes.quiz.literasi.jawaban3C,
       ),
-      jawabanBenar: MediaRes.quiz.literasi.jawaban3B,
+      jawabanBenar: MediaRes.quiz.literasi.jawaban3A,
     ),
     QuizModel(
       soal: Center(
@@ -376,7 +376,7 @@ class QuizUtils {
         jawabanB: MediaRes.quiz.literasi.jawaban6B,
         jawabanC: MediaRes.quiz.literasi.jawaban6C,
       ),
-      jawabanBenar: MediaRes.quiz.literasi.jawaban6B,
+      jawabanBenar: MediaRes.quiz.literasi.jawaban6C,
     ),
     QuizModel(
       soal: Center(
