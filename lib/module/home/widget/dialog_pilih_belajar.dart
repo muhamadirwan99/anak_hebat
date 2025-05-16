@@ -47,7 +47,7 @@ class _DialogPilihBelajarState extends State<DialogPilihBelajar> {
                   await FlameAudio.bgm.pause();
                   newRouter.go(
                     RouterUtils.materi,
-                    extra: EnumPageState.ayoBelajar,
+                    extra: EnumMateriState.ayoBelajar,
                   );
                 },
                 child: Image.asset(
@@ -62,7 +62,7 @@ class _DialogPilihBelajarState extends State<DialogPilihBelajar> {
                   await FlameAudio.bgm.pause();
                   newRouter.go(
                     RouterUtils.materi,
-                    extra: EnumPageState.mengenalHuruf,
+                    extra: EnumMateriState.mengenalHuruf,
                   );
                 },
                 child: Image.asset(

@@ -2,7 +2,8 @@
     "modules": [
         "login",
         "home",
-        "materi"
+        "materi",
+        "quiz"
     ],
     "module_directory_name": "module",
     "experimental_mode": false,

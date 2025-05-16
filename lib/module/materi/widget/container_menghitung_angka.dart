@@ -14,7 +14,8 @@ class ContainerMenghitungAngka extends StatefulWidget {
   });
 
   @override
-  State<ContainerMenghitungAngka> createState() => _ContainerMenghitungAngkaState();
+  State<ContainerMenghitungAngka> createState() =>
+      _ContainerMenghitungAngkaState();
 }
 
 class _ContainerMenghitungAngkaState extends State<ContainerMenghitungAngka> {

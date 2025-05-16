@@ -45,9 +45,14 @@ class _DialogPilihQuizState extends State<DialogPilihQuiz> {
               InkWell(
                 onTap: () async {
                   await FlameAudio.bgm.pause();
+
+                  newRouter.go(
+                    RouterUtils.quiz,
+                    extra: EnumQuizState.numerasi,
+                  );
                 },
                 child: Image.asset(
-                  MediaRes.button.belajarAngka,
+                  MediaRes.button.quizNumerasi,
                 ),
               ),
               const SizedBox(
@@ -56,9 +61,14 @@ class _DialogPilihQuizState extends State<DialogPilihQuiz> {
               InkWell(
                 onTap: () async {
                   await FlameAudio.bgm.pause();
+
+                  newRouter.go(
+                    RouterUtils.quiz,
+                    extra: EnumQuizState.literasi,
+                  );
                 },
                 child: Image.asset(
-                  MediaRes.button.belajarHuruf,
+                  MediaRes.button.quizLiterasi,
                 ),
               ),
             ],

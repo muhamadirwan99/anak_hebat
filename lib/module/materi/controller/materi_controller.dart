@@ -5,7 +5,7 @@ class MateriController extends State<MateriView> {
   static late MateriController instance;
   late MateriView view;
 
-  late EnumPageState pageState;
+  late EnumMateriState pageState;
 
   //Mengenal Angka
   MengenalModel modelMengenalAngka = MengenalModel(
@@ -22,7 +22,7 @@ class MateriController extends State<MateriView> {
         subtitle: "Nol",
         audio: MediaRes.audio.angka.nol,
         onTap: () {
-          pageState = EnumPageState.mengenalAngkaContent;
+          pageState = EnumMateriState.mengenalAngkaContent;
           modelMengenalAngka = listMengenalAngka()[0];
           update();
         },
@@ -32,7 +32,7 @@ class MateriController extends State<MateriView> {
         subtitle: "Satu",
         audio: MediaRes.audio.angka.satu,
         onTap: () {
-          pageState = EnumPageState.mengenalAngkaContent;
+          pageState = EnumMateriState.mengenalAngkaContent;
           modelMengenalAngka = listMengenalAngka()[1];
           update();
         },
@@ -42,7 +42,7 @@ class MateriController extends State<MateriView> {
         subtitle: "Dua",
         audio: MediaRes.audio.angka.dua,
         onTap: () {
-          pageState = EnumPageState.mengenalAngkaContent;
+          pageState = EnumMateriState.mengenalAngkaContent;
           modelMengenalAngka = listMengenalAngka()[2];
           update();
         },
@@ -52,7 +52,7 @@ class MateriController extends State<MateriView> {
         subtitle: "Tiga",
         audio: MediaRes.audio.angka.tiga,
         onTap: () {
-          pageState = EnumPageState.mengenalAngkaContent;
+          pageState = EnumMateriState.mengenalAngkaContent;
           modelMengenalAngka = listMengenalAngka()[3];
           update();
         },
@@ -62,7 +62,7 @@ class MateriController extends State<MateriView> {
         subtitle: "Empat",
         audio: MediaRes.audio.angka.empat,
         onTap: () {
-          pageState = EnumPageState.mengenalAngkaContent;
+          pageState = EnumMateriState.mengenalAngkaContent;
           modelMengenalAngka = listMengenalAngka()[4];
           update();
         },
@@ -72,7 +72,7 @@ class MateriController extends State<MateriView> {
         subtitle: "Lima",
         audio: MediaRes.audio.angka.lima,
         onTap: () {
-          pageState = EnumPageState.mengenalAngkaContent;
+          pageState = EnumMateriState.mengenalAngkaContent;
           modelMengenalAngka = listMengenalAngka()[5];
           update();
         },
@@ -82,7 +82,7 @@ class MateriController extends State<MateriView> {
         subtitle: "Enam",
         audio: MediaRes.audio.angka.enam,
         onTap: () {
-          pageState = EnumPageState.mengenalAngkaContent;
+          pageState = EnumMateriState.mengenalAngkaContent;
           modelMengenalAngka = listMengenalAngka()[6];
           update();
         },
@@ -92,7 +92,7 @@ class MateriController extends State<MateriView> {
         subtitle: "Tujuh",
         audio: MediaRes.audio.angka.tujuh,
         onTap: () {
-          pageState = EnumPageState.mengenalAngkaContent;
+          pageState = EnumMateriState.mengenalAngkaContent;
           modelMengenalAngka = listMengenalAngka()[7];
           update();
         },
@@ -102,7 +102,7 @@ class MateriController extends State<MateriView> {
         subtitle: "Delapan",
         audio: MediaRes.audio.angka.delapan,
         onTap: () {
-          pageState = EnumPageState.mengenalAngkaContent;
+          pageState = EnumMateriState.mengenalAngkaContent;
           modelMengenalAngka = listMengenalAngka()[8];
           update();
         },
@@ -112,7 +112,7 @@ class MateriController extends State<MateriView> {
         subtitle: "Sembilan",
         audio: MediaRes.audio.angka.sembilan,
         onTap: () {
-          pageState = EnumPageState.mengenalAngkaContent;
+          pageState = EnumMateriState.mengenalAngkaContent;
           modelMengenalAngka = listMengenalAngka()[9];
           update();
         },
@@ -158,7 +158,7 @@ class MateriController extends State<MateriView> {
         jawaban: 3,
         pilihan: [3, 2],
         onTap: () {
-          pageState = EnumPageState.menghitung;
+          pageState = EnumMateriState.menghitung;
           modelMenghitungAngka = listMenghitungAngka()[0];
           isAnswerCorrect = false;
           update();
@@ -170,7 +170,7 @@ class MateriController extends State<MateriView> {
         jawaban: 2,
         pilihan: [3, 2],
         onTap: () {
-          pageState = EnumPageState.menghitung;
+          pageState = EnumMateriState.menghitung;
           modelMenghitungAngka = listMenghitungAngka()[1];
           isAnswerCorrect = false;
           update();
@@ -182,7 +182,7 @@ class MateriController extends State<MateriView> {
         jawaban: 4,
         pilihan: [3, 4],
         onTap: () {
-          pageState = EnumPageState.menghitung;
+          pageState = EnumMateriState.menghitung;
           modelMenghitungAngka = listMenghitungAngka()[2];
           isAnswerCorrect = false;
           update();
@@ -194,7 +194,7 @@ class MateriController extends State<MateriView> {
         jawaban: 5,
         pilihan: [5, 4],
         onTap: () {
-          pageState = EnumPageState.menghitung;
+          pageState = EnumMateriState.menghitung;
           modelMenghitungAngka = listMenghitungAngka()[3];
           isAnswerCorrect = false;
           update();
@@ -206,7 +206,7 @@ class MateriController extends State<MateriView> {
         jawaban: 6,
         pilihan: [5, 6],
         onTap: () {
-          pageState = EnumPageState.menghitung;
+          pageState = EnumMateriState.menghitung;
           modelMenghitungAngka = listMenghitungAngka()[4];
           isAnswerCorrect = false;
           update();
@@ -224,7 +224,7 @@ class MateriController extends State<MateriView> {
         modelMenghitungAngka = listMenghitungAngka()[currentIndex + 1];
         update();
       } else {
-        pageState = EnumPageState.pilihLevel;
+        pageState = EnumMateriState.pilihLevel;
         update();
       }
     } else {
@@ -254,7 +254,7 @@ class MateriController extends State<MateriView> {
         audio: MediaRes.audio.huruf.a,
         image: MediaRes.materi.a,
         onTap: () {
-          pageState = EnumPageState.mengenalHurufContent;
+          pageState = EnumMateriState.mengenalHurufContent;
           modelMengenalHuruf = listMengenalHuruf()[0];
           update();
         },
@@ -265,7 +265,7 @@ class MateriController extends State<MateriView> {
         audio: MediaRes.audio.huruf.b,
         image: MediaRes.materi.b,
         onTap: () {
-          pageState = EnumPageState.mengenalHurufContent;
+          pageState = EnumMateriState.mengenalHurufContent;
           modelMengenalHuruf = listMengenalHuruf()[1];
           update();
         },
@@ -276,7 +276,7 @@ class MateriController extends State<MateriView> {
         audio: MediaRes.audio.huruf.c,
         image: MediaRes.materi.c,
         onTap: () {
-          pageState = EnumPageState.mengenalHurufContent;
+          pageState = EnumMateriState.mengenalHurufContent;
           modelMengenalHuruf = listMengenalHuruf()[2];
           update();
         },
@@ -287,7 +287,7 @@ class MateriController extends State<MateriView> {
         audio: MediaRes.audio.huruf.d,
         image: MediaRes.materi.d,
         onTap: () {
-          pageState = EnumPageState.mengenalHurufContent;
+          pageState = EnumMateriState.mengenalHurufContent;
           modelMengenalHuruf = listMengenalHuruf()[3];
           update();
         },
@@ -298,7 +298,7 @@ class MateriController extends State<MateriView> {
         audio: MediaRes.audio.huruf.e,
         image: MediaRes.materi.e,
         onTap: () {
-          pageState = EnumPageState.mengenalHurufContent;
+          pageState = EnumMateriState.mengenalHurufContent;
           modelMengenalHuruf = listMengenalHuruf()[4];
           update();
         },
@@ -309,7 +309,7 @@ class MateriController extends State<MateriView> {
         audio: MediaRes.audio.huruf.f,
         image: MediaRes.materi.f,
         onTap: () {
-          pageState = EnumPageState.mengenalHurufContent;
+          pageState = EnumMateriState.mengenalHurufContent;
           modelMengenalHuruf = listMengenalHuruf()[5];
           update();
         },
@@ -320,7 +320,7 @@ class MateriController extends State<MateriView> {
         audio: MediaRes.audio.huruf.g,
         image: MediaRes.materi.g,
         onTap: () {
-          pageState = EnumPageState.mengenalHurufContent;
+          pageState = EnumMateriState.mengenalHurufContent;
           modelMengenalHuruf = listMengenalHuruf()[6];
           update();
         },
@@ -331,7 +331,7 @@ class MateriController extends State<MateriView> {
         audio: MediaRes.audio.huruf.h,
         image: MediaRes.materi.h,
         onTap: () {
-          pageState = EnumPageState.mengenalHurufContent;
+          pageState = EnumMateriState.mengenalHurufContent;
           modelMengenalHuruf = listMengenalHuruf()[7];
           update();
         },
@@ -342,7 +342,7 @@ class MateriController extends State<MateriView> {
         audio: MediaRes.audio.huruf.i,
         image: MediaRes.materi.i,
         onTap: () {
-          pageState = EnumPageState.mengenalHurufContent;
+          pageState = EnumMateriState.mengenalHurufContent;
           modelMengenalHuruf = listMengenalHuruf()[8];
           update();
         },
@@ -353,7 +353,7 @@ class MateriController extends State<MateriView> {
         audio: MediaRes.audio.huruf.j,
         image: MediaRes.materi.j,
         onTap: () {
-          pageState = EnumPageState.mengenalHurufContent;
+          pageState = EnumMateriState.mengenalHurufContent;
           modelMengenalHuruf = listMengenalHuruf()[9];
           update();
         },
@@ -364,7 +364,7 @@ class MateriController extends State<MateriView> {
         audio: MediaRes.audio.huruf.k,
         image: MediaRes.materi.k,
         onTap: () {
-          pageState = EnumPageState.mengenalHurufContent;
+          pageState = EnumMateriState.mengenalHurufContent;
           modelMengenalHuruf = listMengenalHuruf()[10];
           update();
         },
@@ -375,7 +375,7 @@ class MateriController extends State<MateriView> {
         audio: MediaRes.audio.huruf.l,
         image: MediaRes.materi.l,
         onTap: () {
-          pageState = EnumPageState.mengenalHurufContent;
+          pageState = EnumMateriState.mengenalHurufContent;
           modelMengenalHuruf = listMengenalHuruf()[11];
           update();
         },
@@ -386,7 +386,7 @@ class MateriController extends State<MateriView> {
         audio: MediaRes.audio.huruf.m,
         image: MediaRes.materi.m,
         onTap: () {
-          pageState = EnumPageState.mengenalHurufContent;
+          pageState = EnumMateriState.mengenalHurufContent;
           modelMengenalHuruf = listMengenalHuruf()[12];
           update();
         },
@@ -397,7 +397,7 @@ class MateriController extends State<MateriView> {
         audio: MediaRes.audio.huruf.n,
         image: MediaRes.materi.n,
         onTap: () {
-          pageState = EnumPageState.mengenalHurufContent;
+          pageState = EnumMateriState.mengenalHurufContent;
           modelMengenalHuruf = listMengenalHuruf()[13];
           update();
         },
@@ -408,7 +408,7 @@ class MateriController extends State<MateriView> {
         audio: MediaRes.audio.huruf.o,
         image: MediaRes.materi.o,
         onTap: () {
-          pageState = EnumPageState.mengenalHurufContent;
+          pageState = EnumMateriState.mengenalHurufContent;
           modelMengenalHuruf = listMengenalHuruf()[14];
           update();
         },
@@ -419,7 +419,7 @@ class MateriController extends State<MateriView> {
         audio: MediaRes.audio.huruf.p,
         image: MediaRes.materi.p,
         onTap: () {
-          pageState = EnumPageState.mengenalHurufContent;
+          pageState = EnumMateriState.mengenalHurufContent;
           modelMengenalHuruf = listMengenalHuruf()[15];
           update();
         },
@@ -430,7 +430,7 @@ class MateriController extends State<MateriView> {
         audio: MediaRes.audio.huruf.q,
         image: MediaRes.materi.q,
         onTap: () {
-          pageState = EnumPageState.mengenalHurufContent;
+          pageState = EnumMateriState.mengenalHurufContent;
           modelMengenalHuruf = listMengenalHuruf()[16];
           update();
         },
@@ -441,7 +441,7 @@ class MateriController extends State<MateriView> {
         audio: MediaRes.audio.huruf.r,
         image: MediaRes.materi.r,
         onTap: () {
-          pageState = EnumPageState.mengenalHurufContent;
+          pageState = EnumMateriState.mengenalHurufContent;
           modelMengenalHuruf = listMengenalHuruf()[17];
           update();
         },
@@ -452,7 +452,7 @@ class MateriController extends State<MateriView> {
         audio: MediaRes.audio.huruf.s,
         image: MediaRes.materi.s,
         onTap: () {
-          pageState = EnumPageState.mengenalHurufContent;
+          pageState = EnumMateriState.mengenalHurufContent;
           modelMengenalHuruf = listMengenalHuruf()[18];
           update();
         },
@@ -463,7 +463,7 @@ class MateriController extends State<MateriView> {
         audio: MediaRes.audio.huruf.t,
         image: MediaRes.materi.t,
         onTap: () {
-          pageState = EnumPageState.mengenalHurufContent;
+          pageState = EnumMateriState.mengenalHurufContent;
           modelMengenalHuruf = listMengenalHuruf()[19];
           update();
         },
@@ -474,7 +474,7 @@ class MateriController extends State<MateriView> {
         audio: MediaRes.audio.huruf.u,
         image: MediaRes.materi.u,
         onTap: () {
-          pageState = EnumPageState.mengenalHurufContent;
+          pageState = EnumMateriState.mengenalHurufContent;
           modelMengenalHuruf = listMengenalHuruf()[20];
           update();
         },
@@ -485,7 +485,7 @@ class MateriController extends State<MateriView> {
         audio: MediaRes.audio.huruf.v,
         image: MediaRes.materi.v,
         onTap: () {
-          pageState = EnumPageState.mengenalHurufContent;
+          pageState = EnumMateriState.mengenalHurufContent;
           modelMengenalHuruf = listMengenalHuruf()[21];
           update();
         },
@@ -496,7 +496,7 @@ class MateriController extends State<MateriView> {
         audio: MediaRes.audio.huruf.w,
         image: MediaRes.materi.w,
         onTap: () {
-          pageState = EnumPageState.mengenalHurufContent;
+          pageState = EnumMateriState.mengenalHurufContent;
           modelMengenalHuruf = listMengenalHuruf()[22];
           update();
         },
@@ -507,7 +507,7 @@ class MateriController extends State<MateriView> {
         audio: MediaRes.audio.huruf.x,
         image: MediaRes.materi.x,
         onTap: () {
-          pageState = EnumPageState.mengenalHurufContent;
+          pageState = EnumMateriState.mengenalHurufContent;
           modelMengenalHuruf = listMengenalHuruf()[23];
           update();
         },
@@ -518,7 +518,7 @@ class MateriController extends State<MateriView> {
         audio: MediaRes.audio.huruf.y,
         image: MediaRes.materi.y,
         onTap: () {
-          pageState = EnumPageState.mengenalHurufContent;
+          pageState = EnumMateriState.mengenalHurufContent;
           modelMengenalHuruf = listMengenalHuruf()[24];
           update();
         },
@@ -529,7 +529,7 @@ class MateriController extends State<MateriView> {
         audio: MediaRes.audio.huruf.z,
         image: MediaRes.materi.z,
         onTap: () {
-          pageState = EnumPageState.mengenalHurufContent;
+          pageState = EnumMateriState.mengenalHurufContent;
           modelMengenalHuruf = listMengenalHuruf()[25];
           update();
         },
@@ -557,7 +557,7 @@ class MateriController extends State<MateriView> {
   }
   //End Mengenal Huruf
 
-  changePageState(EnumPageState state) {
+  changePageState(EnumMateriState state) {
     pageState = state;
     update();
   }

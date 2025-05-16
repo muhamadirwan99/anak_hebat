@@ -18,4 +18,7 @@ class ButtonRes {
   String get quizHuruf => '${ButtonRes.basePath}/quiz_huruf.png';
   String get mencocokanAngka => '${ButtonRes.basePath}/mencocokan_angka.png';
   String get mengenalAngka => '${ButtonRes.basePath}/mengenal_angka.png';
+  String get quizLiterasi => '${ButtonRes.basePath}/quiz_literasi.png';
+  String get quizNumerasi => '${ButtonRes.basePath}/quiz_numerasi.png';
+  String get tandaSeru => '${ButtonRes.basePath}/tanda_seru.svg';
 }

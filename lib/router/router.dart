@@ -23,10 +23,20 @@ final GoRouter newRouter = GoRouter(
     GoRoute(
       path: RouterUtils.materi,
       builder: (BuildContext context, GoRouterState state) {
-        final EnumPageState pageState =
-            state.extra as EnumPageState? ?? EnumPageState.mengenalHuruf;
+        final EnumMateriState pageState =
+            state.extra as EnumMateriState? ?? EnumMateriState.mengenalHuruf;
 
         return MateriView(
+          pageState: pageState,
+        );
+      },
+    ),
+    GoRoute(
+      path: RouterUtils.quiz,
+      builder: (BuildContext context, GoRouterState state) {
+        final EnumQuizState pageState = state.extra as EnumQuizState? ?? EnumQuizState.literasi;
+
+        return QuizView(
           pageState: pageState,
         );
       },

@@ -78,7 +78,9 @@ class LoginController extends State<LoginView> {
   }
 
   void addUser() async {
-    if (nameC.text.isEmpty || usernameSignupC.text.isEmpty || passwordSignupC.text.isEmpty) {
+    if (nameC.text.isEmpty ||
+        usernameSignupC.text.isEmpty ||
+        passwordSignupC.text.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text("Please fill all fields"),

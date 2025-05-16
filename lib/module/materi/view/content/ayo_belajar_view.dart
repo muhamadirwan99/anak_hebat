@@ -53,7 +53,7 @@ class _AyoBelajarViewState extends State<AyoBelajarView> {
           children: [
             InkWell(
               onTap: () {
-                widget.controller.changePageState(EnumPageState.mengenalAngka);
+                widget.controller.changePageState(EnumMateriState.mengenalAngka);
               },
               child: Image.asset(
                 MediaRes.button.mengenalAngka,
@@ -64,7 +64,7 @@ class _AyoBelajarViewState extends State<AyoBelajarView> {
             ),
             InkWell(
               onTap: () {
-                widget.controller.changePageState(EnumPageState.pilihLevel);
+                widget.controller.changePageState(EnumMateriState.pilihLevel);
               },
               child: Image.asset(
                 MediaRes.button.mencocokanAngka,

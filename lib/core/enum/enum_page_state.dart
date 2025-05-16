@@ -1,4 +1,4 @@
-enum EnumPageState {
+enum EnumMateriState {
   ayoBelajar,
   mengenalAngka,
   mengenalAngkaContent,
@@ -6,4 +6,9 @@ enum EnumPageState {
   menghitung,
   mengenalHuruf,
   mengenalHurufContent,
+}
+
+enum EnumQuizState {
+  numerasi,
+  literasi,
 }

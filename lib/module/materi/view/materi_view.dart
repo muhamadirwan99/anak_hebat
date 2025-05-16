@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:anak_hebat/core.dart';
 
 class MateriView extends StatefulWidget {
-  final EnumPageState pageState;
+  final EnumMateriState pageState;
 
   const MateriView({
     super.key,
@@ -31,31 +31,31 @@ class MateriView extends StatefulWidget {
               child: Builder(
                 builder: (context) {
                   switch (controller.pageState) {
-                    case EnumPageState.ayoBelajar:
+                    case EnumMateriState.ayoBelajar:
                       return AyoBelajarView(
                         controller: controller,
                       );
-                    case EnumPageState.mengenalAngka:
+                    case EnumMateriState.mengenalAngka:
                       return MengenalAngkaView(
                         controller: controller,
                       );
-                    case EnumPageState.mengenalAngkaContent:
+                    case EnumMateriState.mengenalAngkaContent:
                       return MengenalAngkaContentView(
                         controller: controller,
                       );
-                    case EnumPageState.mengenalHuruf:
+                    case EnumMateriState.mengenalHuruf:
                       return MengenalHurufView(
                         controller: controller,
                       );
-                    case EnumPageState.mengenalHurufContent:
+                    case EnumMateriState.mengenalHurufContent:
                       return MengenalHurufContentView(
                         controller: controller,
                       );
-                    case EnumPageState.menghitung:
+                    case EnumMateriState.menghitung:
                       return MenghitungView(
                         controller: controller,
                       );
-                    case EnumPageState.pilihLevel:
+                    case EnumMateriState.pilihLevel:
                       return PilihLevelView(
                         controller: controller,
                       );

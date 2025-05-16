@@ -44,23 +44,32 @@ loadImage() async {
       precacheImage(AssetImage(MediaRes.materi.x), context);
       precacheImage(AssetImage(MediaRes.materi.y), context);
       precacheImage(AssetImage(MediaRes.materi.z), context);
-      await svg.cache.putIfAbsent(SvgAssetLoader(MediaRes.button.back).cacheKey(null),
+      await svg.cache.putIfAbsent(
+          SvgAssetLoader(MediaRes.button.back).cacheKey(null),
           () => SvgAssetLoader(MediaRes.button.back).loadBytes(null));
-      await svg.cache.putIfAbsent(SvgAssetLoader(MediaRes.button.dashboard).cacheKey(null),
+      await svg.cache.putIfAbsent(
+          SvgAssetLoader(MediaRes.button.dashboard).cacheKey(null),
           () => SvgAssetLoader(MediaRes.button.dashboard).loadBytes(null));
-      await svg.cache.putIfAbsent(SvgAssetLoader(MediaRes.button.home).cacheKey(null),
+      await svg.cache.putIfAbsent(
+          SvgAssetLoader(MediaRes.button.home).cacheKey(null),
           () => SvgAssetLoader(MediaRes.button.home).loadBytes(null));
-      await svg.cache.putIfAbsent(SvgAssetLoader(MediaRes.button.keluar).cacheKey(null),
+      await svg.cache.putIfAbsent(
+          SvgAssetLoader(MediaRes.button.keluar).cacheKey(null),
           () => SvgAssetLoader(MediaRes.button.keluar).loadBytes(null));
-      await svg.cache.putIfAbsent(SvgAssetLoader(MediaRes.button.kembali).cacheKey(null),
+      await svg.cache.putIfAbsent(
+          SvgAssetLoader(MediaRes.button.kembali).cacheKey(null),
           () => SvgAssetLoader(MediaRes.button.kembali).loadBytes(null));
-      await svg.cache.putIfAbsent(SvgAssetLoader(MediaRes.button.next).cacheKey(null),
+      await svg.cache.putIfAbsent(
+          SvgAssetLoader(MediaRes.button.next).cacheKey(null),
           () => SvgAssetLoader(MediaRes.button.next).loadBytes(null));
-      await svg.cache.putIfAbsent(SvgAssetLoader(MediaRes.button.retry).cacheKey(null),
+      await svg.cache.putIfAbsent(
+          SvgAssetLoader(MediaRes.button.retry).cacheKey(null),
           () => SvgAssetLoader(MediaRes.button.retry).loadBytes(null));
-      await svg.cache.putIfAbsent(SvgAssetLoader(MediaRes.button.speakerOff).cacheKey(null),
+      await svg.cache.putIfAbsent(
+          SvgAssetLoader(MediaRes.button.speakerOff).cacheKey(null),
           () => SvgAssetLoader(MediaRes.button.speakerOff).loadBytes(null));
-      await svg.cache.putIfAbsent(SvgAssetLoader(MediaRes.button.speakerOn).cacheKey(null),
+      await svg.cache.putIfAbsent(
+          SvgAssetLoader(MediaRes.button.speakerOn).cacheKey(null),
           () => SvgAssetLoader(MediaRes.button.speakerOn).loadBytes(null));
     }
   });

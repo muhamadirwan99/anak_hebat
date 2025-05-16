@@ -9,4 +9,5 @@ class MediaRes {
   static final logo = LogoRes();
   static final materi = MateriRes();
   static final audio = AudioRes();
+  static final quiz = QuizRes();
 }

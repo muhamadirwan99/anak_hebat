@@ -44,7 +44,7 @@ class _MengenalAngkaContentViewState extends State<MengenalAngkaContentView> {
             ),
             InkWell(
               onTap: () {
-                widget.controller.changePageState(EnumPageState.mengenalAngka);
+                widget.controller.changePageState(EnumMateriState.mengenalAngka);
               },
               child: SvgPicture.asset(
                 MediaRes.button.dashboard,

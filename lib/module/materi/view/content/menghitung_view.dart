@@ -45,7 +45,7 @@ class _MenghitungViewState extends State<MenghitungView> {
             ),
             InkWell(
               onTap: () {
-                widget.controller.changePageState(EnumPageState.pilihLevel);
+                widget.controller.changePageState(EnumMateriState.pilihLevel);
               },
               child: SvgPicture.asset(
                 MediaRes.button.dashboard,

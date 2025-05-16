@@ -4,7 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
 
 class RouteGuards {
-  static Future<String?> authGuard(BuildContext context, GoRouterState state) async {
+  static Future<String?> authGuard(
+      BuildContext context, GoRouterState state) async {
     final user = FirebaseAuth.instance.currentUser;
     final isLoggingIn = state.matchedLocation == RouterUtils.root;
 
