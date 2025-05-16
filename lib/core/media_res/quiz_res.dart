@@ -76,7 +76,6 @@ class _Numerasi {
 
   String get jawaban6A => '${QuizRes.basePath}/$subPath/jawaban_6_a.svg';
   String get jawaban6B => '${QuizRes.basePath}/$subPath/jawaban_6_b.svg';
-  String get jawaban6C => '${QuizRes.basePath}/$subPath/jawaban_6_c.svg';
 
   String get jawaban7A => '${QuizRes.basePath}/$subPath/jawaban_7_a.svg';
   String get jawaban7B => '${QuizRes.basePath}/$subPath/jawaban_7_b.svg';

@@ -1,76 +1,156 @@
-import 'package:anak_hebat/core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:anak_hebat/core.dart';
 
-loadImage() async {
+Future<void> loadImage() async {
   WidgetsBinding.instance.addPostFrameCallback((_) async {
     final context = Get.navigatorKey.currentContext;
-    if (context != null) {
-      precacheImage(AssetImage(MediaRes.images.login), context);
-      precacheImage(AssetImage(MediaRes.background.kelas), context);
-      precacheImage(AssetImage(MediaRes.background.outside), context);
-      precacheImage(AssetImage(MediaRes.button.belajar), context);
-      precacheImage(AssetImage(MediaRes.button.belajarAngka), context);
-      precacheImage(AssetImage(MediaRes.button.belajarHuruf), context);
-      precacheImage(AssetImage(MediaRes.button.quiz), context);
-      precacheImage(AssetImage(MediaRes.button.quizAngka), context);
-      precacheImage(AssetImage(MediaRes.button.quizHuruf), context);
-      precacheImage(AssetImage(MediaRes.button.mencocokanAngka), context);
-      precacheImage(AssetImage(MediaRes.button.mengenalAngka), context);
-      precacheImage(AssetImage(MediaRes.logo.logo), context);
-      precacheImage(AssetImage(MediaRes.materi.a), context);
-      precacheImage(AssetImage(MediaRes.materi.b), context);
-      precacheImage(AssetImage(MediaRes.materi.c), context);
-      precacheImage(AssetImage(MediaRes.materi.d), context);
-      precacheImage(AssetImage(MediaRes.materi.e), context);
-      precacheImage(AssetImage(MediaRes.materi.f), context);
-      precacheImage(AssetImage(MediaRes.materi.g), context);
-      precacheImage(AssetImage(MediaRes.materi.h), context);
-      precacheImage(AssetImage(MediaRes.materi.i), context);
-      precacheImage(AssetImage(MediaRes.materi.j), context);
-      precacheImage(AssetImage(MediaRes.materi.k), context);
-      precacheImage(AssetImage(MediaRes.materi.l), context);
-      precacheImage(AssetImage(MediaRes.materi.m), context);
-      precacheImage(AssetImage(MediaRes.materi.n), context);
-      precacheImage(AssetImage(MediaRes.materi.o), context);
-      precacheImage(AssetImage(MediaRes.materi.p), context);
-      precacheImage(AssetImage(MediaRes.materi.q), context);
-      precacheImage(AssetImage(MediaRes.materi.r), context);
-      precacheImage(AssetImage(MediaRes.materi.s), context);
-      precacheImage(AssetImage(MediaRes.materi.t), context);
-      precacheImage(AssetImage(MediaRes.materi.u), context);
-      precacheImage(AssetImage(MediaRes.materi.v), context);
-      precacheImage(AssetImage(MediaRes.materi.w), context);
-      precacheImage(AssetImage(MediaRes.materi.x), context);
-      precacheImage(AssetImage(MediaRes.materi.y), context);
-      precacheImage(AssetImage(MediaRes.materi.z), context);
-      await svg.cache.putIfAbsent(
-          SvgAssetLoader(MediaRes.button.back).cacheKey(null),
-          () => SvgAssetLoader(MediaRes.button.back).loadBytes(null));
-      await svg.cache.putIfAbsent(
-          SvgAssetLoader(MediaRes.button.dashboard).cacheKey(null),
-          () => SvgAssetLoader(MediaRes.button.dashboard).loadBytes(null));
-      await svg.cache.putIfAbsent(
-          SvgAssetLoader(MediaRes.button.home).cacheKey(null),
-          () => SvgAssetLoader(MediaRes.button.home).loadBytes(null));
-      await svg.cache.putIfAbsent(
-          SvgAssetLoader(MediaRes.button.keluar).cacheKey(null),
-          () => SvgAssetLoader(MediaRes.button.keluar).loadBytes(null));
-      await svg.cache.putIfAbsent(
-          SvgAssetLoader(MediaRes.button.kembali).cacheKey(null),
-          () => SvgAssetLoader(MediaRes.button.kembali).loadBytes(null));
-      await svg.cache.putIfAbsent(
-          SvgAssetLoader(MediaRes.button.next).cacheKey(null),
-          () => SvgAssetLoader(MediaRes.button.next).loadBytes(null));
-      await svg.cache.putIfAbsent(
-          SvgAssetLoader(MediaRes.button.retry).cacheKey(null),
-          () => SvgAssetLoader(MediaRes.button.retry).loadBytes(null));
-      await svg.cache.putIfAbsent(
-          SvgAssetLoader(MediaRes.button.speakerOff).cacheKey(null),
-          () => SvgAssetLoader(MediaRes.button.speakerOff).loadBytes(null));
-      await svg.cache.putIfAbsent(
-          SvgAssetLoader(MediaRes.button.speakerOn).cacheKey(null),
-          () => SvgAssetLoader(MediaRes.button.speakerOn).loadBytes(null));
+    if (context == null) return;
+
+    try {
+      final allAssets = <String>[
+        MediaRes.images.login,
+        MediaRes.images.anak,
+        MediaRes.images.benar,
+        MediaRes.images.coin,
+        MediaRes.images.salah,
+        MediaRes.images.silang,
+        MediaRes.images.star,
+        MediaRes.images.gold,
+        MediaRes.images.silver,
+        MediaRes.images.bronze,
+        MediaRes.images.leaderboard,
+        MediaRes.background.kelas,
+        MediaRes.background.outside,
+        MediaRes.background.leaderboard,
+        MediaRes.button.back,
+        MediaRes.button.dashboard,
+        MediaRes.button.home,
+        MediaRes.button.keluar,
+        MediaRes.button.kembali,
+        MediaRes.button.next,
+        MediaRes.button.retry,
+        MediaRes.button.speakerOn,
+        MediaRes.button.speakerOff,
+        MediaRes.button.tandaSeru,
+        MediaRes.button.belajar,
+        MediaRes.button.belajarAngka,
+        MediaRes.button.belajarHuruf,
+        MediaRes.button.quiz,
+        MediaRes.button.quizAngka,
+        MediaRes.button.quizHuruf,
+        MediaRes.button.mencocokanAngka,
+        MediaRes.button.mengenalAngka,
+        MediaRes.button.quizLiterasi,
+        MediaRes.button.quizNumerasi,
+        MediaRes.logo.logo,
+        MediaRes.materi.a,
+        MediaRes.materi.b,
+        MediaRes.materi.c,
+        MediaRes.materi.d,
+        MediaRes.materi.e,
+        MediaRes.materi.f,
+        MediaRes.materi.g,
+        MediaRes.materi.h,
+        MediaRes.materi.i,
+        MediaRes.materi.j,
+        MediaRes.materi.k,
+        MediaRes.materi.l,
+        MediaRes.materi.m,
+        MediaRes.materi.n,
+        MediaRes.materi.o,
+        MediaRes.materi.p,
+        MediaRes.materi.q,
+        MediaRes.materi.r,
+        MediaRes.materi.s,
+        MediaRes.materi.t,
+        MediaRes.materi.u,
+        MediaRes.materi.v,
+        MediaRes.materi.w,
+        MediaRes.materi.x,
+        MediaRes.materi.y,
+        MediaRes.materi.z,
+        MediaRes.quiz.literasi.jawaban1A,
+        MediaRes.quiz.literasi.jawaban1B,
+        MediaRes.quiz.literasi.jawaban1C,
+        MediaRes.quiz.literasi.jawaban2A,
+        MediaRes.quiz.literasi.jawaban2B,
+        MediaRes.quiz.literasi.jawaban2C,
+        MediaRes.quiz.literasi.jawaban3A,
+        MediaRes.quiz.literasi.jawaban3B,
+        MediaRes.quiz.literasi.jawaban3C,
+        MediaRes.quiz.literasi.jawaban4A,
+        MediaRes.quiz.literasi.jawaban4B,
+        MediaRes.quiz.literasi.jawaban4C,
+        MediaRes.quiz.literasi.jawaban5A,
+        MediaRes.quiz.literasi.jawaban5B,
+        MediaRes.quiz.literasi.jawaban5C,
+        MediaRes.quiz.literasi.jawaban6A,
+        MediaRes.quiz.literasi.jawaban6B,
+        MediaRes.quiz.literasi.jawaban6C,
+        MediaRes.quiz.literasi.jawaban7A,
+        MediaRes.quiz.literasi.jawaban7B,
+        MediaRes.quiz.literasi.jawaban7C,
+        MediaRes.quiz.literasi.jawaban8A,
+        MediaRes.quiz.literasi.jawaban8B,
+        MediaRes.quiz.literasi.jawaban8C,
+        MediaRes.quiz.literasi.jawaban9A,
+        MediaRes.quiz.literasi.jawaban9B,
+        MediaRes.quiz.literasi.jawaban9C,
+        MediaRes.quiz.literasi.jawaban10A,
+        MediaRes.quiz.literasi.jawaban10B,
+        MediaRes.quiz.literasi.jawaban10C,
+        MediaRes.quiz.numerasi.jawaban1A,
+        MediaRes.quiz.numerasi.jawaban1B,
+        MediaRes.quiz.numerasi.jawaban2A,
+        MediaRes.quiz.numerasi.jawaban2B,
+        MediaRes.quiz.numerasi.jawaban2C,
+        MediaRes.quiz.numerasi.jawaban3A,
+        MediaRes.quiz.numerasi.jawaban3B,
+        MediaRes.quiz.numerasi.jawaban3C,
+        MediaRes.quiz.numerasi.jawaban4A,
+        MediaRes.quiz.numerasi.jawaban4B,
+        MediaRes.quiz.numerasi.jawaban4C,
+        MediaRes.quiz.numerasi.jawaban5A,
+        MediaRes.quiz.numerasi.jawaban5B,
+        MediaRes.quiz.numerasi.jawaban5C,
+        MediaRes.quiz.numerasi.jawaban6A,
+        MediaRes.quiz.numerasi.jawaban6B,
+        MediaRes.quiz.numerasi.jawaban7A,
+        MediaRes.quiz.numerasi.jawaban7B,
+        MediaRes.quiz.numerasi.jawaban7C,
+        MediaRes.quiz.numerasi.jawaban8A,
+        MediaRes.quiz.numerasi.jawaban8B,
+        MediaRes.quiz.numerasi.jawaban8C,
+        MediaRes.quiz.numerasi.jawaban10A,
+        MediaRes.quiz.numerasi.jawaban10B,
+        MediaRes.quiz.numerasi.jawaban10C,
+        MediaRes.quiz.numerasi.soal1,
+        MediaRes.quiz.numerasi.soal2,
+        MediaRes.quiz.numerasi.soal3,
+        MediaRes.quiz.numerasi.soal4,
+        MediaRes.quiz.numerasi.soal5,
+        MediaRes.quiz.numerasi.soal6A,
+        MediaRes.quiz.numerasi.soal6B,
+      ];
+
+      final rasterImages =
+          allAssets.where((path) => path.endsWith('.png') || path.endsWith('.jpg')).toList();
+      final svgImages = allAssets.where((path) => path.endsWith('.svg')).toList();
+
+      // Precache raster (PNG/JPG)
+      for (final path in rasterImages) {
+        await precacheImage(AssetImage(path), context);
+      }
+
+      // Precache SVG
+      for (final path in svgImages) {
+        final loader = SvgAssetLoader(path);
+        await svg.cache.putIfAbsent(loader.cacheKey(null), () => loader.loadBytes(null));
+      }
+    } catch (e) {
+      debugPrint('Error preloading assets: $e');
     }
   });
 }
