@@ -1,5 +1,6 @@
 import 'package:anak_hebat/core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -58,9 +59,9 @@ class _MenghitungViewState extends State<MenghitungView> {
         const SizedBox(
           height: 80,
         ),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 520),
+        Center(
           child: Container(
+            width: 894,
             decoration: BoxDecoration(
               color: Colors.white.withOpacity(0.8),
               borderRadius: const BorderRadius.all(
@@ -72,16 +73,16 @@ class _MenghitungViewState extends State<MenghitungView> {
             padding: const EdgeInsets.all(60),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Expanded(
+                SizedBox(
+                  width: 456,
                   child: StaggeredGrid.count(
                     crossAxisCount: getCrossAxisCount(),
                     mainAxisSpacing: 8,
                     crossAxisSpacing: 8,
                     children: [
-                      for (var i = 0;
-                          i < widget.controller.modelMenghitungAngka.jawaban;
-                          i++)
+                      for (var i = 0; i < widget.controller.modelMenghitungAngka.jawaban; i++)
                         Image.asset(
                           widget.controller.modelMenghitungAngka.gambar,
                           height: 150,
@@ -105,8 +106,7 @@ class _MenghitungViewState extends State<MenghitungView> {
                 ),
                 widget.controller.isAnswerCorrect
                     ? Text(
-                        widget.controller.modelMenghitungAngka.jawaban
-                            .toString(),
+                        widget.controller.modelMenghitungAngka.jawaban.toString(),
                         style: GoogleFonts.balsamiqSans(
                           fontSize: 250,
                           fontWeight: FontWeight.w700,
@@ -121,8 +121,7 @@ class _MenghitungViewState extends State<MenghitungView> {
                     : Transform.translate(
                         offset: const Offset(0, -30),
                         child: Text(
-                          widget.controller.modelMenghitungAngka.jawaban
-                              .toString(),
+                          widget.controller.modelMenghitungAngka.jawaban.toString(),
                           style: GoogleFonts.ralewayDots(
                             fontSize: 250,
                             color: gray900,
@@ -141,17 +140,17 @@ class _MenghitungViewState extends State<MenghitungView> {
         const SizedBox(
           height: 80,
         ),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 544),
-          child: StaggeredGrid.count(
-            crossAxisCount: 2,
-            crossAxisSpacing: 351,
-            children: [
-              for (var i = 0;
-                  i < widget.controller.modelMenghitungAngka.pilihan.length;
-                  i++)
-                containerJawaban(i),
-            ],
+        Center(
+          child: SizedBox(
+            width: 894,
+            child: StaggeredGrid.count(
+              crossAxisCount: 2,
+              crossAxisSpacing: 351,
+              children: [
+                for (var i = 0; i < widget.controller.modelMenghitungAngka.pilihan.length; i++)
+                  containerJawaban(i),
+              ],
+            ),
           ),
         ),
       ],
@@ -163,8 +162,7 @@ class _MenghitungViewState extends State<MenghitungView> {
       onTap: () {
         if (widget.controller.modelMenghitungAngka.pilihan[index] ==
             widget.controller.modelMenghitungAngka.jawaban) {
-          widget.controller.isAnswerCorrect =
-              !widget.controller.isAnswerCorrect;
+          widget.controller.isAnswerCorrect = !widget.controller.isAnswerCorrect;
           // widget.controller.isAnswerCorrect = true;
           widget.controller.update();
         } else {
