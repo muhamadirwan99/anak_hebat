@@ -1,5 +1,6 @@
 import 'package:anak_hebat/core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -18,6 +19,44 @@ class AyoBelajarView extends StatefulWidget {
 class _AyoBelajarViewState extends State<AyoBelajarView> {
   @override
   Widget build(BuildContext context) {
+    List<PilihMateriModel> listMateri = [
+      PilihMateriModel(
+        image: MediaRes.button.mengenalAngka,
+        onTap: () {
+          widget.controller.changePageState(EnumMateriState.mengenalAngka);
+        },
+      ),
+      PilihMateriModel(
+        image: MediaRes.button.mencocokanAngka,
+        onTap: () {
+          widget.controller.changePageState(EnumMateriState.pilihLevel);
+        },
+      ),
+      PilihMateriModel(
+        image: MediaRes.button.mengenalBentuk,
+        onTap: () {
+          // widget.controller.changePageState(EnumMateriState.pilihLevel);
+        },
+      ),
+      PilihMateriModel(
+        image: MediaRes.button.mengenalPerbandingan,
+        onTap: () {
+          // widget.controller.changePageState(EnumMateriState.pilihLevel);
+        },
+      ),
+      PilihMateriModel(
+        image: MediaRes.button.mengenalPosisiUrutan,
+        onTap: () {
+          // widget.controller.changePageState(EnumMateriState.pilihLevel);
+        },
+      ),
+      PilihMateriModel(
+        image: MediaRes.button.mengenalPosisi,
+        onTap: () {
+          // widget.controller.changePageState(EnumMateriState.pilihLevel);
+        },
+      ),
+    ];
     return Column(
       children: [
         Row(
@@ -46,34 +85,44 @@ class _AyoBelajarViewState extends State<AyoBelajarView> {
           ],
         ),
         const SizedBox(
-          height: 100,
+          height: 24,
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            InkWell(
-              onTap: () {
-                widget.controller
-                    .changePageState(EnumMateriState.mengenalAngka);
-              },
-              child: Image.asset(
-                MediaRes.button.mengenalAngka,
-              ),
-            ),
-            const SizedBox(
-              width: 100,
-            ),
-            InkWell(
-              onTap: () {
-                widget.controller.changePageState(EnumMateriState.pilihLevel);
-              },
-              child: Image.asset(
-                MediaRes.button.mencocokanAngka,
-              ),
-            ),
-          ],
+        SizedBox(
+          width: 990,
+          child: StaggeredGrid.count(
+            crossAxisCount: 3,
+            mainAxisSpacing: 40,
+            crossAxisSpacing: 40,
+            children: listMateri.map((model) {
+              return _pilihMateriWidget(model);
+            }).toList(),
+          ),
         ),
       ],
     );
   }
+
+  Widget _pilihMateriWidget(PilihMateriModel model) {
+    return SizedBox(
+      width: 300,
+      height: 400,
+      child: InkWell(
+        onTap: model.onTap,
+        child: Image.asset(
+          model.image,
+          fit: BoxFit.cover,
+        ),
+      ),
+    );
+  }
+}
+
+class PilihMateriModel {
+  final String image;
+  final VoidCallback? onTap;
+
+  PilihMateriModel({
+    required this.image,
+    required this.onTap,
+  });
 }
