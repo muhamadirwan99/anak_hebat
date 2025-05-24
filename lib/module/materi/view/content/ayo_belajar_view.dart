@@ -29,7 +29,9 @@ class _AyoBelajarViewState extends State<AyoBelajarView> {
       PilihMateriModel(
         image: MediaRes.button.mencocokanAngka,
         onTap: () {
-          widget.controller.changePageState(EnumMateriState.pilihLevel);
+          widget.controller.background = MediaRes.background.mencocokanAngka;
+          widget.controller.changePageState(EnumMateriState.levelMencocokanAngka);
+          // widget.controller.changePageState(EnumMateriState.pilihLevel);
         },
       ),
       PilihMateriModel(
@@ -52,6 +54,18 @@ class _AyoBelajarViewState extends State<AyoBelajarView> {
       ),
       PilihMateriModel(
         image: MediaRes.button.mengenalPosisi,
+        onTap: () {
+          // widget.controller.changePageState(EnumMateriState.pilihLevel);
+        },
+      ),
+      PilihMateriModel(
+        image: MediaRes.button.berhitung,
+        onTap: () {
+          // widget.controller.changePageState(EnumMateriState.pilihLevel);
+        },
+      ),
+      PilihMateriModel(
+        image: MediaRes.button.mengenalAngkaBenda,
         onTap: () {
           // widget.controller.changePageState(EnumMateriState.pilihLevel);
         },
@@ -85,12 +99,12 @@ class _AyoBelajarViewState extends State<AyoBelajarView> {
           ],
         ),
         const SizedBox(
-          height: 24,
+          height: 14,
         ),
         SizedBox(
-          width: 990,
+          width: 1340,
           child: StaggeredGrid.count(
-            crossAxisCount: 3,
+            crossAxisCount: 4,
             mainAxisSpacing: 40,
             crossAxisSpacing: 40,
             children: listMateri.map((model) {

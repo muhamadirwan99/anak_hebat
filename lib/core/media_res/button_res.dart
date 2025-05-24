@@ -25,4 +25,6 @@ class ButtonRes {
   String get mengenalPerbandingan => '${ButtonRes.basePath}/mengenal_perbandingan.png';
   String get mengenalPosisiUrutan => '${ButtonRes.basePath}/mengenal_posisi_urutan.png';
   String get mengenalPosisi => '${ButtonRes.basePath}/mengenal_posisi.png';
+  String get mengenalAngkaBenda => '${ButtonRes.basePath}/mengenal_angka_benda.png';
+  String get berhitung => '${ButtonRes.basePath}/berhitung.png';
 }

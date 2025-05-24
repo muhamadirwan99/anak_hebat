@@ -6,6 +6,12 @@ enum EnumMateriState {
   menghitung,
   mengenalHuruf,
   mengenalHurufContent,
+  levelMencocokanAngka,
+  mencocokanAngka,
+  mengenalBentuk,
+  mengenalPerbandingan,
+  mengenalPosisi,
+  berhitung,
 }
 
 enum EnumQuizState {

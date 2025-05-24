@@ -6,6 +6,7 @@ class MateriController extends State<MateriView> {
   late MateriView view;
 
   late EnumMateriState pageState;
+  String background = MediaRes.background.leaderboard;
 
   //Mengenal Angka
   MengenalModel modelMengenalAngka = MengenalModel(
@@ -121,8 +122,8 @@ class MateriController extends State<MateriView> {
   }
 
   void nextMengenalAngka() {
-    int currentIndex = listMengenalAngka()
-        .indexWhere((element) => element.title == modelMengenalAngka.title);
+    int currentIndex =
+        listMengenalAngka().indexWhere((element) => element.title == modelMengenalAngka.title);
 
     if (currentIndex != -1 && currentIndex < listMengenalAngka().length - 1) {
       modelMengenalAngka = listMengenalAngka()[currentIndex + 1];
@@ -131,8 +132,8 @@ class MateriController extends State<MateriView> {
   }
 
   void backMengenalAngka() {
-    int currentIndex = listMengenalAngka()
-        .indexWhere((element) => element.title == modelMengenalAngka.title);
+    int currentIndex =
+        listMengenalAngka().indexWhere((element) => element.title == modelMengenalAngka.title);
     if (currentIndex > 0) {
       modelMengenalAngka = listMengenalAngka()[currentIndex - 1];
       update();
@@ -220,8 +221,7 @@ class MateriController extends State<MateriView> {
       int currentIndex = listMenghitungAngka()
           .indexWhere((element) => element.level == modelMenghitungAngka.level);
 
-      if (currentIndex != -1 &&
-          currentIndex < listMenghitungAngka().length - 1) {
+      if (currentIndex != -1 && currentIndex < listMenghitungAngka().length - 1) {
         modelMenghitungAngka = listMenghitungAngka()[currentIndex + 1];
         update();
       } else {
@@ -539,8 +539,8 @@ class MateriController extends State<MateriView> {
   }
 
   void nextMengenalHuruf() {
-    int currentIndex = listMengenalHuruf()
-        .indexWhere((element) => element.title == modelMengenalHuruf.title);
+    int currentIndex =
+        listMengenalHuruf().indexWhere((element) => element.title == modelMengenalHuruf.title);
 
     if (currentIndex != -1 && currentIndex < listMengenalHuruf().length - 1) {
       modelMengenalHuruf = listMengenalHuruf()[currentIndex + 1];
@@ -549,14 +549,158 @@ class MateriController extends State<MateriView> {
   }
 
   void backMengenalHuruf() {
-    int currentIndex = listMengenalHuruf()
-        .indexWhere((element) => element.title == modelMengenalHuruf.title);
+    int currentIndex =
+        listMengenalHuruf().indexWhere((element) => element.title == modelMengenalHuruf.title);
     if (currentIndex > 0) {
       modelMengenalHuruf = listMengenalHuruf()[currentIndex - 1];
       update();
     }
   }
   //End Mengenal Huruf
+
+  //Mencocokan Angka
+  MencocokanAngkaModel modelMencocokanAngka = MencocokanAngkaModel(
+    value: "",
+    textValue: "",
+    image: "",
+    colorBorder: Colors.transparent,
+    onTap: () {},
+  );
+
+  List<MencocokanAngkaModel> listMencocokanAngka() {
+    return [
+      MencocokanAngkaModel(
+        value: "1",
+        colorBorder: green800,
+        textValue: "SATU",
+        image: MediaRes.materi.a,
+        onTap: () {
+          pageState = EnumMateriState.mencocokanAngka;
+          modelMencocokanAngka = listMencocokanAngka()[0];
+          update();
+        },
+      ),
+      MencocokanAngkaModel(
+        value: "2",
+        colorBorder: blueGray800,
+        textValue: "DUA",
+        image: MediaRes.materi.n,
+        onTap: () {
+          pageState = EnumMateriState.mencocokanAngka;
+          modelMencocokanAngka = listMencocokanAngka()[1];
+          update();
+        },
+      ),
+      MencocokanAngkaModel(
+        value: "3",
+        colorBorder: blue800,
+        textValue: "TIGA",
+        image: MediaRes.materi.t,
+        onTap: () {
+          pageState = EnumMateriState.mencocokanAngka;
+          modelMencocokanAngka = listMencocokanAngka()[2];
+          update();
+        },
+      ),
+      MencocokanAngkaModel(
+        value: "4",
+        colorBorder: pink800,
+        textValue: "EMPAT",
+        image: MediaRes.materi.a,
+        onTap: () {
+          pageState = EnumMateriState.mencocokanAngka;
+          modelMencocokanAngka = listMencocokanAngka()[3];
+          update();
+        },
+      ),
+      MencocokanAngkaModel(
+        value: "5",
+        colorBorder: purple800,
+        textValue: "LIMA",
+        image: MediaRes.materi.a,
+        onTap: () {
+          pageState = EnumMateriState.mencocokanAngka;
+          modelMencocokanAngka = listMencocokanAngka()[4];
+          update();
+        },
+      ),
+      MencocokanAngkaModel(
+        value: "6",
+        colorBorder: red800,
+        textValue: "ENAM",
+        image: MediaRes.materi.t,
+        onTap: () {
+          pageState = EnumMateriState.mencocokanAngka;
+          modelMencocokanAngka = listMencocokanAngka()[5];
+          update();
+        },
+      ),
+      MencocokanAngkaModel(
+        value: "7",
+        colorBorder: gray800,
+        textValue: "TUJUH",
+        image: MediaRes.materi.s,
+        onTap: () {
+          pageState = EnumMateriState.mencocokanAngka;
+          modelMencocokanAngka = listMencocokanAngka()[6];
+          update();
+        },
+      ),
+      MencocokanAngkaModel(
+        value: "8",
+        colorBorder: purple800,
+        textValue: "DELAPAN",
+        image: MediaRes.materi.p,
+        onTap: () {
+          pageState = EnumMateriState.mencocokanAngka;
+          modelMencocokanAngka = listMencocokanAngka()[7];
+          update();
+        },
+      ),
+      MencocokanAngkaModel(
+        value: "9",
+        colorBorder: const Color(0xff20A95A),
+        textValue: "SEMBILAN",
+        image: MediaRes.materi.u,
+        onTap: () {
+          pageState = EnumMateriState.mencocokanAngka;
+          modelMencocokanAngka = listMencocokanAngka()[8];
+          update();
+        },
+      ),
+      MencocokanAngkaModel(
+        value: "10",
+        colorBorder: yellow900,
+        textValue: "SEPULUH",
+        image: MediaRes.materi.w,
+        onTap: () {
+          pageState = EnumMateriState.mencocokanAngka;
+          modelMencocokanAngka = listMencocokanAngka()[9];
+          update();
+        },
+      ),
+    ];
+  }
+
+  void nextMencocokanAngka() {
+    int currentIndex =
+        listMencocokanAngka().indexWhere((element) => element.value == modelMencocokanAngka.value);
+
+    if (currentIndex != -1 && currentIndex < listMencocokanAngka().length - 1) {
+      modelMencocokanAngka = listMencocokanAngka()[currentIndex + 1];
+      update();
+    }
+  }
+
+  void backMencocokanAngka() {
+    int currentIndex =
+        listMencocokanAngka().indexWhere((element) => element.value == modelMencocokanAngka.value);
+    if (currentIndex > 0) {
+      modelMencocokanAngka = listMencocokanAngka()[currentIndex - 1];
+      update();
+    }
+  }
+  //End Mencocokan Angka
 
   changePageState(EnumMateriState state) {
     pageState = state;

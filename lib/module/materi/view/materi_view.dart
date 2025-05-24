@@ -16,7 +16,7 @@ class MateriView extends StatefulWidget {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage(MediaRes.background.kelas),
+            image: AssetImage(controller.background),
             fit: BoxFit.fill,
           ),
         ),
@@ -57,6 +57,14 @@ class MateriView extends StatefulWidget {
                       );
                     case EnumMateriState.pilihLevel:
                       return PilihLevelView(
+                        controller: controller,
+                      );
+                    case EnumMateriState.levelMencocokanAngka:
+                      return LevelMencocokanAngkaView(
+                        controller: controller,
+                      );
+                    case EnumMateriState.mencocokanAngka:
+                      return MencocokanAngkaView(
                         controller: controller,
                       );
                     default:
