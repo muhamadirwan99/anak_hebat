@@ -37,6 +37,7 @@ export 'package:anak_hebat/module/materi/view/content/mencocokan_angka/level_men
 export 'package:anak_hebat/module/materi/view/content/mencocokan_angka/mencocokan_angka_view.dart';
 export 'package:anak_hebat/module/materi/view/content/mengenal_angka_content_view.dart';
 export 'package:anak_hebat/module/materi/view/content/mengenal_angka_view.dart';
+export 'package:anak_hebat/module/materi/view/content/mengenal_bentuk_view.dart';
 export 'package:anak_hebat/module/materi/view/content/mengenal_huruf_content_view.dart';
 export 'package:anak_hebat/module/materi/view/content/mengenal_huruf_view.dart';
 export 'package:anak_hebat/module/materi/view/content/menghitung_view.dart';

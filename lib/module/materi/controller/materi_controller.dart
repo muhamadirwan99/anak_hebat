@@ -1,3 +1,4 @@
+import 'package:anak_hebat/module/materi/view/content/mengenal_bentuk_view.dart';
 import 'package:flutter/material.dart';
 import 'package:anak_hebat/core.dart';
 
@@ -701,6 +702,73 @@ class MateriController extends State<MateriView> {
     }
   }
   //End Mencocokan Angka
+
+  //Mengenal Bentuk
+  MengenalBentukModel modelMengenalBentuk = MengenalBentukModel(
+    listBentuk: [
+      MediaRes.images.persegi,
+      MediaRes.images.persegiPanjang,
+      MediaRes.images.segitiga,
+      MediaRes.images.lingkaran,
+    ],
+    soal: 1,
+    title: "Mengenal Bentuk",
+  );
+
+  List<MengenalBentukModel> listMengenalBentuk() {
+    return [
+      MengenalBentukModel(
+        listBentuk: [
+          MediaRes.images.persegi,
+          MediaRes.images.persegiPanjang,
+          MediaRes.images.segitiga,
+          MediaRes.images.lingkaran,
+        ],
+        soal: 1,
+        title: "Mengenal Bentuk",
+      ),
+      MengenalBentukModel(
+        listBentuk: [
+          MediaRes.images.persegi,
+          MediaRes.images.lingkaran,
+          MediaRes.images.persegi,
+          MediaRes.images.lingkaran,
+        ],
+        soal: 2,
+        title: "Mengenal Pola",
+      ),
+      MengenalBentukModel(
+        listBentuk: [
+          MediaRes.images.lingkaran,
+          MediaRes.images.segitiga,
+          MediaRes.images.lingkaran,
+          MediaRes.images.segitiga,
+        ],
+        soal: 3,
+        title: "Mengenal Pola",
+      ),
+    ];
+  }
+
+  void nextMengenalBentuk() {
+    int currentIndex =
+        listMengenalBentuk().indexWhere((element) => element.soal == modelMengenalBentuk.soal);
+
+    if (currentIndex != -1 && currentIndex < listMengenalBentuk().length - 1) {
+      modelMengenalBentuk = listMengenalBentuk()[currentIndex + 1];
+      update();
+    }
+  }
+
+  void backMengenalBentuk() {
+    int currentIndex =
+        listMengenalBentuk().indexWhere((element) => element.soal == modelMengenalBentuk.soal);
+    if (currentIndex > 0) {
+      modelMengenalBentuk = listMengenalBentuk()[currentIndex - 1];
+      update();
+    }
+  }
+  //End Mengenal Bentuk
 
   changePageState(EnumMateriState state) {
     pageState = state;

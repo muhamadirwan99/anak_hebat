@@ -24,7 +24,7 @@ final GoRouter newRouter = GoRouter(
       path: RouterUtils.materi,
       builder: (BuildContext context, GoRouterState state) {
         final EnumMateriState pageState =
-            state.extra as EnumMateriState? ?? EnumMateriState.levelMencocokanAngka;
+            state.extra as EnumMateriState? ?? EnumMateriState.mengenalBentuk;
 
         return MateriView(
           pageState: pageState,

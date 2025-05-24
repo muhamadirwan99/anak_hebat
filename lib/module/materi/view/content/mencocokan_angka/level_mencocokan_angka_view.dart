@@ -47,7 +47,7 @@ class LevelMencocokanAngkaViewState extends State<LevelMencocokanAngkaView> {
           ],
         ),
         const SizedBox(
-          height: 150,
+          height: 85,
         ),
         Container(
           width: 1300,

@@ -67,6 +67,10 @@ class MateriView extends StatefulWidget {
                       return MencocokanAngkaView(
                         controller: controller,
                       );
+                    case EnumMateriState.mengenalBentuk:
+                      return MengenalBentukView(
+                        controller: controller,
+                      );
                     default:
                       return Container();
                   }

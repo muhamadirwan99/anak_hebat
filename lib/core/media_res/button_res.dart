@@ -27,4 +27,7 @@ class ButtonRes {
   String get mengenalPosisi => '${ButtonRes.basePath}/mengenal_posisi.png';
   String get mengenalAngkaBenda => '${ButtonRes.basePath}/mengenal_angka_benda.png';
   String get berhitung => '${ButtonRes.basePath}/berhitung.png';
+  String get pola => '${ButtonRes.basePath}/pola.svg';
+  String get nextBentuk => '${ButtonRes.basePath}/next_bentuk.svg';
+  String get backBentuk => '${ButtonRes.basePath}/back_bentuk.svg';
 }
