@@ -71,6 +71,10 @@ class MateriView extends StatefulWidget {
                       return MengenalBentukView(
                         controller: controller,
                       );
+                    case EnumMateriState.mengenalPerbandingan:
+                      return MengenalPerbandinganView(
+                        controller: controller,
+                      );
                     default:
                       return Container();
                   }

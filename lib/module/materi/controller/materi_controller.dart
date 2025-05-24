@@ -1,4 +1,3 @@
-import 'package:anak_hebat/module/materi/view/content/mengenal_bentuk_view.dart';
 import 'package:flutter/material.dart';
 import 'package:anak_hebat/core.dart';
 
@@ -9,7 +8,7 @@ class MateriController extends State<MateriView> {
   late EnumMateriState pageState;
   String background = MediaRes.background.leaderboard;
 
-  //Mengenal Angka
+  // Mengenal Angka
   MengenalModel modelMengenalAngka = MengenalModel(
     title: "",
     subtitle: "",
@@ -17,132 +16,52 @@ class MateriController extends State<MateriView> {
     onTap: () {},
   );
 
-  List<MengenalModel> listMengenalAngka() {
-    return [
-      MengenalModel(
-        title: "0",
-        subtitle: "Nol",
-        audio: MediaRes.audio.angka.nol,
-        onTap: () {
-          pageState = EnumMateriState.mengenalAngkaContent;
-          modelMengenalAngka = listMengenalAngka()[0];
-          update();
-        },
-      ),
-      MengenalModel(
-        title: "1",
-        subtitle: "Satu",
-        audio: MediaRes.audio.angka.satu,
-        onTap: () {
-          pageState = EnumMateriState.mengenalAngkaContent;
-          modelMengenalAngka = listMengenalAngka()[1];
-          update();
-        },
-      ),
-      MengenalModel(
-        title: "2",
-        subtitle: "Dua",
-        audio: MediaRes.audio.angka.dua,
-        onTap: () {
-          pageState = EnumMateriState.mengenalAngkaContent;
-          modelMengenalAngka = listMengenalAngka()[2];
-          update();
-        },
-      ),
-      MengenalModel(
-        title: "3",
-        subtitle: "Tiga",
-        audio: MediaRes.audio.angka.tiga,
-        onTap: () {
-          pageState = EnumMateriState.mengenalAngkaContent;
-          modelMengenalAngka = listMengenalAngka()[3];
-          update();
-        },
-      ),
-      MengenalModel(
-        title: "4",
-        subtitle: "Empat",
-        audio: MediaRes.audio.angka.empat,
-        onTap: () {
-          pageState = EnumMateriState.mengenalAngkaContent;
-          modelMengenalAngka = listMengenalAngka()[4];
-          update();
-        },
-      ),
-      MengenalModel(
-        title: "5",
-        subtitle: "Lima",
-        audio: MediaRes.audio.angka.lima,
-        onTap: () {
-          pageState = EnumMateriState.mengenalAngkaContent;
-          modelMengenalAngka = listMengenalAngka()[5];
-          update();
-        },
-      ),
-      MengenalModel(
-        title: "6",
-        subtitle: "Enam",
-        audio: MediaRes.audio.angka.enam,
-        onTap: () {
-          pageState = EnumMateriState.mengenalAngkaContent;
-          modelMengenalAngka = listMengenalAngka()[6];
-          update();
-        },
-      ),
-      MengenalModel(
-        title: "7",
-        subtitle: "Tujuh",
-        audio: MediaRes.audio.angka.tujuh,
-        onTap: () {
-          pageState = EnumMateriState.mengenalAngkaContent;
-          modelMengenalAngka = listMengenalAngka()[7];
-          update();
-        },
-      ),
-      MengenalModel(
-        title: "8",
-        subtitle: "Delapan",
-        audio: MediaRes.audio.angka.delapan,
-        onTap: () {
-          pageState = EnumMateriState.mengenalAngkaContent;
-          modelMengenalAngka = listMengenalAngka()[8];
-          update();
-        },
-      ),
-      MengenalModel(
-        title: "9",
-        subtitle: "Sembilan",
-        audio: MediaRes.audio.angka.sembilan,
-        onTap: () {
-          pageState = EnumMateriState.mengenalAngkaContent;
-          modelMengenalAngka = listMengenalAngka()[9];
-          update();
-        },
-      ),
+  final List<MengenalModel> _mengenalAngkaList = List.generate(10, (i) {
+    final angka = [
+      ["0", "Nol", MediaRes.audio.angka.nol],
+      ["1", "Satu", MediaRes.audio.angka.satu],
+      ["2", "Dua", MediaRes.audio.angka.dua],
+      ["3", "Tiga", MediaRes.audio.angka.tiga],
+      ["4", "Empat", MediaRes.audio.angka.empat],
+      ["5", "Lima", MediaRes.audio.angka.lima],
+      ["6", "Enam", MediaRes.audio.angka.enam],
+      ["7", "Tujuh", MediaRes.audio.angka.tujuh],
+      ["8", "Delapan", MediaRes.audio.angka.delapan],
+      ["9", "Sembilan", MediaRes.audio.angka.sembilan],
     ];
+    return MengenalModel(
+      title: angka[i][0],
+      subtitle: angka[i][1],
+      audio: angka[i][2],
+      onTap: () {
+        MateriController.instance._setMengenalAngka(i);
+      },
+    );
+  });
+
+  List<MengenalModel> listMengenalAngka() => _mengenalAngkaList;
+
+  void _setMengenalAngka(int index) {
+    pageState = EnumMateriState.mengenalAngkaContent;
+    modelMengenalAngka = _mengenalAngkaList[index];
+    update();
   }
 
   void nextMengenalAngka() {
-    int currentIndex =
-        listMengenalAngka().indexWhere((element) => element.title == modelMengenalAngka.title);
-
-    if (currentIndex != -1 && currentIndex < listMengenalAngka().length - 1) {
-      modelMengenalAngka = listMengenalAngka()[currentIndex + 1];
-      update();
+    int currentIndex = _mengenalAngkaList.indexWhere((e) => e.title == modelMengenalAngka.title);
+    if (currentIndex != -1 && currentIndex < _mengenalAngkaList.length - 1) {
+      _setMengenalAngka(currentIndex + 1);
     }
   }
 
   void backMengenalAngka() {
-    int currentIndex =
-        listMengenalAngka().indexWhere((element) => element.title == modelMengenalAngka.title);
+    int currentIndex = _mengenalAngkaList.indexWhere((e) => e.title == modelMengenalAngka.title);
     if (currentIndex > 0) {
-      modelMengenalAngka = listMengenalAngka()[currentIndex - 1];
-      update();
+      _setMengenalAngka(currentIndex - 1);
     }
   }
-  //End Mengenal Angka
 
-  //Menghitung Angka
+  // Menghitung Angka
   MenghitungAngkaModel modelMenghitungAngka = MenghitungAngkaModel(
     level: "",
     gambar: "",
@@ -152,95 +71,71 @@ class MateriController extends State<MateriView> {
   );
   bool isAnswerCorrect = false;
 
-  List<MenghitungAngkaModel> listMenghitungAngka() {
-    return [
-      MenghitungAngkaModel(
-        level: "1",
-        gambar: MediaRes.materi.a,
-        jawaban: 3,
-        pilihan: [3, 2],
-        onTap: () {
-          pageState = EnumMateriState.menghitung;
-          modelMenghitungAngka = listMenghitungAngka()[0];
-          isAnswerCorrect = false;
-          update();
-        },
-      ),
-      MenghitungAngkaModel(
-        level: "2",
-        gambar: MediaRes.materi.o,
-        jawaban: 2,
-        pilihan: [3, 2],
-        onTap: () {
-          pageState = EnumMateriState.menghitung;
-          modelMenghitungAngka = listMenghitungAngka()[1];
-          isAnswerCorrect = false;
-          update();
-        },
-      ),
-      MenghitungAngkaModel(
-        level: "3",
-        gambar: MediaRes.materi.y,
-        jawaban: 4,
-        pilihan: [3, 4],
-        onTap: () {
-          pageState = EnumMateriState.menghitung;
-          modelMenghitungAngka = listMenghitungAngka()[2];
-          isAnswerCorrect = false;
-          update();
-        },
-      ),
-      MenghitungAngkaModel(
-        level: "4",
-        gambar: MediaRes.materi.w,
-        jawaban: 5,
-        pilihan: [5, 4],
-        onTap: () {
-          pageState = EnumMateriState.menghitung;
-          modelMenghitungAngka = listMenghitungAngka()[3];
-          isAnswerCorrect = false;
-          update();
-        },
-      ),
-      MenghitungAngkaModel(
-        level: "5",
-        gambar: MediaRes.materi.n,
-        jawaban: 6,
-        pilihan: [5, 6],
-        onTap: () {
-          pageState = EnumMateriState.menghitung;
-          modelMenghitungAngka = listMenghitungAngka()[4];
-          isAnswerCorrect = false;
-          update();
-        },
-      ),
-    ];
+  final List<MenghitungAngkaModel> _menghitungAngkaList = [
+    MenghitungAngkaModel(
+      level: "1",
+      gambar: MediaRes.materi.a,
+      jawaban: 3,
+      pilihan: [3, 2],
+      onTap: () => MateriController.instance._setMenghitungAngka(0),
+    ),
+    MenghitungAngkaModel(
+      level: "2",
+      gambar: MediaRes.materi.o,
+      jawaban: 2,
+      pilihan: [3, 2],
+      onTap: () => MateriController.instance._setMenghitungAngka(1),
+    ),
+    MenghitungAngkaModel(
+      level: "3",
+      gambar: MediaRes.materi.y,
+      jawaban: 4,
+      pilihan: [3, 4],
+      onTap: () => MateriController.instance._setMenghitungAngka(2),
+    ),
+    MenghitungAngkaModel(
+      level: "4",
+      gambar: MediaRes.materi.w,
+      jawaban: 5,
+      pilihan: [5, 4],
+      onTap: () => MateriController.instance._setMenghitungAngka(3),
+    ),
+    MenghitungAngkaModel(
+      level: "5",
+      gambar: MediaRes.materi.n,
+      jawaban: 6,
+      pilihan: [5, 6],
+      onTap: () => MateriController.instance._setMenghitungAngka(4),
+    ),
+  ];
+
+  List<MenghitungAngkaModel> listMenghitungAngka() => _menghitungAngkaList;
+
+  void _setMenghitungAngka(int index) {
+    pageState = EnumMateriState.menghitung;
+    modelMenghitungAngka = _menghitungAngkaList[index];
+    isAnswerCorrect = false;
+    update();
   }
 
   void checkAnswerMenghitungAngka(String answer) {
     if (answer == modelMenghitungAngka.jawaban.toString()) {
-      int currentIndex = listMenghitungAngka()
-          .indexWhere((element) => element.level == modelMenghitungAngka.level);
-
-      if (currentIndex != -1 && currentIndex < listMenghitungAngka().length - 1) {
-        modelMenghitungAngka = listMenghitungAngka()[currentIndex + 1];
-        update();
+      int currentIndex =
+          _menghitungAngkaList.indexWhere((e) => e.level == modelMenghitungAngka.level);
+      if (currentIndex != -1 && currentIndex < _menghitungAngkaList.length - 1) {
+        _setMenghitungAngka(currentIndex + 1);
       } else {
         pageState = EnumMateriState.pilihLevel;
         update();
       }
     } else {
-      //If answer is wrong show message
       ScaffoldMessenger.of(globalContext).showSnackBar(
-        const SnackBar(
-          content: Text("Jawaban Salah"),
-        ),
+        const SnackBar(content: Text("Jawaban Salah")),
       );
     }
   }
-  //End Menghitung Angka
 
-  //Mengenal Huruf
+  // Mengenal Huruf
   MengenalModel modelMengenalHuruf = MengenalModel(
     title: "",
     subtitle: "",
@@ -248,318 +143,68 @@ class MateriController extends State<MateriView> {
     onTap: () {},
   );
 
-  List<MengenalModel> listMengenalHuruf() {
-    return [
-      MengenalModel(
-        title: "A",
-        subtitle: "Apel",
-        audio: MediaRes.audio.huruf.a,
-        image: MediaRes.materi.a,
-        onTap: () {
-          pageState = EnumMateriState.mengenalHurufContent;
-          modelMengenalHuruf = listMengenalHuruf()[0];
-          update();
-        },
-      ),
-      MengenalModel(
-        title: "B",
-        subtitle: "Bola",
-        audio: MediaRes.audio.huruf.b,
-        image: MediaRes.materi.b,
-        onTap: () {
-          pageState = EnumMateriState.mengenalHurufContent;
-          modelMengenalHuruf = listMengenalHuruf()[1];
-          update();
-        },
-      ),
-      MengenalModel(
-        title: "C",
-        subtitle: "Ceri",
-        audio: MediaRes.audio.huruf.c,
-        image: MediaRes.materi.c,
-        onTap: () {
-          pageState = EnumMateriState.mengenalHurufContent;
-          modelMengenalHuruf = listMengenalHuruf()[2];
-          update();
-        },
-      ),
-      MengenalModel(
-        title: "D",
-        subtitle: "Domba",
-        audio: MediaRes.audio.huruf.d,
-        image: MediaRes.materi.d,
-        onTap: () {
-          pageState = EnumMateriState.mengenalHurufContent;
-          modelMengenalHuruf = listMengenalHuruf()[3];
-          update();
-        },
-      ),
-      MengenalModel(
-        title: "E",
-        subtitle: "Elang",
-        audio: MediaRes.audio.huruf.e,
-        image: MediaRes.materi.e,
-        onTap: () {
-          pageState = EnumMateriState.mengenalHurufContent;
-          modelMengenalHuruf = listMengenalHuruf()[4];
-          update();
-        },
-      ),
-      MengenalModel(
-        title: "F",
-        subtitle: "Foto",
-        audio: MediaRes.audio.huruf.f,
-        image: MediaRes.materi.f,
-        onTap: () {
-          pageState = EnumMateriState.mengenalHurufContent;
-          modelMengenalHuruf = listMengenalHuruf()[5];
-          update();
-        },
-      ),
-      MengenalModel(
-        title: "G",
-        subtitle: "Gajah",
-        audio: MediaRes.audio.huruf.g,
-        image: MediaRes.materi.g,
-        onTap: () {
-          pageState = EnumMateriState.mengenalHurufContent;
-          modelMengenalHuruf = listMengenalHuruf()[6];
-          update();
-        },
-      ),
-      MengenalModel(
-        title: "H",
-        subtitle: "Harimau",
-        audio: MediaRes.audio.huruf.h,
-        image: MediaRes.materi.h,
-        onTap: () {
-          pageState = EnumMateriState.mengenalHurufContent;
-          modelMengenalHuruf = listMengenalHuruf()[7];
-          update();
-        },
-      ),
-      MengenalModel(
-        title: "I",
-        subtitle: "Ikan",
-        audio: MediaRes.audio.huruf.i,
-        image: MediaRes.materi.i,
-        onTap: () {
-          pageState = EnumMateriState.mengenalHurufContent;
-          modelMengenalHuruf = listMengenalHuruf()[8];
-          update();
-        },
-      ),
-      MengenalModel(
-        title: "J",
-        subtitle: "Jagung",
-        audio: MediaRes.audio.huruf.j,
-        image: MediaRes.materi.j,
-        onTap: () {
-          pageState = EnumMateriState.mengenalHurufContent;
-          modelMengenalHuruf = listMengenalHuruf()[9];
-          update();
-        },
-      ),
-      MengenalModel(
-        title: "K",
-        subtitle: "Kelinci",
-        audio: MediaRes.audio.huruf.k,
-        image: MediaRes.materi.k,
-        onTap: () {
-          pageState = EnumMateriState.mengenalHurufContent;
-          modelMengenalHuruf = listMengenalHuruf()[10];
-          update();
-        },
-      ),
-      MengenalModel(
-        title: "L",
-        subtitle: "Lampu",
-        audio: MediaRes.audio.huruf.l,
-        image: MediaRes.materi.l,
-        onTap: () {
-          pageState = EnumMateriState.mengenalHurufContent;
-          modelMengenalHuruf = listMengenalHuruf()[11];
-          update();
-        },
-      ),
-      MengenalModel(
-        title: "M",
-        subtitle: "Motor",
-        audio: MediaRes.audio.huruf.m,
-        image: MediaRes.materi.m,
-        onTap: () {
-          pageState = EnumMateriState.mengenalHurufContent;
-          modelMengenalHuruf = listMengenalHuruf()[12];
-          update();
-        },
-      ),
-      MengenalModel(
-        title: "N",
-        subtitle: "Nanas",
-        audio: MediaRes.audio.huruf.n,
-        image: MediaRes.materi.n,
-        onTap: () {
-          pageState = EnumMateriState.mengenalHurufContent;
-          modelMengenalHuruf = listMengenalHuruf()[13];
-          update();
-        },
-      ),
-      MengenalModel(
-        title: "O",
-        subtitle: "Obat",
-        audio: MediaRes.audio.huruf.o,
-        image: MediaRes.materi.o,
-        onTap: () {
-          pageState = EnumMateriState.mengenalHurufContent;
-          modelMengenalHuruf = listMengenalHuruf()[14];
-          update();
-        },
-      ),
-      MengenalModel(
-        title: "P",
-        subtitle: "Payung",
-        audio: MediaRes.audio.huruf.p,
-        image: MediaRes.materi.p,
-        onTap: () {
-          pageState = EnumMateriState.mengenalHurufContent;
-          modelMengenalHuruf = listMengenalHuruf()[15];
-          update();
-        },
-      ),
-      MengenalModel(
-        title: "Q",
-        subtitle: "Qur'an",
-        audio: MediaRes.audio.huruf.q,
-        image: MediaRes.materi.q,
-        onTap: () {
-          pageState = EnumMateriState.mengenalHurufContent;
-          modelMengenalHuruf = listMengenalHuruf()[16];
-          update();
-        },
-      ),
-      MengenalModel(
-        title: "R",
-        subtitle: "Rusa",
-        audio: MediaRes.audio.huruf.r,
-        image: MediaRes.materi.r,
-        onTap: () {
-          pageState = EnumMateriState.mengenalHurufContent;
-          modelMengenalHuruf = listMengenalHuruf()[17];
-          update();
-        },
-      ),
-      MengenalModel(
-        title: "S",
-        subtitle: "Sapi",
-        audio: MediaRes.audio.huruf.s,
-        image: MediaRes.materi.s,
-        onTap: () {
-          pageState = EnumMateriState.mengenalHurufContent;
-          modelMengenalHuruf = listMengenalHuruf()[18];
-          update();
-        },
-      ),
-      MengenalModel(
-        title: "T",
-        subtitle: "Telur",
-        audio: MediaRes.audio.huruf.t,
-        image: MediaRes.materi.t,
-        onTap: () {
-          pageState = EnumMateriState.mengenalHurufContent;
-          modelMengenalHuruf = listMengenalHuruf()[19];
-          update();
-        },
-      ),
-      MengenalModel(
-        title: "U",
-        subtitle: "Ular",
-        audio: MediaRes.audio.huruf.u,
-        image: MediaRes.materi.u,
-        onTap: () {
-          pageState = EnumMateriState.mengenalHurufContent;
-          modelMengenalHuruf = listMengenalHuruf()[20];
-          update();
-        },
-      ),
-      MengenalModel(
-        title: "V",
-        subtitle: "Vas",
-        audio: MediaRes.audio.huruf.v,
-        image: MediaRes.materi.v,
-        onTap: () {
-          pageState = EnumMateriState.mengenalHurufContent;
-          modelMengenalHuruf = listMengenalHuruf()[21];
-          update();
-        },
-      ),
-      MengenalModel(
-        title: "W",
-        subtitle: "Wortel",
-        audio: MediaRes.audio.huruf.w,
-        image: MediaRes.materi.w,
-        onTap: () {
-          pageState = EnumMateriState.mengenalHurufContent;
-          modelMengenalHuruf = listMengenalHuruf()[22];
-          update();
-        },
-      ),
-      MengenalModel(
-        title: "X",
-        subtitle: "Xilofon",
-        audio: MediaRes.audio.huruf.x,
-        image: MediaRes.materi.x,
-        onTap: () {
-          pageState = EnumMateriState.mengenalHurufContent;
-          modelMengenalHuruf = listMengenalHuruf()[23];
-          update();
-        },
-      ),
-      MengenalModel(
-        title: "Y",
-        subtitle: "Yoyo",
-        audio: MediaRes.audio.huruf.y,
-        image: MediaRes.materi.y,
-        onTap: () {
-          pageState = EnumMateriState.mengenalHurufContent;
-          modelMengenalHuruf = listMengenalHuruf()[24];
-          update();
-        },
-      ),
-      MengenalModel(
-        title: "Z",
-        subtitle: "Zebra",
-        audio: MediaRes.audio.huruf.z,
-        image: MediaRes.materi.z,
-        onTap: () {
-          pageState = EnumMateriState.mengenalHurufContent;
-          modelMengenalHuruf = listMengenalHuruf()[25];
-          update();
-        },
-      ),
-    ];
+  final List<MengenalModel> _mengenalHurufList = [
+    ["A", "Apel", MediaRes.audio.huruf.a, MediaRes.materi.a],
+    ["B", "Bola", MediaRes.audio.huruf.b, MediaRes.materi.b],
+    ["C", "Ceri", MediaRes.audio.huruf.c, MediaRes.materi.c],
+    ["D", "Domba", MediaRes.audio.huruf.d, MediaRes.materi.d],
+    ["E", "Elang", MediaRes.audio.huruf.e, MediaRes.materi.e],
+    ["F", "Foto", MediaRes.audio.huruf.f, MediaRes.materi.f],
+    ["G", "Gajah", MediaRes.audio.huruf.g, MediaRes.materi.g],
+    ["H", "Harimau", MediaRes.audio.huruf.h, MediaRes.materi.h],
+    ["I", "Ikan", MediaRes.audio.huruf.i, MediaRes.materi.i],
+    ["J", "Jagung", MediaRes.audio.huruf.j, MediaRes.materi.j],
+    ["K", "Kelinci", MediaRes.audio.huruf.k, MediaRes.materi.k],
+    ["L", "Lampu", MediaRes.audio.huruf.l, MediaRes.materi.l],
+    ["M", "Motor", MediaRes.audio.huruf.m, MediaRes.materi.m],
+    ["N", "Nanas", MediaRes.audio.huruf.n, MediaRes.materi.n],
+    ["O", "Obat", MediaRes.audio.huruf.o, MediaRes.materi.o],
+    ["P", "Payung", MediaRes.audio.huruf.p, MediaRes.materi.p],
+    ["Q", "Qur'an", MediaRes.audio.huruf.q, MediaRes.materi.q],
+    ["R", "Rusa", MediaRes.audio.huruf.r, MediaRes.materi.r],
+    ["S", "Sapi", MediaRes.audio.huruf.s, MediaRes.materi.s],
+    ["T", "Telur", MediaRes.audio.huruf.t, MediaRes.materi.t],
+    ["U", "Ular", MediaRes.audio.huruf.u, MediaRes.materi.u],
+    ["V", "Vas", MediaRes.audio.huruf.v, MediaRes.materi.v],
+    ["W", "Wortel", MediaRes.audio.huruf.w, MediaRes.materi.w],
+    ["X", "Xilofon", MediaRes.audio.huruf.x, MediaRes.materi.x],
+    ["Y", "Yoyo", MediaRes.audio.huruf.y, MediaRes.materi.y],
+    ["Z", "Zebra", MediaRes.audio.huruf.z, MediaRes.materi.z],
+  ].asMap().entries.map((entry) {
+    int i = entry.key;
+    var huruf = entry.value;
+    return MengenalModel(
+      title: huruf[0],
+      subtitle: huruf[1],
+      audio: huruf[2],
+      image: huruf[3],
+      onTap: () => MateriController.instance._setMengenalHuruf(i),
+    );
+  }).toList();
+
+  List<MengenalModel> listMengenalHuruf() => _mengenalHurufList;
+
+  void _setMengenalHuruf(int index) {
+    pageState = EnumMateriState.mengenalHurufContent;
+    modelMengenalHuruf = _mengenalHurufList[index];
+    update();
   }
 
   void nextMengenalHuruf() {
-    int currentIndex =
-        listMengenalHuruf().indexWhere((element) => element.title == modelMengenalHuruf.title);
-
-    if (currentIndex != -1 && currentIndex < listMengenalHuruf().length - 1) {
-      modelMengenalHuruf = listMengenalHuruf()[currentIndex + 1];
-      update();
+    int currentIndex = _mengenalHurufList.indexWhere((e) => e.title == modelMengenalHuruf.title);
+    if (currentIndex != -1 && currentIndex < _mengenalHurufList.length - 1) {
+      _setMengenalHuruf(currentIndex + 1);
     }
   }
 
   void backMengenalHuruf() {
-    int currentIndex =
-        listMengenalHuruf().indexWhere((element) => element.title == modelMengenalHuruf.title);
+    int currentIndex = _mengenalHurufList.indexWhere((e) => e.title == modelMengenalHuruf.title);
     if (currentIndex > 0) {
-      modelMengenalHuruf = listMengenalHuruf()[currentIndex - 1];
-      update();
+      _setMengenalHuruf(currentIndex - 1);
     }
   }
-  //End Mengenal Huruf
 
-  //Mencocokan Angka
+  // Mencocokan Angka
   MencocokanAngkaModel modelMencocokanAngka = MencocokanAngkaModel(
     value: "",
     textValue: "",
@@ -568,142 +213,104 @@ class MateriController extends State<MateriView> {
     onTap: () {},
   );
 
-  List<MencocokanAngkaModel> listMencocokanAngka() {
-    return [
-      MencocokanAngkaModel(
-        value: "1",
-        colorBorder: green800,
-        textValue: "SATU",
-        image: MediaRes.materi.a,
-        onTap: () {
-          pageState = EnumMateriState.mencocokanAngka;
-          modelMencocokanAngka = listMencocokanAngka()[0];
-          update();
-        },
-      ),
-      MencocokanAngkaModel(
-        value: "2",
-        colorBorder: blueGray800,
-        textValue: "DUA",
-        image: MediaRes.materi.n,
-        onTap: () {
-          pageState = EnumMateriState.mencocokanAngka;
-          modelMencocokanAngka = listMencocokanAngka()[1];
-          update();
-        },
-      ),
-      MencocokanAngkaModel(
-        value: "3",
-        colorBorder: blue800,
-        textValue: "TIGA",
-        image: MediaRes.materi.t,
-        onTap: () {
-          pageState = EnumMateriState.mencocokanAngka;
-          modelMencocokanAngka = listMencocokanAngka()[2];
-          update();
-        },
-      ),
-      MencocokanAngkaModel(
-        value: "4",
-        colorBorder: pink800,
-        textValue: "EMPAT",
-        image: MediaRes.materi.a,
-        onTap: () {
-          pageState = EnumMateriState.mencocokanAngka;
-          modelMencocokanAngka = listMencocokanAngka()[3];
-          update();
-        },
-      ),
-      MencocokanAngkaModel(
-        value: "5",
-        colorBorder: purple800,
-        textValue: "LIMA",
-        image: MediaRes.materi.a,
-        onTap: () {
-          pageState = EnumMateriState.mencocokanAngka;
-          modelMencocokanAngka = listMencocokanAngka()[4];
-          update();
-        },
-      ),
-      MencocokanAngkaModel(
-        value: "6",
-        colorBorder: red800,
-        textValue: "ENAM",
-        image: MediaRes.materi.t,
-        onTap: () {
-          pageState = EnumMateriState.mencocokanAngka;
-          modelMencocokanAngka = listMencocokanAngka()[5];
-          update();
-        },
-      ),
-      MencocokanAngkaModel(
-        value: "7",
-        colorBorder: gray800,
-        textValue: "TUJUH",
-        image: MediaRes.materi.s,
-        onTap: () {
-          pageState = EnumMateriState.mencocokanAngka;
-          modelMencocokanAngka = listMencocokanAngka()[6];
-          update();
-        },
-      ),
-      MencocokanAngkaModel(
-        value: "8",
-        colorBorder: purple800,
-        textValue: "DELAPAN",
-        image: MediaRes.materi.p,
-        onTap: () {
-          pageState = EnumMateriState.mencocokanAngka;
-          modelMencocokanAngka = listMencocokanAngka()[7];
-          update();
-        },
-      ),
-      MencocokanAngkaModel(
-        value: "9",
-        colorBorder: const Color(0xff20A95A),
-        textValue: "SEMBILAN",
-        image: MediaRes.materi.u,
-        onTap: () {
-          pageState = EnumMateriState.mencocokanAngka;
-          modelMencocokanAngka = listMencocokanAngka()[8];
-          update();
-        },
-      ),
-      MencocokanAngkaModel(
-        value: "10",
-        colorBorder: yellow900,
-        textValue: "SEPULUH",
-        image: MediaRes.materi.w,
-        onTap: () {
-          pageState = EnumMateriState.mencocokanAngka;
-          modelMencocokanAngka = listMencocokanAngka()[9];
-          update();
-        },
-      ),
-    ];
+  final List<MencocokanAngkaModel> _mencocokanAngkaList = [
+    MencocokanAngkaModel(
+      value: "1",
+      colorBorder: green800,
+      textValue: "SATU",
+      image: MediaRes.materi.a,
+      onTap: () => MateriController.instance._setMencocokanAngka(0),
+    ),
+    MencocokanAngkaModel(
+      value: "2",
+      colorBorder: blueGray800,
+      textValue: "DUA",
+      image: MediaRes.materi.n,
+      onTap: () => MateriController.instance._setMencocokanAngka(1),
+    ),
+    MencocokanAngkaModel(
+      value: "3",
+      colorBorder: blue800,
+      textValue: "TIGA",
+      image: MediaRes.materi.t,
+      onTap: () => MateriController.instance._setMencocokanAngka(2),
+    ),
+    MencocokanAngkaModel(
+      value: "4",
+      colorBorder: pink800,
+      textValue: "EMPAT",
+      image: MediaRes.materi.a,
+      onTap: () => MateriController.instance._setMencocokanAngka(3),
+    ),
+    MencocokanAngkaModel(
+      value: "5",
+      colorBorder: purple800,
+      textValue: "LIMA",
+      image: MediaRes.materi.a,
+      onTap: () => MateriController.instance._setMencocokanAngka(4),
+    ),
+    MencocokanAngkaModel(
+      value: "6",
+      colorBorder: red800,
+      textValue: "ENAM",
+      image: MediaRes.materi.t,
+      onTap: () => MateriController.instance._setMencocokanAngka(5),
+    ),
+    MencocokanAngkaModel(
+      value: "7",
+      colorBorder: gray800,
+      textValue: "TUJUH",
+      image: MediaRes.materi.s,
+      onTap: () => MateriController.instance._setMencocokanAngka(6),
+    ),
+    MencocokanAngkaModel(
+      value: "8",
+      colorBorder: purple800,
+      textValue: "DELAPAN",
+      image: MediaRes.materi.p,
+      onTap: () => MateriController.instance._setMencocokanAngka(7),
+    ),
+    MencocokanAngkaModel(
+      value: "9",
+      colorBorder: const Color(0xff20A95A),
+      textValue: "SEMBILAN",
+      image: MediaRes.materi.u,
+      onTap: () => MateriController.instance._setMencocokanAngka(8),
+    ),
+    MencocokanAngkaModel(
+      value: "10",
+      colorBorder: yellow900,
+      textValue: "SEPULUH",
+      image: MediaRes.materi.w,
+      onTap: () => MateriController.instance._setMencocokanAngka(9),
+    ),
+  ];
+
+  List<MencocokanAngkaModel> listMencocokanAngka() => _mencocokanAngkaList;
+
+  void _setMencocokanAngka(int index) {
+    pageState = EnumMateriState.mencocokanAngka;
+    modelMencocokanAngka = _mencocokanAngkaList[index];
+    update();
   }
 
   void nextMencocokanAngka() {
     int currentIndex =
-        listMencocokanAngka().indexWhere((element) => element.value == modelMencocokanAngka.value);
-
-    if (currentIndex != -1 && currentIndex < listMencocokanAngka().length - 1) {
-      modelMencocokanAngka = listMencocokanAngka()[currentIndex + 1];
-      update();
+        _mencocokanAngkaList.indexWhere((e) => e.value == modelMencocokanAngka.value);
+    if (currentIndex != -1 && currentIndex < _mencocokanAngkaList.length - 1) {
+      _setMencocokanAngka(currentIndex + 1);
     }
   }
 
   void backMencocokanAngka() {
     int currentIndex =
-        listMencocokanAngka().indexWhere((element) => element.value == modelMencocokanAngka.value);
+        _mencocokanAngkaList.indexWhere((e) => e.value == modelMencocokanAngka.value);
     if (currentIndex > 0) {
-      modelMencocokanAngka = listMencocokanAngka()[currentIndex - 1];
-      update();
+      _setMencocokanAngka(currentIndex - 1);
     }
   }
-  //End Mencocokan Angka
 
-  //Mengenal Bentuk
+  // Mengenal Bentuk
   MengenalBentukModel modelMengenalBentuk = MengenalBentukModel(
     listBentuk: [
       MediaRes.images.persegi,
@@ -715,62 +322,140 @@ class MateriController extends State<MateriView> {
     title: "Mengenal Bentuk",
   );
 
-  List<MengenalBentukModel> listMengenalBentuk() {
-    return [
-      MengenalBentukModel(
-        listBentuk: [
-          MediaRes.images.persegi,
-          MediaRes.images.persegiPanjang,
-          MediaRes.images.segitiga,
-          MediaRes.images.lingkaran,
-        ],
-        soal: 1,
-        title: "Mengenal Bentuk",
-      ),
-      MengenalBentukModel(
-        listBentuk: [
-          MediaRes.images.persegi,
-          MediaRes.images.lingkaran,
-          MediaRes.images.persegi,
-          MediaRes.images.lingkaran,
-        ],
-        soal: 2,
-        title: "Mengenal Pola",
-      ),
-      MengenalBentukModel(
-        listBentuk: [
-          MediaRes.images.lingkaran,
-          MediaRes.images.segitiga,
-          MediaRes.images.lingkaran,
-          MediaRes.images.segitiga,
-        ],
-        soal: 3,
-        title: "Mengenal Pola",
-      ),
-    ];
+  final List<MengenalBentukModel> _mengenalBentukList = [
+    MengenalBentukModel(
+      listBentuk: [
+        MediaRes.images.persegi,
+        MediaRes.images.persegiPanjang,
+        MediaRes.images.segitiga,
+        MediaRes.images.lingkaran,
+      ],
+      soal: 1,
+      title: "Mengenal Bentuk",
+    ),
+    MengenalBentukModel(
+      listBentuk: [
+        MediaRes.images.persegi,
+        MediaRes.images.lingkaran,
+        MediaRes.images.persegi,
+        MediaRes.images.lingkaran,
+      ],
+      soal: 2,
+      title: "Mengenal Pola",
+    ),
+    MengenalBentukModel(
+      listBentuk: [
+        MediaRes.images.lingkaran,
+        MediaRes.images.segitiga,
+        MediaRes.images.lingkaran,
+        MediaRes.images.segitiga,
+      ],
+      soal: 3,
+      title: "Mengenal Pola",
+    ),
+  ];
+
+  List<MengenalBentukModel> listMengenalBentuk() => _mengenalBentukList;
+
+  void _setMengenalBentuk(int index) {
+    modelMengenalBentuk = _mengenalBentukList[index];
+    update();
   }
 
   void nextMengenalBentuk() {
-    int currentIndex =
-        listMengenalBentuk().indexWhere((element) => element.soal == modelMengenalBentuk.soal);
-
-    if (currentIndex != -1 && currentIndex < listMengenalBentuk().length - 1) {
-      modelMengenalBentuk = listMengenalBentuk()[currentIndex + 1];
-      update();
+    int currentIndex = _mengenalBentukList.indexWhere((e) => e.soal == modelMengenalBentuk.soal);
+    if (currentIndex != -1 && currentIndex < _mengenalBentukList.length - 1) {
+      _setMengenalBentuk(currentIndex + 1);
     }
   }
 
   void backMengenalBentuk() {
-    int currentIndex =
-        listMengenalBentuk().indexWhere((element) => element.soal == modelMengenalBentuk.soal);
+    int currentIndex = _mengenalBentukList.indexWhere((e) => e.soal == modelMengenalBentuk.soal);
     if (currentIndex > 0) {
-      modelMengenalBentuk = listMengenalBentuk()[currentIndex - 1];
-      update();
+      _setMengenalBentuk(currentIndex - 1);
     }
   }
-  //End Mengenal Bentuk
 
-  changePageState(EnumMateriState state) {
+  // Menghitung Angka
+  MengenalPerbandinganModel modelMengenalPerbandingan = MengenalPerbandinganModel(
+    soal: "Ayo kita bandingkan, yang manakah yang lebih banyak !",
+    imageA: MediaRes.materi.a,
+    imageB: MediaRes.materi.n,
+    jawaban: 6,
+    pilA: 3,
+    pilB: 6,
+  );
+
+  final List<MengenalPerbandinganModel> _mengenalPerbandinganList = [
+    MengenalPerbandinganModel(
+      soal: "Ayo kita bandingkan, yang manakah yang lebih banyak !",
+      imageA: MediaRes.materi.a,
+      imageB: MediaRes.materi.n,
+      jawaban: 6,
+      pilA: 3,
+      pilB: 6,
+    ),
+    MengenalPerbandinganModel(
+      soal: "Ayo kita bandingkan, yang manakah yang lebih sedikit !",
+      imageA: MediaRes.materi.h,
+      imageB: MediaRes.materi.s,
+      jawaban: 4,
+      pilA: 5,
+      pilB: 4,
+    ),
+  ];
+
+  List<MengenalPerbandinganModel> listMengenalPerbandingan() => _mengenalPerbandinganList;
+
+  void _setMengenalPerbandingan(int index) {
+    // pageState = EnumMateriState.mengenalPerbandingan;
+    modelMengenalPerbandingan = _mengenalPerbandinganList[index];
+    update();
+  }
+
+  void checkAnswerMengenalPerbandingan(int answer) {
+    if (answer == modelMengenalPerbandingan.jawaban) {
+      int currentIndex =
+          _mengenalPerbandinganList.indexWhere((e) => e.soal == modelMengenalPerbandingan.soal);
+
+      if (currentIndex != -1 && currentIndex < _mengenalPerbandinganList.length - 1) {
+        showDialogBase(
+          content: DialogMengenalPerbandingan(
+            isCorrect: true,
+            isLast: false,
+            onPressed: () {
+              _setMengenalPerbandingan(currentIndex + 1);
+              Get.back();
+            },
+          ),
+        );
+      } else {
+        showDialogBase(
+          content: DialogMengenalPerbandingan(
+            isCorrect: true,
+            isLast: true,
+            onPressed: () {
+              pageState = EnumMateriState.ayoBelajar;
+              update();
+              Get.back();
+            },
+          ),
+        );
+      }
+    } else {
+      showDialogBase(
+        content: DialogMengenalPerbandingan(
+          isCorrect: false,
+          isLast: false,
+          onPressed: () {
+            Get.back();
+          },
+        ),
+      );
+    }
+  }
+
+  void changePageState(EnumMateriState state) {
     pageState = state;
     update();
   }

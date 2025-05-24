@@ -45,7 +45,8 @@ class _AyoBelajarViewState extends State<AyoBelajarView> {
       PilihMateriModel(
         image: MediaRes.button.mengenalPerbandingan,
         onTap: () {
-          // widget.controller.changePageState(EnumMateriState.pilihLevel);
+          widget.controller.background = MediaRes.background.mencocokanAngka;
+          widget.controller.changePageState(EnumMateriState.mengenalPerbandingan);
         },
       ),
       PilihMateriModel(
@@ -63,7 +64,8 @@ class _AyoBelajarViewState extends State<AyoBelajarView> {
       PilihMateriModel(
         image: MediaRes.button.berhitung,
         onTap: () {
-          // widget.controller.changePageState(EnumMateriState.pilihLevel);
+          widget.controller.background = MediaRes.background.kelas;
+          widget.controller.changePageState(EnumMateriState.pilihLevel);
         },
       ),
       PilihMateriModel(
