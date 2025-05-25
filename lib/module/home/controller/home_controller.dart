@@ -46,7 +46,7 @@ class HomeController extends State<HomeView> {
   @override
   void initState() {
     instance = this;
-    // playBackgroundMusic();
+    playBackgroundMusic();
     super.initState();
   }
 
