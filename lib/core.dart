@@ -34,6 +34,7 @@ export 'package:anak_hebat/module/login/widget/custom_button.dart';
 export 'package:anak_hebat/module/login/widget/custom_formfield.dart';
 export 'package:anak_hebat/module/materi/controller/materi_controller.dart';
 export 'package:anak_hebat/module/materi/view/content/ayo_belajar_view.dart';
+export 'package:anak_hebat/module/materi/view/content/berhitung_view.dart';
 export 'package:anak_hebat/module/materi/view/content/mencocokan_angka/level_mencocokan_angka_view.dart';
 export 'package:anak_hebat/module/materi/view/content/mencocokan_angka/mencocokan_angka_view.dart';
 export 'package:anak_hebat/module/materi/view/content/mengenal_angka_content_view.dart';

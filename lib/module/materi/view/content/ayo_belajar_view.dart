@@ -65,7 +65,10 @@ class _AyoBelajarViewState extends State<AyoBelajarView> {
       ),
       PilihMateriModel(
         image: MediaRes.button.berhitung,
-        onTap: () {},
+        onTap: () {
+          widget.controller.changeBackground(MediaRes.background.berhitung);
+          widget.controller.changePageState(EnumMateriState.berhitung);
+        },
       ),
       PilihMateriModel(
         image: MediaRes.button.mengenalAngkaBenda,

@@ -83,6 +83,10 @@ class MateriView extends StatefulWidget {
                       return MengenalPosisiView(
                         controller: controller,
                       );
+                    case EnumMateriState.berhitung:
+                      return BerhitungView(
+                        controller: controller,
+                      );
                     default:
                       return Container();
                   }

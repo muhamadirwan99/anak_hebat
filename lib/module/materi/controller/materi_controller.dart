@@ -142,6 +142,14 @@ class MateriController extends State<MateriView> {
             isCorrect: true,
             isLast: true,
             onPressed: () {
+              setDefaultBackground();
+              modelMenghitungAngka = MenghitungAngkaModel(
+                level: "",
+                gambar: "",
+                jawaban: 0,
+                pilihan: [],
+                onTap: () {},
+              );
               pageState = EnumMateriState.pilihLevel;
               update();
               Get.back();
@@ -403,7 +411,7 @@ class MateriController extends State<MateriView> {
     }
   }
 
-  // Menghitung Angka
+  // Mengenal Perbandingan
   MengenalPerbandinganModel modelMengenalPerbandingan = MengenalPerbandinganModel(
     soal: "Ayo kita bandingkan, yang manakah yang lebih banyak !",
     imageA: MediaRes.materi.a,
@@ -435,7 +443,6 @@ class MateriController extends State<MateriView> {
   List<MengenalPerbandinganModel> listMengenalPerbandingan() => _mengenalPerbandinganList;
 
   void _setMengenalPerbandingan(int index) {
-    // pageState = EnumMateriState.mengenalPerbandingan;
     modelMengenalPerbandingan = _mengenalPerbandinganList[index];
     update();
   }
@@ -462,6 +469,15 @@ class MateriController extends State<MateriView> {
             isCorrect: true,
             isLast: true,
             onPressed: () {
+              setDefaultBackground();
+              modelMengenalPerbandingan = MengenalPerbandinganModel(
+                soal: "Ayo kita bandingkan, yang manakah yang lebih banyak !",
+                imageA: MediaRes.materi.a,
+                imageB: MediaRes.materi.n,
+                jawaban: 6,
+                pilA: 3,
+                pilB: 6,
+              );
               pageState = EnumMateriState.ayoBelajar;
               update();
               Get.back();
@@ -576,6 +592,16 @@ class MateriController extends State<MateriView> {
             isCorrect: true,
             isLast: true,
             onPressed: () {
+              setDefaultBackground();
+              modelMengenalPosisiUrutan = MengenalPosisiUrutanModel(
+                soal: "1",
+                background: MediaRes.background.perbandingan1,
+                image: [],
+                jawaban: 0,
+                pilA: 0,
+                pilB: 0,
+                pilC: 0,
+              );
               pageState = EnumMateriState.ayoBelajar;
               update();
               Get.back();
@@ -639,8 +665,133 @@ class MateriController extends State<MateriView> {
     }
   }
 
+  // Mengenal Perbandingan
+  BerhitungModel modelBerhitung = BerhitungModel(
+    level: "1",
+    imageA: MediaRes.images.kupuKupu,
+    imageB: MediaRes.images.kupuKupu,
+    soalA: 3,
+    soalB: 3,
+    jawaban: 6,
+    pil: [
+      6,
+      4,
+      3,
+    ],
+  );
+
+  final List<BerhitungModel> _berhitungList = [
+    BerhitungModel(
+      level: "1",
+      imageA: MediaRes.images.kupuKupu,
+      imageB: MediaRes.images.kupuKupu,
+      soalA: 3,
+      soalB: 3,
+      jawaban: 6,
+      pil: [
+        6,
+        4,
+        3,
+      ],
+    ),
+    BerhitungModel(
+      level: "2",
+      imageA: MediaRes.images.wortel1,
+      imageB: MediaRes.images.wortel2,
+      soalA: 1,
+      soalB: 6,
+      jawaban: 7,
+      pil: [
+        1,
+        7,
+        5,
+      ],
+    ),
+    BerhitungModel(
+      level: "3",
+      imageA: MediaRes.images.buahNaga,
+      imageB: MediaRes.images.buahNaga,
+      soalA: 2,
+      soalB: 3,
+      jawaban: 5,
+      pil: [
+        2,
+        4,
+        5,
+      ],
+    ),
+  ];
+
+  List<BerhitungModel> listBerhitung() => _berhitungList;
+
+  void _setBerhitung(int index) {
+    // pageState = EnumMateriState.Berhitung;
+    modelBerhitung = _berhitungList[index];
+    update();
+  }
+
+  void checkAnswerBerhitung(int answer) {
+    if (answer == modelBerhitung.jawaban) {
+      int currentIndex = _berhitungList.indexWhere((e) => e.level == modelBerhitung.level);
+
+      if (currentIndex != -1 && currentIndex < _berhitungList.length - 1) {
+        showDialogBase(
+          content: DialogHasilJawaban(
+            isCorrect: true,
+            isLast: false,
+            onPressed: () {
+              _setBerhitung(currentIndex + 1);
+              Get.back();
+            },
+          ),
+        );
+      } else {
+        showDialogBase(
+          content: DialogHasilJawaban(
+            isCorrect: true,
+            isLast: true,
+            onPressed: () {
+              setDefaultBackground();
+              modelBerhitung = BerhitungModel(
+                level: "1",
+                imageA: MediaRes.images.kupuKupu,
+                imageB: MediaRes.images.kupuKupu,
+                soalA: 3,
+                soalB: 3,
+                jawaban: 6,
+                pil: [
+                  6,
+                  4,
+                  3,
+                ],
+              );
+              pageState = EnumMateriState.ayoBelajar;
+              update();
+              Get.back();
+            },
+          ),
+        );
+      }
+    } else {
+      showDialogBase(
+        content: DialogHasilJawaban(
+          isCorrect: false,
+          isLast: false,
+          onPressed: () {
+            Get.back();
+          },
+        ),
+      );
+    }
+  }
+
   void changePageState(EnumMateriState state) {
     pageState = state;
+    update();
+  }
+
+  void setDefaultBackground() {
+    background = MediaRes.background.leaderboard;
     update();
   }
 

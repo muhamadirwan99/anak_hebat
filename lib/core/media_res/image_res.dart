@@ -19,4 +19,8 @@ class ImageRes {
   String get diatasMeja => '${ImageRes.basePath}/diatas_meja.png';
   String get dibawahMeja => '${ImageRes.basePath}/dibawah_meja.png';
   String get disampingMeja => '${ImageRes.basePath}/disamping_meja.png';
+  String get buahNaga => '${ImageRes.basePath}/buah_naga.png';
+  String get kupuKupu => '${ImageRes.basePath}/kupu_kupu.png';
+  String get wortel1 => '${ImageRes.basePath}/wortel_1.png';
+  String get wortel2 => '${ImageRes.basePath}/wortel_2.png';
 }
