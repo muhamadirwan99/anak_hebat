@@ -159,26 +159,9 @@ class _MenghitungViewState extends State<MenghitungView> {
   Widget containerJawaban(index) {
     return InkWell(
       onTap: () {
-        if (widget.controller.modelMenghitungAngka.pilihan[index] ==
-            widget.controller.modelMenghitungAngka.jawaban) {
-          widget.controller.isAnswerCorrect = !widget.controller.isAnswerCorrect;
-          // widget.controller.isAnswerCorrect = true;
-          widget.controller.update();
-        } else {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(
-                'Jawaban salah, coba lagi!',
-                style: GoogleFonts.balsamiqSans(
-                  fontSize: 20,
-                  color: Colors.white,
-                ),
-              ),
-              backgroundColor: Colors.red,
-              duration: const Duration(seconds: 2),
-            ),
-          );
-        }
+        widget.controller.checkAnswerMenghitungAngka(
+          widget.controller.modelMenghitungAngka.pilihan[index].toString(),
+        );
       },
       child: Container(
         decoration: const BoxDecoration(

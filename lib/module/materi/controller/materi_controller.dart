@@ -122,17 +122,58 @@ class MateriController extends State<MateriView> {
     if (answer == modelMenghitungAngka.jawaban.toString()) {
       int currentIndex =
           _menghitungAngkaList.indexWhere((e) => e.level == modelMenghitungAngka.level);
+
       if (currentIndex != -1 && currentIndex < _menghitungAngkaList.length - 1) {
-        _setMenghitungAngka(currentIndex + 1);
-      } else {
-        pageState = EnumMateriState.pilihLevel;
+        isAnswerCorrect = !isAnswerCorrect;
         update();
+        showDialogBase(
+          content: DialogHasilJawaban(
+            isCorrect: true,
+            isLast: false,
+            onPressed: () {
+              _setMenghitungAngka(currentIndex + 1);
+              Get.back();
+            },
+          ),
+        );
+      } else {
+        showDialogBase(
+          content: DialogHasilJawaban(
+            isCorrect: true,
+            isLast: true,
+            onPressed: () {
+              pageState = EnumMateriState.pilihLevel;
+              update();
+              Get.back();
+            },
+          ),
+        );
       }
     } else {
-      ScaffoldMessenger.of(globalContext).showSnackBar(
-        const SnackBar(content: Text("Jawaban Salah")),
+      showDialogBase(
+        content: DialogHasilJawaban(
+          isCorrect: false,
+          isLast: false,
+          onPressed: () {
+            Get.back();
+          },
+        ),
       );
     }
+    // if (answer == modelMenghitungAngka.jawaban.toString()) {
+    //   int currentIndex =
+    //       _menghitungAngkaList.indexWhere((e) => e.level == modelMenghitungAngka.level);
+    //   if (currentIndex != -1 && currentIndex < _menghitungAngkaList.length - 1) {
+    //     _setMenghitungAngka(currentIndex + 1);
+    //   } else {
+    //     pageState = EnumMateriState.pilihLevel;
+    //     update();
+    //   }
+    // } else {
+    //   ScaffoldMessenger.of(globalContext).showSnackBar(
+    //     const SnackBar(content: Text("Jawaban Salah")),
+    //   );
+    // }
   }
 
   // Mengenal Huruf
