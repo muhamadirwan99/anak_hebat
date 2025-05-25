@@ -79,6 +79,10 @@ class MateriView extends StatefulWidget {
                       return MengenalPosisiUrutanView(
                         controller: controller,
                       );
+                    case EnumMateriState.mengenalPosisi:
+                      return MengenalPosisiView(
+                        controller: controller,
+                      );
                     default:
                       return Container();
                   }

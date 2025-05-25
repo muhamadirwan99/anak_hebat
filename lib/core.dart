@@ -43,6 +43,7 @@ export 'package:anak_hebat/module/materi/view/content/mengenal_huruf_content_vie
 export 'package:anak_hebat/module/materi/view/content/mengenal_huruf_view.dart';
 export 'package:anak_hebat/module/materi/view/content/mengenal_perbandingan_view.dart';
 export 'package:anak_hebat/module/materi/view/content/mengenal_posisi_urutan_view.dart';
+export 'package:anak_hebat/module/materi/view/content/mengenal_posisi_view.dart';
 export 'package:anak_hebat/module/materi/view/content/menghitung_view.dart';
 export 'package:anak_hebat/module/materi/view/content/pilih_level_view.dart';
 export 'package:anak_hebat/module/materi/view/materi_view.dart';

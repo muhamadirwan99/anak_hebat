@@ -59,7 +59,8 @@ class _AyoBelajarViewState extends State<AyoBelajarView> {
       PilihMateriModel(
         image: MediaRes.button.mengenalPosisi,
         onTap: () {
-          // widget.controller.changePageState(EnumMateriState.pilihLevel);
+          widget.controller.changeBackground(MediaRes.background.mengenalPosisi);
+          widget.controller.changePageState(EnumMateriState.mengenalPosisi);
         },
       ),
       PilihMateriModel(

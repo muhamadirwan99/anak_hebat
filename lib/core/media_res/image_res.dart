@@ -16,4 +16,7 @@ class ImageRes {
   String get persegi => '${ImageRes.basePath}/persegi.png';
   String get segitiga => '${ImageRes.basePath}/segitiga.png';
   String get persegiPanjang => '${ImageRes.basePath}/persegi_panjang.png';
+  String get diatasMeja => '${ImageRes.basePath}/diatas_meja.png';
+  String get dibawahMeja => '${ImageRes.basePath}/dibawah_meja.png';
+  String get disampingMeja => '${ImageRes.basePath}/disamping_meja.png';
 }

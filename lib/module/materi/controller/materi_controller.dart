@@ -160,20 +160,6 @@ class MateriController extends State<MateriView> {
         ),
       );
     }
-    // if (answer == modelMenghitungAngka.jawaban.toString()) {
-    //   int currentIndex =
-    //       _menghitungAngkaList.indexWhere((e) => e.level == modelMenghitungAngka.level);
-    //   if (currentIndex != -1 && currentIndex < _menghitungAngkaList.length - 1) {
-    //     _setMenghitungAngka(currentIndex + 1);
-    //   } else {
-    //     pageState = EnumMateriState.pilihLevel;
-    //     update();
-    //   }
-    // } else {
-    //   ScaffoldMessenger.of(globalContext).showSnackBar(
-    //     const SnackBar(content: Text("Jawaban Salah")),
-    //   );
-    // }
   }
 
   // Mengenal Huruf
@@ -607,6 +593,49 @@ class MateriController extends State<MateriView> {
           },
         ),
       );
+    }
+  }
+
+  // Mengenal Posisi
+  MengenalPosisiModel modelMengenalPosisi = MengenalPosisiModel(
+    image: MediaRes.images.diatasMeja,
+    level: 1,
+  );
+
+  final List<MengenalPosisiModel> _mengenalPosisiList = [
+    MengenalPosisiModel(
+      image: MediaRes.images.diatasMeja,
+      level: 1,
+    ),
+    MengenalPosisiModel(
+      image: MediaRes.images.dibawahMeja,
+      level: 2,
+    ),
+    MengenalPosisiModel(
+      image: MediaRes.images.disampingMeja,
+      level: 3,
+    ),
+  ];
+
+  List<MengenalPosisiModel> listMengenalPosisi() => _mengenalPosisiList;
+
+  void _setMengenalPosisi(int index) {
+    modelMengenalPosisi = _mengenalPosisiList[index];
+    update();
+  }
+
+  void nextMengenalPosisi() {
+    int currentIndex = _mengenalPosisiList.indexWhere((e) => e.level == modelMengenalPosisi.level);
+
+    if (currentIndex != -1 && currentIndex < _mengenalPosisiList.length - 1) {
+      _setMengenalPosisi(currentIndex + 1);
+    }
+  }
+
+  void backMengenalPosisi() {
+    int currentIndex = _mengenalPosisiList.indexWhere((e) => e.level == modelMengenalPosisi.level);
+    if (currentIndex > 0) {
+      _setMengenalPosisi(currentIndex - 1);
     }
   }
 
