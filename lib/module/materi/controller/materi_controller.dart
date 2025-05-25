@@ -420,7 +420,7 @@ class MateriController extends State<MateriView> {
 
       if (currentIndex != -1 && currentIndex < _mengenalPerbandinganList.length - 1) {
         showDialogBase(
-          content: DialogMengenalPerbandingan(
+          content: DialogHasilJawaban(
             isCorrect: true,
             isLast: false,
             onPressed: () {
@@ -431,7 +431,7 @@ class MateriController extends State<MateriView> {
         );
       } else {
         showDialogBase(
-          content: DialogMengenalPerbandingan(
+          content: DialogHasilJawaban(
             isCorrect: true,
             isLast: true,
             onPressed: () {
@@ -444,7 +444,121 @@ class MateriController extends State<MateriView> {
       }
     } else {
       showDialogBase(
-        content: DialogMengenalPerbandingan(
+        content: DialogHasilJawaban(
+          isCorrect: false,
+          isLast: false,
+          onPressed: () {
+            Get.back();
+          },
+        ),
+      );
+    }
+  }
+
+  // Mengenal Posisi Urutan
+  MengenalPosisiUrutanModel modelMengenalPosisiUrutan = MengenalPosisiUrutanModel(
+    soal: "1",
+    background: MediaRes.background.perbandingan1,
+    image: [],
+    jawaban: 0,
+    pilA: 0,
+    pilB: 0,
+    pilC: 0,
+  );
+
+  final List<MengenalPosisiUrutanModel> _mengenalPosisiUrutanList = [
+    MengenalPosisiUrutanModel(
+      soal: "1",
+      background: MediaRes.background.perbandingan1,
+      image: [],
+      jawaban: 0,
+      pilA: 0,
+      pilB: 0,
+      pilC: 0,
+    ),
+    MengenalPosisiUrutanModel(
+      soal: "2",
+      background: MediaRes.background.perbandingan2,
+      image: [],
+      jawaban: 0,
+      pilA: 0,
+      pilB: 0,
+      pilC: 0,
+    ),
+    MengenalPosisiUrutanModel(
+      soal: "Segitiga Kuning berada pada urutan ke berapa?",
+      background: MediaRes.background.perbandingan3,
+      image: [
+        MediaRes.images.persegi,
+        MediaRes.images.persegiPanjang,
+        MediaRes.images.segitiga,
+        MediaRes.images.lingkaran,
+      ],
+      jawaban: 3,
+      pilA: 1,
+      pilB: 2,
+      pilC: 3,
+    ),
+  ];
+
+  List<MengenalPosisiUrutanModel> listMengenalPosisiUrutan() => _mengenalPosisiUrutanList;
+
+  void _setMengenalPosisiUrutan(int index) {
+    // pageState = EnumMateriState.MengenalPosisiUrutan;
+    changeBackground(_mengenalPosisiUrutanList[index].background);
+    modelMengenalPosisiUrutan = _mengenalPosisiUrutanList[index];
+    update();
+  }
+
+  void nextMengenalPosisiUrutan() {
+    int currentIndex =
+        _mengenalPosisiUrutanList.indexWhere((e) => e.soal == modelMengenalPosisiUrutan.soal);
+
+    if (currentIndex != -1 && currentIndex < _mengenalPosisiUrutanList.length - 1) {
+      _setMengenalPosisiUrutan(currentIndex + 1);
+    }
+  }
+
+  void backMengenalPosisiUrutan() {
+    int currentIndex =
+        _mengenalPosisiUrutanList.indexWhere((e) => e.soal == modelMengenalPosisiUrutan.soal);
+    if (currentIndex > 0) {
+      _setMengenalPosisiUrutan(currentIndex - 1);
+    }
+  }
+
+  void checkAnswerMengenalPosisiUrutan(int answer) {
+    if (answer == modelMengenalPosisiUrutan.jawaban) {
+      int currentIndex =
+          _mengenalPosisiUrutanList.indexWhere((e) => e.soal == modelMengenalPosisiUrutan.soal);
+
+      if (currentIndex != -1 && currentIndex < _mengenalPosisiUrutanList.length - 1) {
+        showDialogBase(
+          content: DialogHasilJawaban(
+            isCorrect: true,
+            isLast: false,
+            onPressed: () {
+              _setMengenalPosisiUrutan(currentIndex + 1);
+              Get.back();
+            },
+          ),
+        );
+      } else {
+        showDialogBase(
+          content: DialogHasilJawaban(
+            isCorrect: true,
+            isLast: true,
+            onPressed: () {
+              pageState = EnumMateriState.ayoBelajar;
+              update();
+              Get.back();
+            },
+          ),
+        );
+      }
+    } else {
+      showDialogBase(
+        content: DialogHasilJawaban(
           isCorrect: false,
           isLast: false,
           onPressed: () {
@@ -457,6 +571,11 @@ class MateriController extends State<MateriView> {
 
   void changePageState(EnumMateriState state) {
     pageState = state;
+    update();
+  }
+
+  void changeBackground(String image) {
+    background = image;
     update();
   }
 

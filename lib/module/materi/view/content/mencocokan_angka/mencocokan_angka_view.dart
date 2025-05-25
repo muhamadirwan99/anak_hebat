@@ -56,7 +56,7 @@ class _MencocokanAngkaViewState extends State<MencocokanAngkaView> {
           ],
         ),
         const SizedBox(
-          height: 140,
+          height: 14,
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,

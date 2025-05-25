@@ -3,11 +3,11 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
 
-class DialogMengenalPerbandingan extends StatefulWidget {
+class DialogHasilJawaban extends StatefulWidget {
   final bool isCorrect, isLast;
   final VoidCallback onPressed;
 
-  const DialogMengenalPerbandingan({
+  const DialogHasilJawaban({
     super.key,
     required this.isCorrect,
     required this.isLast,
@@ -15,10 +15,10 @@ class DialogMengenalPerbandingan extends StatefulWidget {
   });
 
   @override
-  State<DialogMengenalPerbandingan> createState() => _DialogMengenalPerbandinganState();
+  State<DialogHasilJawaban> createState() => _DialogHasilJawabanState();
 }
 
-class _DialogMengenalPerbandinganState extends State<DialogMengenalPerbandingan> {
+class _DialogHasilJawabanState extends State<DialogHasilJawaban> {
   @override
   Widget build(BuildContext context) {
     return Container(

@@ -9,4 +9,5 @@ class BackgroundRes {
   String get mengenalPosisi => '${BackgroundRes.basePath}/mengenal_posisi.png';
   String get perbandingan1 => '${BackgroundRes.basePath}/perbandingan_1.png';
   String get perbandingan2 => '${BackgroundRes.basePath}/perbandingan_2.png';
+  String get perbandingan3 => '${BackgroundRes.basePath}/perbandingan_3.png';
 }

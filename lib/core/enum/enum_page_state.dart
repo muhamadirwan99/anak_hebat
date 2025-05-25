@@ -10,6 +10,7 @@ enum EnumMateriState {
   mencocokanAngka,
   mengenalBentuk,
   mengenalPerbandingan,
+  mengenalPosisiUrutan,
   mengenalPosisi,
   berhitung,
 }
