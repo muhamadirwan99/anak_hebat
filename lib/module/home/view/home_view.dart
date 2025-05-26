@@ -60,12 +60,13 @@ class HomeView extends StatefulWidget {
                             ),
                             InkWell(
                               onTap: () async {
+                                await SoundUtils.stopSound();
                                 await FlameAudio.bgm.pause();
 
                                 newRouter.go(RouterUtils.leaderboard);
                               },
                               child: Text(
-                                "Dashboard",
+                                "Leaderboard",
                                 style: GoogleFonts.roboto(
                                   fontSize: 24,
                                   fontWeight: FontWeight.w600,

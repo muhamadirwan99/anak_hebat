@@ -28,7 +28,7 @@ class MengenalPerbaPosisiUrutantate extends State<MengenalPosisiUrutanView> {
             InkWell(
               onTap: () {
                 if (widget.controller.modelMengenalPosisiUrutan.soal == "1") {
-                  newRouter.go(RouterUtils.home);
+                  widget.controller.changePageState(EnumMateriState.ayoBelajar);
                 } else {
                   widget.controller.backMengenalPosisiUrutan();
                 }

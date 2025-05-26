@@ -26,7 +26,7 @@ class BerhitungViewState extends State<BerhitungView> {
           children: [
             InkWell(
               onTap: () {
-                newRouter.go(RouterUtils.home);
+                widget.controller.changePageState(EnumMateriState.ayoBelajar);
               },
               child: SvgPicture.asset(
                 MediaRes.button.back,

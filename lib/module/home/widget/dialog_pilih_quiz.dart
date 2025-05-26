@@ -44,6 +44,7 @@ class _DialogPilihQuizState extends State<DialogPilihQuiz> {
             children: [
               InkWell(
                 onTap: () async {
+                  await SoundUtils.stopSound();
                   await FlameAudio.bgm.pause();
 
                   newRouter.go(
@@ -60,6 +61,7 @@ class _DialogPilihQuizState extends State<DialogPilihQuiz> {
               ),
               InkWell(
                 onTap: () async {
+                  await SoundUtils.stopSound();
                   await FlameAudio.bgm.pause();
 
                   newRouter.go(

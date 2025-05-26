@@ -131,7 +131,8 @@ class _DialogExitQuizState extends State<DialogExitQuiz> {
               Expanded(
                 child: CustomHomeButton(
                   text: "Keluar",
-                  onPressed: () {
+                  onPressed: () async {
+                    await SoundUtils.stopSound();
                     newRouter.go(RouterUtils.home);
                   },
                   isPrimary: true,

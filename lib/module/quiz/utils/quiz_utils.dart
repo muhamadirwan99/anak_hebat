@@ -6,6 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 class QuizUtils {
   static List<QuizModel> numerasiList = [
     QuizModel(
+      backsound: MediaRes.audio.soalNumerasi.satu,
       soal: Column(
         children: [
           Text(
@@ -30,6 +31,7 @@ class QuizUtils {
       jawabanBenar: MediaRes.quiz.numerasi.jawaban1B,
     ),
     QuizModel(
+      backsound: MediaRes.audio.soalNumerasi.dua,
       soal: Column(
         children: [
           Row(
@@ -66,6 +68,7 @@ class QuizUtils {
       jawabanBenar: MediaRes.quiz.numerasi.jawaban2A,
     ),
     QuizModel(
+      backsound: MediaRes.audio.soalNumerasi.tiga,
       soal: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -93,6 +96,7 @@ class QuizUtils {
       jawabanBenar: MediaRes.quiz.numerasi.jawaban3C,
     ),
     QuizModel(
+      backsound: MediaRes.audio.soalNumerasi.empat,
       soal: Column(
         children: [
           Row(
@@ -129,6 +133,7 @@ class QuizUtils {
       jawabanBenar: MediaRes.quiz.numerasi.jawaban4A,
     ),
     QuizModel(
+      backsound: MediaRes.audio.soalNumerasi.lima,
       soal: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -156,6 +161,7 @@ class QuizUtils {
       jawabanBenar: MediaRes.quiz.numerasi.jawaban5C,
     ),
     QuizModel(
+      backsound: MediaRes.audio.soalNumerasi.enam,
       soal: Column(
         children: [
           Text(
@@ -198,6 +204,7 @@ class QuizUtils {
       jawabanBenar: MediaRes.quiz.numerasi.jawaban6B,
     ),
     QuizModel(
+      backsound: MediaRes.audio.soalNumerasi.tujuh,
       soal: Center(
         child: Text(
           "Urutan bilangan yang benar dari kecil ke besar adalah...",
@@ -215,6 +222,7 @@ class QuizUtils {
       jawabanBenar: MediaRes.quiz.numerasi.jawaban7A,
     ),
     QuizModel(
+      backsound: MediaRes.audio.soalNumerasi.delapan,
       soal: Center(
         child: Text(
           "Benda manakah yang berbentuk lingkaran?",
@@ -232,6 +240,7 @@ class QuizUtils {
       jawabanBenar: MediaRes.quiz.numerasi.jawaban8A,
     ),
     QuizModel(
+      backsound: MediaRes.audio.soalNumerasi.sembilan,
       soal: Text(
         "Kucing ada di bawah meja. Di mana posisi kucing?",
         style: GoogleFonts.baloo2(
@@ -247,6 +256,7 @@ class QuizUtils {
       jawabanBenar: "Di bawah meja ",
     ),
     QuizModel(
+      backsound: MediaRes.audio.soalNumerasi.sepuluh,
       soal: Center(
         child: Text(
           "Manakah benda yang bisa berguling?",
@@ -267,9 +277,10 @@ class QuizUtils {
 
   static List<QuizModel> literasiList = [
     QuizModel(
+      backsound: MediaRes.audio.soalLiterasi.satu,
       soal: Center(
         child: Text(
-          "Pilih huruf A dan gambar  ayam!",
+          "Pilihlah gambar yang berawal dari huruf “A” ",
           style: GoogleFonts.baloo2(
             fontSize: 48,
             fontWeight: FontWeight.bold,
@@ -284,6 +295,7 @@ class QuizUtils {
       jawabanBenar: MediaRes.quiz.literasi.jawaban1A,
     ),
     QuizModel(
+      backsound: MediaRes.audio.soalLiterasi.dua,
       soal: Center(
         child: Text(
           "Pilih hewan yang suka makan wortel!",
@@ -301,6 +313,7 @@ class QuizUtils {
       jawabanBenar: MediaRes.quiz.literasi.jawaban2B,
     ),
     QuizModel(
+      backsound: MediaRes.audio.soalLiterasi.tiga,
       soal: Center(
         child: Text(
           "Yang manakah 2 hewan yang hidupnya di air?",
@@ -318,6 +331,7 @@ class QuizUtils {
       jawabanBenar: MediaRes.quiz.literasi.jawaban3A,
     ),
     QuizModel(
+      backsound: MediaRes.audio.soalLiterasi.empat,
       soal: Center(
         child: Text(
           "Manakah dari gambar berikut yang menunjukkan  huruf A ?",
@@ -335,6 +349,7 @@ class QuizUtils {
       jawabanBenar: MediaRes.quiz.literasi.jawaban4C,
     ),
     QuizModel(
+      backsound: MediaRes.audio.soalLiterasi.lima,
       soal: Center(
         child: Text(
           "Coba tunjuk huruf 'O' di antara huruf-huruf berikut:",
@@ -352,6 +367,7 @@ class QuizUtils {
       jawabanBenar: MediaRes.quiz.literasi.jawaban5A,
     ),
     QuizModel(
+      backsound: MediaRes.audio.soalLiterasi.enam,
       soal: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -379,6 +395,7 @@ class QuizUtils {
       jawabanBenar: MediaRes.quiz.literasi.jawaban6C,
     ),
     QuizModel(
+      backsound: MediaRes.audio.soalLiterasi.tujuh,
       soal: Center(
         child: Text(
           "Gambar mana saja yang namanya dimulai dengan huruf 'S'?",
@@ -396,6 +413,7 @@ class QuizUtils {
       jawabanBenar: MediaRes.quiz.literasi.jawaban7B,
     ),
     QuizModel(
+      backsound: MediaRes.audio.soalLiterasi.delapan,
       soal: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -431,6 +449,7 @@ class QuizUtils {
       jawabanBenar: MediaRes.quiz.literasi.jawaban8C,
     ),
     QuizModel(
+      backsound: MediaRes.audio.soalLiterasi.sembilan,
       soal: Center(
         child: Text(
           "Dalam cerita kelinci dan kura kura yang lomba lari siapakah yang menjadi juri ?",
@@ -449,6 +468,7 @@ class QuizUtils {
       jawabanBenar: MediaRes.quiz.literasi.jawaban9A,
     ),
     QuizModel(
+      backsound: MediaRes.audio.soalLiterasi.sepuluh,
       soal: Center(
         child: Text(
           "Setelah mendengar cerita “Kelinci dan Kura-kura”, siapa yang akhirnya menang lomba lari?",

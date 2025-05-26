@@ -3,6 +3,10 @@ class AudioRes {
 
   final angka = _Angka();
   final huruf = _Huruf();
+  final home = _Home();
+  final introMateri = _IntroMateri();
+  final soalLiterasi = _SoalLiterasi();
+  final soalNumerasi = _SoalNumerasi();
 
   String get bg => 'bg.mp3';
   String get click => '${AudioRes.basePath}/click.mp3';
@@ -52,4 +56,47 @@ class _Huruf {
   String get x => '${AudioRes.basePath}/$subPath/x.mp3';
   String get y => '${AudioRes.basePath}/$subPath/y.mp3';
   String get z => '${AudioRes.basePath}/$subPath/z.mp3';
+}
+
+class _Home {
+  static String subPath = 'home';
+
+  String get beranda => '${AudioRes.basePath}/$subPath/beranda.mp3';
+}
+
+class _IntroMateri {
+  static String subPath = 'intro_materi';
+
+  String get mengenalAngka => '${AudioRes.basePath}/$subPath/mengenal_angka.mp3';
+  String get mengenalHuruf => '${AudioRes.basePath}/$subPath/mengenal_huruf.mp3';
+}
+
+class _SoalLiterasi {
+  static String subPath = 'soal_literasi';
+
+  String get satu => '${AudioRes.basePath}/$subPath/1.mp3';
+  String get dua => '${AudioRes.basePath}/$subPath/2.mp3';
+  String get tiga => '${AudioRes.basePath}/$subPath/3.mp3';
+  String get empat => '${AudioRes.basePath}/$subPath/4.mp3';
+  String get lima => '${AudioRes.basePath}/$subPath/5.mp3';
+  String get enam => '${AudioRes.basePath}/$subPath/6.mp3';
+  String get tujuh => '${AudioRes.basePath}/$subPath/7.mp3';
+  String get delapan => '${AudioRes.basePath}/$subPath/8.mp3';
+  String get sembilan => '${AudioRes.basePath}/$subPath/9.mp3';
+  String get sepuluh => '${AudioRes.basePath}/$subPath/10.mp3';
+}
+
+class _SoalNumerasi {
+  static String subPath = 'soal_numerasi';
+
+  String get satu => '${AudioRes.basePath}/$subPath/1.mp3';
+  String get dua => '${AudioRes.basePath}/$subPath/2.mp3';
+  String get tiga => '${AudioRes.basePath}/$subPath/3.mp3';
+  String get empat => '${AudioRes.basePath}/$subPath/4.mp3';
+  String get lima => '${AudioRes.basePath}/$subPath/5.mp3';
+  String get enam => '${AudioRes.basePath}/$subPath/6.mp3';
+  String get tujuh => '${AudioRes.basePath}/$subPath/7.mp3';
+  String get delapan => '${AudioRes.basePath}/$subPath/8.mp3';
+  String get sembilan => '${AudioRes.basePath}/$subPath/9.mp3';
+  String get sepuluh => '${AudioRes.basePath}/$subPath/10.mp3';
 }

@@ -18,6 +18,12 @@ class MengenalHurufView extends StatefulWidget {
 
 class _MengenalHurufViewState extends State<MengenalHurufView> {
   @override
+  void initState() {
+    super.initState();
+    SoundUtils.playSound(MediaRes.audio.introMateri.mengenalHuruf);
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Column(
       children: [
@@ -26,7 +32,7 @@ class _MengenalHurufViewState extends State<MengenalHurufView> {
           children: [
             InkWell(
               onTap: () {
-                newRouter.go(RouterUtils.home);
+                widget.controller.changePageState(EnumMateriState.ayoBelajar);
               },
               child: SvgPicture.asset(
                 MediaRes.button.back,

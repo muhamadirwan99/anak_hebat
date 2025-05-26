@@ -29,6 +29,7 @@ class HomeController extends State<HomeView> {
 
   void toggleMute() async {
     if (isSoundPlay) {
+      await SoundUtils.stopSound();
       await FlameAudio.bgm.pause();
     } else {
       await FlameAudio.bgm.resume();
@@ -46,7 +47,9 @@ class HomeController extends State<HomeView> {
   @override
   void initState() {
     instance = this;
-    playBackgroundMusic();
+    SoundUtils.playSound(MediaRes.audio.home.beranda).whenComplete(() {
+      playBackgroundMusic();
+    });
     super.initState();
   }
 

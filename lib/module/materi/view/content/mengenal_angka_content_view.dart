@@ -12,8 +12,7 @@ class MengenalAngkaContentView extends StatefulWidget {
   });
 
   @override
-  State<MengenalAngkaContentView> createState() =>
-      _MengenalAngkaContentViewState();
+  State<MengenalAngkaContentView> createState() => _MengenalAngkaContentViewState();
 }
 
 class _MengenalAngkaContentViewState extends State<MengenalAngkaContentView> {
@@ -27,7 +26,7 @@ class _MengenalAngkaContentViewState extends State<MengenalAngkaContentView> {
           children: [
             InkWell(
               onTap: () {
-                newRouter.go(RouterUtils.home);
+                widget.controller.changePageState(EnumMateriState.ayoBelajar);
               },
               child: SvgPicture.asset(
                 MediaRes.button.back,
@@ -45,8 +44,7 @@ class _MengenalAngkaContentViewState extends State<MengenalAngkaContentView> {
             ),
             InkWell(
               onTap: () {
-                widget.controller
-                    .changePageState(EnumMateriState.mengenalAngka);
+                widget.controller.changePageState(EnumMateriState.mengenalAngka);
               },
               child: SvgPicture.asset(
                 MediaRes.button.dashboard,
@@ -119,8 +117,7 @@ class _MengenalAngkaContentViewState extends State<MengenalAngkaContentView> {
                   ),
                   InkWell(
                     onTap: () async {
-                      await SoundUtils.playSound(
-                          widget.controller.modelMengenalAngka.audio);
+                      await SoundUtils.playSound(widget.controller.modelMengenalAngka.audio);
                     },
                     child: SvgPicture.asset(
                       MediaRes.button.speakerOn,

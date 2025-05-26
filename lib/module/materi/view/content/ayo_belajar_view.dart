@@ -18,6 +18,12 @@ class AyoBelajarView extends StatefulWidget {
 
 class _AyoBelajarViewState extends State<AyoBelajarView> {
   @override
+  void initState() {
+    super.initState();
+    SoundUtils.playSound(MediaRes.audio.introMateri.mengenalAngka);
+  }
+
+  @override
   Widget build(BuildContext context) {
     List<PilihMateriModel> listMateri = [
       PilihMateriModel(
@@ -84,7 +90,8 @@ class _AyoBelajarViewState extends State<AyoBelajarView> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             InkWell(
-              onTap: () {
+              onTap: () async {
+                await SoundUtils.stopSound();
                 newRouter.go(RouterUtils.home);
               },
               child: SvgPicture.asset(

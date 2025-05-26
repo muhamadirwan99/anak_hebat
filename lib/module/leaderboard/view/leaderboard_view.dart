@@ -32,7 +32,8 @@ class LeaderboardView extends StatefulWidget {
                 Row(
                   children: [
                     InkWell(
-                      onTap: () {
+                      onTap: () async {
+                        await SoundUtils.stopSound();
                         newRouter.go(RouterUtils.home);
                       },
                       child: SvgPicture.asset(

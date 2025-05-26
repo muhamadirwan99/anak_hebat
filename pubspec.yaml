@@ -78,6 +78,10 @@ flutter:
     - assets/audio/
     - assets/audio/angka/
     - assets/audio/huruf/
+    - assets/audio/home/
+    - assets/audio/intro_materi/
+    - assets/audio/soal_literasi/
+    - assets/audio/soal_numerasi/
     - assets/quiz/numerasi/
     - assets/quiz/literasi/
 

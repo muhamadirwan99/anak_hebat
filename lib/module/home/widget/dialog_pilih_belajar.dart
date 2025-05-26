@@ -44,6 +44,7 @@ class _DialogPilihBelajarState extends State<DialogPilihBelajar> {
             children: [
               InkWell(
                 onTap: () async {
+                  await SoundUtils.stopSound();
                   await FlameAudio.bgm.pause();
                   newRouter.go(
                     RouterUtils.materi,
@@ -59,6 +60,7 @@ class _DialogPilihBelajarState extends State<DialogPilihBelajar> {
               ),
               InkWell(
                 onTap: () async {
+                  await SoundUtils.stopSound();
                   await FlameAudio.bgm.pause();
                   newRouter.go(
                     RouterUtils.materi,

@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 
 class QuizModel {
   final Widget soal;
+  final String backsound;
   final QuizAnswerModel jawaban;
   final String jawabanBenar;
 
   QuizModel({
     required this.soal,
+    required this.backsound,
     required this.jawaban,
     required this.jawabanBenar,
   });

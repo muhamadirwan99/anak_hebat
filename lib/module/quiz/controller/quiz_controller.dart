@@ -25,12 +25,14 @@ class QuizController extends State<QuizView> {
     update();
   }
 
-  void nextQuestion() {
+  void nextQuestion() async {
     if (userAnswers[currentIndex] == null) return;
 
     if (currentIndex < dataQuiz.length - 1) {
       currentIndex++;
       quiz = dataQuiz[currentIndex]; // Tambahkan ini!
+      update();
+      await SoundUtils.playSound(quiz.backsound);
       if (widget.pageState == EnumQuizState.literasi) {
         if (checkIndex(widget.pageState)) {
           showDialogBase(
@@ -214,6 +216,8 @@ class QuizController extends State<QuizView> {
     }
 
     userAnswers = List<String?>.filled(dataQuiz.length, null);
+    SoundUtils.playSound(quiz.backsound);
+
     super.initState();
   }
 
