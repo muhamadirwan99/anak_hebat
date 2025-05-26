@@ -26,7 +26,7 @@ class _MengenalHurufContentViewState extends State<MengenalHurufContentView> {
           children: [
             InkWell(
               onTap: () {
-                widget.controller.changePageState(EnumMateriState.ayoBelajar);
+                widget.controller.changePageState(EnumMateriState.mengenalHuruf);
               },
               child: SvgPicture.asset(
                 MediaRes.button.back,
