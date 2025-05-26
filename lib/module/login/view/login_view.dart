@@ -26,10 +26,23 @@ class LoginView extends StatefulWidget {
               padding: const EdgeInsets.all(32),
               child: Column(
                 children: [
-                  Image.asset(
-                    MediaRes.logo.logo,
-                    height: 100,
-                    width: 100,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset(
+                        MediaRes.logo.undiksha,
+                        height: 100,
+                        width: 100,
+                      ),
+                      const SizedBox(
+                        width: 24.0,
+                      ),
+                      Image.asset(
+                        MediaRes.logo.logo,
+                        height: 100,
+                        width: 100,
+                      ),
+                    ],
                   ),
                   const Spacer(),
                   controller.isContentLogin
@@ -197,7 +210,9 @@ class LoginView extends StatefulWidget {
         CustomButton(
           text: "Kembali",
           onPressed: () {
-            Get.back();
+            controller.clearTextFields();
+            controller.isContentLogin = true;
+            controller.update();
           },
           isPrimary: false,
         ),
