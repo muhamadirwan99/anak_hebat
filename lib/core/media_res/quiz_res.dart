@@ -85,6 +85,10 @@ class _Numerasi {
   String get jawaban8B => '${QuizRes.basePath}/$subPath/jawaban_8_b.png';
   String get jawaban8C => '${QuizRes.basePath}/$subPath/jawaban_8_c.png';
 
+  String get jawaban9A => '${QuizRes.basePath}/$subPath/jawaban_9_a.png';
+  String get jawaban9B => '${QuizRes.basePath}/$subPath/jawaban_9_b.png';
+  String get jawaban9C => '${QuizRes.basePath}/$subPath/jawaban_9_c.png';
+
   String get jawaban10A => '${QuizRes.basePath}/$subPath/jawaban_10_a.png';
   String get jawaban10B => '${QuizRes.basePath}/$subPath/jawaban_10_b.svg';
   String get jawaban10C => '${QuizRes.basePath}/$subPath/jawaban_10_c.png';

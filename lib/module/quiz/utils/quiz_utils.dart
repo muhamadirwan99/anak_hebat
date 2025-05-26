@@ -241,19 +241,21 @@ class QuizUtils {
     ),
     QuizModel(
       backsound: MediaRes.audio.soalNumerasi.sembilan,
-      soal: Text(
-        "Kucing ada di bawah meja. Di mana posisi kucing?",
-        style: GoogleFonts.baloo2(
-          fontSize: 48,
-          fontWeight: FontWeight.bold,
+      soal: Center(
+        child: Text(
+          "Manakah gambar yang tepat untuk posisi kucing dibawah meja?",
+          style: GoogleFonts.baloo2(
+            fontSize: 48,
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ),
       jawaban: QuizAnswerModel(
-        jawabanA: "Di atas meja",
-        jawabanB: "Di dalam meja",
-        jawabanC: "Di bawah meja ",
+        jawabanA: MediaRes.quiz.numerasi.jawaban9A,
+        jawabanB: MediaRes.quiz.numerasi.jawaban9B,
+        jawabanC: MediaRes.quiz.numerasi.jawaban9C,
       ),
-      jawabanBenar: "Di bawah meja ",
+      jawabanBenar: MediaRes.quiz.numerasi.jawaban9C,
     ),
     QuizModel(
       backsound: MediaRes.audio.soalNumerasi.sepuluh,
