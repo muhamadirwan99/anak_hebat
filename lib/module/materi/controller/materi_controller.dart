@@ -163,7 +163,7 @@ class MateriController extends State<MateriView> {
                 pilihan: [],
                 onTap: () {},
               );
-              pageState = EnumMateriState.pilihLevel;
+              pageState = EnumMateriState.ayoBelajar;
               update();
               Get.back();
             },
