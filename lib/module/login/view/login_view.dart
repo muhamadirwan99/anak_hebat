@@ -106,6 +106,8 @@ class LoginView extends StatefulWidget {
         CustomButton(
           text: "Masuk",
           onPressed: () {
+            SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
+
             controller.login();
           },
           isPrimary: true,
@@ -136,6 +138,7 @@ class LoginView extends StatefulWidget {
         CustomButton(
           text: "Buat Akun",
           onPressed: () {
+            SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
             controller.clearTextFields();
             controller.isContentLogin = false;
             controller.update();
@@ -200,6 +203,7 @@ class LoginView extends StatefulWidget {
         CustomButton(
           text: "Buat Akun",
           onPressed: () {
+            SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
             controller.addUser();
           },
           isPrimary: true,
@@ -210,6 +214,7 @@ class LoginView extends StatefulWidget {
         CustomButton(
           text: "Kembali",
           onPressed: () {
+            SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
             controller.clearTextFields();
             controller.isContentLogin = true;
             controller.update();

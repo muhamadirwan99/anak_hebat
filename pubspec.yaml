@@ -82,6 +82,14 @@ flutter:
     - assets/audio/intro_materi/
     - assets/audio/soal_literasi/
     - assets/audio/soal_numerasi/
+    - assets/audio/numerasi/
+    - assets/audio/numerasi/berhitung/
+    - assets/audio/numerasi/mencocokan_angka/
+    - assets/audio/numerasi/mengenal_angka_&_jumlah_benda/
+    - assets/audio/numerasi/mengenal_bentuk/
+    - assets/audio/numerasi/mengenal_perbandingan/
+    - assets/audio/numerasi/mengenal_posisi/
+    - assets/audio/numerasi/mengenal_posisi_urutan/
     - assets/quiz/numerasi/
     - assets/quiz/literasi/
 

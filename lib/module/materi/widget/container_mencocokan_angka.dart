@@ -65,11 +65,12 @@ class ContainerMencocokanAngka extends StatelessWidget {
 }
 
 class MencocokanAngkaModel {
-  final String value, textValue, image;
+  final String value, textValue, image, sound;
   final Color colorBorder;
   final VoidCallback onTap;
 
   MencocokanAngkaModel({
+    required this.sound,
     required this.value,
     required this.textValue,
     required this.image,

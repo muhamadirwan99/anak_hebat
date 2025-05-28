@@ -45,7 +45,9 @@ class HomeView extends StatefulWidget {
                         child: Row(
                           children: [
                             InkWell(
-                              onTap: () {},
+                              onTap: () {
+                                SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
+                              },
                               child: Text(
                                 "Home",
                                 style: GoogleFonts.roboto(
@@ -60,6 +62,7 @@ class HomeView extends StatefulWidget {
                             ),
                             InkWell(
                               onTap: () async {
+                                await SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
                                 await SoundUtils.stopSound();
                                 await FlameAudio.bgm.pause();
 
@@ -92,6 +95,7 @@ class HomeView extends StatefulWidget {
                         children: [
                           InkWell(
                             onTap: () {
+                              SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
                               controller.toggleMute();
                             },
                             child: SvgPicture.asset(
@@ -106,6 +110,7 @@ class HomeView extends StatefulWidget {
                           ),
                           InkWell(
                             onTap: () {
+                              SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
                               controller.logout();
                             },
                             child: SvgPicture.asset(
@@ -126,6 +131,7 @@ class HomeView extends StatefulWidget {
                   children: [
                     InkWell(
                       onTap: () {
+                        SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
                         showDialogBase(
                           maxWidth: 700,
                           barrierDismissible: true,
@@ -141,6 +147,7 @@ class HomeView extends StatefulWidget {
                     ),
                     InkWell(
                       onTap: () {
+                        SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
                         showDialogBase(
                           maxWidth: 700,
                           barrierDismissible: true,

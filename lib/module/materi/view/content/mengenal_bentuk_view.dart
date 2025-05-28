@@ -18,6 +18,18 @@ class MengenalBentukView extends StatefulWidget {
 
 class MengenalBentukViewState extends State<MengenalBentukView> {
   @override
+  void initState() {
+    super.initState();
+    widget.controller.playSoundsSequentially([
+      MediaRes.audio.numerasi.mengenalBentuk.belajarMengenalBentuk,
+      MediaRes.audio.numerasi.mengenalBentuk.persegi,
+      MediaRes.audio.numerasi.mengenalBentuk.persegiPanjang,
+      MediaRes.audio.numerasi.mengenalBentuk.segi3,
+      MediaRes.audio.numerasi.mengenalBentuk.lingkaran,
+    ]);
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Column(
       children: [
@@ -25,6 +37,7 @@ class MengenalBentukViewState extends State<MengenalBentukView> {
           children: [
             InkWell(
               onTap: () {
+                SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
                 widget.controller.changePageState(EnumMateriState.ayoBelajar);
               },
               child: SvgPicture.asset(
@@ -44,9 +57,6 @@ class MengenalBentukViewState extends State<MengenalBentukView> {
             ),
             const Spacer(),
           ],
-        ),
-        const SizedBox(
-          height: 132,
         ),
         const SizedBox(
           height: 12.0,
@@ -96,6 +106,7 @@ class MengenalBentukViewState extends State<MengenalBentukView> {
                   ? const SizedBox()
                   : InkWell(
                       onTap: () {
+                        SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
                         widget.controller.backMengenalBentuk();
                       },
                       child: SvgPicture.asset(
@@ -122,6 +133,7 @@ class MengenalBentukViewState extends State<MengenalBentukView> {
 
     return InkWell(
       onTap: () {
+        SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
         widget.controller.nextMengenalBentuk();
       },
       child: SvgPicture.asset(
@@ -132,11 +144,13 @@ class MengenalBentukViewState extends State<MengenalBentukView> {
 }
 
 class MengenalBentukModel {
+  final List<String> sound;
   final List<String> listBentuk;
   final int soal;
   final String title;
 
   MengenalBentukModel({
+    required this.sound,
     required this.listBentuk,
     required this.soal,
     required this.title,

@@ -20,7 +20,7 @@ class _AyoBelajarViewState extends State<AyoBelajarView> {
   @override
   void initState() {
     super.initState();
-    SoundUtils.playSound(MediaRes.audio.introMateri.mengenalAngka);
+    SoundUtils.playSound(MediaRes.audio.numerasi.ayoBelajarAngka);
   }
 
   @override
@@ -29,6 +29,7 @@ class _AyoBelajarViewState extends State<AyoBelajarView> {
       PilihMateriModel(
         image: MediaRes.button.mengenalAngka,
         onTap: () {
+          SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
           widget.controller.changeBackground(MediaRes.background.kelas);
           widget.controller.changePageState(EnumMateriState.mengenalAngka);
         },
@@ -36,6 +37,7 @@ class _AyoBelajarViewState extends State<AyoBelajarView> {
       PilihMateriModel(
         image: MediaRes.button.mencocokanAngka,
         onTap: () {
+          SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
           widget.controller.changeBackground(MediaRes.background.mencocokanAngka);
           widget.controller.changePageState(EnumMateriState.levelMencocokanAngka);
           // widget.controller.changePageState(EnumMateriState.pilihLevel);
@@ -44,6 +46,7 @@ class _AyoBelajarViewState extends State<AyoBelajarView> {
       PilihMateriModel(
         image: MediaRes.button.mengenalBentuk,
         onTap: () {
+          SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
           widget.controller.changeBackground(MediaRes.background.mencocokanAngka);
           widget.controller.changePageState(EnumMateriState.mengenalBentuk);
         },
@@ -51,6 +54,7 @@ class _AyoBelajarViewState extends State<AyoBelajarView> {
       PilihMateriModel(
         image: MediaRes.button.mengenalPerbandingan,
         onTap: () {
+          SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
           widget.controller.changeBackground(MediaRes.background.mencocokanAngka);
           widget.controller.changePageState(EnumMateriState.mengenalPerbandingan);
         },
@@ -58,6 +62,7 @@ class _AyoBelajarViewState extends State<AyoBelajarView> {
       PilihMateriModel(
         image: MediaRes.button.mengenalPosisiUrutan,
         onTap: () {
+          SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
           widget.controller.changeBackground(MediaRes.background.perbandingan1);
           widget.controller.changePageState(EnumMateriState.mengenalPosisiUrutan);
         },
@@ -65,6 +70,7 @@ class _AyoBelajarViewState extends State<AyoBelajarView> {
       PilihMateriModel(
         image: MediaRes.button.mengenalPosisi,
         onTap: () {
+          SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
           widget.controller.changeBackground(MediaRes.background.mengenalPosisi);
           widget.controller.changePageState(EnumMateriState.mengenalPosisi);
         },
@@ -72,6 +78,7 @@ class _AyoBelajarViewState extends State<AyoBelajarView> {
       PilihMateriModel(
         image: MediaRes.button.berhitung,
         onTap: () {
+          SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
           widget.controller.changeBackground(MediaRes.background.berhitung);
           widget.controller.changePageState(EnumMateriState.berhitung);
         },
@@ -79,6 +86,7 @@ class _AyoBelajarViewState extends State<AyoBelajarView> {
       PilihMateriModel(
         image: MediaRes.button.mengenalAngkaBenda,
         onTap: () {
+          SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
           widget.controller.changeBackground(MediaRes.background.kelas);
           widget.controller.changePageState(EnumMateriState.pilihLevel);
         },
@@ -92,6 +100,7 @@ class _AyoBelajarViewState extends State<AyoBelajarView> {
             InkWell(
               onTap: () async {
                 await SoundUtils.stopSound();
+                SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
                 newRouter.go(RouterUtils.home);
               },
               child: SvgPicture.asset(

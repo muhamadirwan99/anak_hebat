@@ -120,6 +120,7 @@ class _DialogSelesaiQuizState extends State<DialogSelesaiQuiz> {
           CustomHomeButton(
             text: "Coba Lagi",
             onPressed: () {
+              SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
               Get.back();
               QuizController.instance.resetAnswers();
             },
@@ -130,6 +131,8 @@ class _DialogSelesaiQuizState extends State<DialogSelesaiQuiz> {
           CustomHomeButton(
             text: "Selesai",
             onPressed: () async {
+              SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
+
               await SoundUtils.stopSound();
               newRouter.go(RouterUtils.home);
             },

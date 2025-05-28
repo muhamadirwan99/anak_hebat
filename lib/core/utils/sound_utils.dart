@@ -28,6 +28,17 @@ class SoundUtils {
     }
   }
 
+  static Future<void> playSoundWithoutWaiting(String fileName) async {
+    final AudioPlayer player = AudioPlayer();
+
+    try {
+      await player.setReleaseMode(ReleaseMode.stop);
+      await player.play(AssetSource(fileName));
+    } catch (e) {
+      log('Error playing sound without waiting: $e');
+    }
+  }
+
   static Future<void> stopSound() async {
     try {
       await _player.stop();

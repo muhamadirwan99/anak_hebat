@@ -26,6 +26,7 @@ class _MengenalHurufContentViewState extends State<MengenalHurufContentView> {
           children: [
             InkWell(
               onTap: () {
+                SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
                 widget.controller.changePageState(EnumMateriState.mengenalHuruf);
               },
               child: SvgPicture.asset(
@@ -44,6 +45,7 @@ class _MengenalHurufContentViewState extends State<MengenalHurufContentView> {
             ),
             InkWell(
               onTap: () {
+                SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
                 widget.controller.changePageState(EnumMateriState.mengenalHuruf);
               },
               child: SvgPicture.asset(
@@ -62,6 +64,7 @@ class _MengenalHurufContentViewState extends State<MengenalHurufContentView> {
           children: [
             InkWell(
               onTap: () {
+                SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
                 widget.controller.backMengenalHuruf();
               },
               child: SvgPicture.asset(
@@ -141,6 +144,7 @@ class _MengenalHurufContentViewState extends State<MengenalHurufContentView> {
             ),
             InkWell(
               onTap: () {
+                SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
                 widget.controller.nextMengenalHuruf();
               },
               child: Transform.rotate(

@@ -34,6 +34,7 @@ class LeaderboardView extends StatefulWidget {
                     InkWell(
                       onTap: () async {
                         await SoundUtils.stopSound();
+                        SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
                         newRouter.go(RouterUtils.home);
                       },
                       child: SvgPicture.asset(

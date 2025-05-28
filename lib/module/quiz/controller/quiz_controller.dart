@@ -20,12 +20,16 @@ class QuizController extends State<QuizView> {
   late QuizModel quiz;
 
   void selectAnswer(String answer) {
+    SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
+
     if (currentIndex >= userAnswers.length) return; // Cegah IndexOutOfBounds
     userAnswers[currentIndex] = answer;
     update();
   }
 
   void nextQuestion() async {
+    SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
+
     if (userAnswers[currentIndex] == null) return;
 
     if (currentIndex < dataQuiz.length - 1) {

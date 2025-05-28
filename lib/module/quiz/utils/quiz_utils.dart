@@ -431,6 +431,8 @@ class QuizUtils {
           ),
           InkWell(
             onTap: () async {
+              SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
+
               await SoundUtils.playSound(
                 MediaRes.quiz.literasi.quiz8,
               );

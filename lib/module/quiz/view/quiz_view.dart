@@ -42,6 +42,7 @@ class QuizView extends StatefulWidget {
                       children: [
                         InkWell(
                           onTap: () {
+                            SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
                             showDialogBase(
                               maxWidth: 600,
                               barrierDismissible: true,
@@ -70,6 +71,7 @@ class QuizView extends StatefulWidget {
                               children: [
                                 InkWell(
                                   onTap: () {
+                                    SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
                                     showDialogBase(
                                       maxWidth: 1548,
                                       barrierDismissible: true,

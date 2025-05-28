@@ -18,6 +18,12 @@ class MenghitungView extends StatefulWidget {
 
 class _MenghitungViewState extends State<MenghitungView> {
   @override
+  void initState() {
+    super.initState();
+    SoundUtils.playSound(widget.controller.modelMenghitungAngka.sound);
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Column(
       children: [
@@ -27,6 +33,7 @@ class _MenghitungViewState extends State<MenghitungView> {
           children: [
             InkWell(
               onTap: () {
+                SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
                 widget.controller.changePageState(EnumMateriState.ayoBelajar);
               },
               child: SvgPicture.asset(
@@ -45,6 +52,7 @@ class _MenghitungViewState extends State<MenghitungView> {
             ),
             InkWell(
               onTap: () {
+                SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
                 widget.controller.changePageState(EnumMateriState.pilihLevel);
               },
               child: SvgPicture.asset(
@@ -159,6 +167,7 @@ class _MenghitungViewState extends State<MenghitungView> {
   Widget containerJawaban(index) {
     return InkWell(
       onTap: () {
+        SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
         widget.controller.checkAnswerMenghitungAngka(
           widget.controller.modelMenghitungAngka.pilihan[index].toString(),
         );

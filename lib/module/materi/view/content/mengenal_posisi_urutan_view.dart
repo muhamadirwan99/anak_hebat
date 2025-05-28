@@ -18,6 +18,15 @@ class MengenalPosisiUrutanView extends StatefulWidget {
 
 class MengenalPerbaPosisiUrutantate extends State<MengenalPosisiUrutanView> {
   @override
+  void initState() {
+    super.initState();
+    widget.controller.playSoundsSequentially([
+      MediaRes.audio.numerasi.mengenalPosisiUrutan.mengenalPosisiUrutan,
+      MediaRes.audio.numerasi.mengenalPosisiUrutan.ceritaUrutan,
+    ]);
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Column(
       children: [
@@ -27,6 +36,7 @@ class MengenalPerbaPosisiUrutantate extends State<MengenalPosisiUrutanView> {
           children: [
             InkWell(
               onTap: () {
+                SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
                 if (widget.controller.modelMengenalPosisiUrutan.soal == "1") {
                   widget.controller.changePageState(EnumMateriState.ayoBelajar);
                 } else {
@@ -40,26 +50,29 @@ class MengenalPerbaPosisiUrutantate extends State<MengenalPosisiUrutanView> {
               ),
             ),
             Text(
-              "Mengenal Perbandingan",
+              "Mengenal Posisi Urutan",
               style: GoogleFonts.balsamiqSans(
                 fontSize: 90,
                 fontWeight: FontWeight.bold,
                 color: gray900,
               ),
             ),
-            InkWell(
-              onTap: () {
-                widget.controller.nextMengenalPosisiUrutan();
-              },
-              child: Transform.rotate(
-                angle: 3.14159, // 180 degrees in radians
-                child: SvgPicture.asset(
-                  MediaRes.button.back,
-                  width: 100,
-                  height: 100,
-                ),
-              ),
-            ),
+            widget.controller.modelMengenalPosisiUrutan.soal.contains("Segitiga")
+                ? const SizedBox.shrink()
+                : InkWell(
+                    onTap: () {
+                      SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
+                      widget.controller.nextMengenalPosisiUrutan();
+                    },
+                    child: Transform.rotate(
+                      angle: 3.14159, // 180 degrees in radians
+                      child: SvgPicture.asset(
+                        MediaRes.button.back,
+                        width: 100,
+                        height: 100,
+                      ),
+                    ),
+                  ),
           ],
         ),
         _switchContent(),
@@ -156,6 +169,7 @@ class MengenalPerbaPosisiUrutantate extends State<MengenalPosisiUrutanView> {
     bool isSelected = selectedPil == pil;
     return InkWell(
       onTap: () {
+        SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
         setState(() {
           selectedPil = pil;
         });
@@ -198,10 +212,11 @@ class MengenalPerbaPosisiUrutantate extends State<MengenalPosisiUrutanView> {
 
 class MengenalPosisiUrutanModel {
   final String soal, background;
-  final List<String> image;
+  final List<String> image, sound;
   final int jawaban, pilA, pilB, pilC;
 
   MengenalPosisiUrutanModel({
+    required this.sound,
     required this.soal,
     required this.background,
     required this.image,

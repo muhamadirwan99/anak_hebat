@@ -34,6 +34,7 @@ class MateriController extends State<MateriView> {
       subtitle: angka[i][1],
       audio: angka[i][2],
       onTap: () {
+        SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
         MateriController.instance._setMengenalAngka(i);
       },
     );
@@ -63,6 +64,7 @@ class MateriController extends State<MateriView> {
 
   // Menghitung Angka
   MenghitungAngkaModel modelMenghitungAngka = MenghitungAngkaModel(
+    sound: "",
     level: "",
     gambar: "",
     jawaban: 0,
@@ -73,6 +75,7 @@ class MateriController extends State<MateriView> {
 
   final List<MenghitungAngkaModel> _menghitungAngkaList = [
     MenghitungAngkaModel(
+      sound: MediaRes.audio.numerasi.mengenalAngka.berapaJumlahApel,
       level: "1",
       gambar: MediaRes.materi.a,
       jawaban: 3,
@@ -80,6 +83,7 @@ class MateriController extends State<MateriView> {
       onTap: () => MateriController.instance._setMenghitungAngka(0),
     ),
     MenghitungAngkaModel(
+      sound: MediaRes.audio.numerasi.mengenalAngka.berapaJumlahObat,
       level: "2",
       gambar: MediaRes.materi.o,
       jawaban: 2,
@@ -87,6 +91,7 @@ class MateriController extends State<MateriView> {
       onTap: () => MateriController.instance._setMenghitungAngka(1),
     ),
     MenghitungAngkaModel(
+      sound: MediaRes.audio.numerasi.mengenalAngka.berapaJumlahYoyo,
       level: "3",
       gambar: MediaRes.materi.y,
       jawaban: 4,
@@ -94,6 +99,7 @@ class MateriController extends State<MateriView> {
       onTap: () => MateriController.instance._setMenghitungAngka(2),
     ),
     MenghitungAngkaModel(
+      sound: MediaRes.audio.numerasi.mengenalAngka.berapaJumlahWortel,
       level: "4",
       gambar: MediaRes.materi.w,
       jawaban: 5,
@@ -101,6 +107,7 @@ class MateriController extends State<MateriView> {
       onTap: () => MateriController.instance._setMenghitungAngka(3),
     ),
     MenghitungAngkaModel(
+      sound: MediaRes.audio.numerasi.mengenalAngka.berapaJumlahNanas,
       level: "5",
       gambar: MediaRes.materi.n,
       jawaban: 6,
@@ -112,6 +119,8 @@ class MateriController extends State<MateriView> {
   List<MenghitungAngkaModel> listMenghitungAngka() => _menghitungAngkaList;
 
   void _setMenghitungAngka(int index) {
+    SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
+
     pageState = EnumMateriState.menghitung;
     modelMenghitungAngka = _menghitungAngkaList[index];
     isAnswerCorrect = false;
@@ -131,6 +140,7 @@ class MateriController extends State<MateriView> {
             isCorrect: true,
             isLast: false,
             onPressed: () {
+              SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
               _setMenghitungAngka(currentIndex + 1);
               Get.back();
             },
@@ -142,8 +152,10 @@ class MateriController extends State<MateriView> {
             isCorrect: true,
             isLast: true,
             onPressed: () {
+              SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
               setDefaultBackground();
               modelMenghitungAngka = MenghitungAngkaModel(
+                sound: "",
                 level: "",
                 gambar: "",
                 jawaban: 0,
@@ -163,6 +175,7 @@ class MateriController extends State<MateriView> {
           isCorrect: false,
           isLast: false,
           onPressed: () {
+            SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
             Get.back();
           },
         ),
@@ -220,6 +233,8 @@ class MateriController extends State<MateriView> {
   List<MengenalModel> listMengenalHuruf() => _mengenalHurufList;
 
   void _setMengenalHuruf(int index) {
+    SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
+
     pageState = EnumMateriState.mengenalHurufContent;
     modelMengenalHuruf = _mengenalHurufList[index];
     update();
@@ -241,6 +256,7 @@ class MateriController extends State<MateriView> {
 
   // Mencocokan Angka
   MencocokanAngkaModel modelMencocokanAngka = MencocokanAngkaModel(
+    sound: "",
     value: "",
     textValue: "",
     image: "",
@@ -250,6 +266,7 @@ class MateriController extends State<MateriView> {
 
   final List<MencocokanAngkaModel> _mencocokanAngkaList = [
     MencocokanAngkaModel(
+      sound: MediaRes.audio.numerasi.mencocokanAngka.apel1,
       value: "1",
       colorBorder: green800,
       textValue: "SATU",
@@ -257,6 +274,7 @@ class MateriController extends State<MateriView> {
       onTap: () => MateriController.instance._setMencocokanAngka(0),
     ),
     MencocokanAngkaModel(
+      sound: MediaRes.audio.numerasi.mencocokanAngka.nanas2,
       value: "2",
       colorBorder: blueGray800,
       textValue: "DUA",
@@ -264,6 +282,7 @@ class MateriController extends State<MateriView> {
       onTap: () => MateriController.instance._setMencocokanAngka(1),
     ),
     MencocokanAngkaModel(
+      sound: MediaRes.audio.numerasi.mencocokanAngka.telur3,
       value: "3",
       colorBorder: blue800,
       textValue: "TIGA",
@@ -271,6 +290,7 @@ class MateriController extends State<MateriView> {
       onTap: () => MateriController.instance._setMencocokanAngka(2),
     ),
     MencocokanAngkaModel(
+      sound: MediaRes.audio.numerasi.mencocokanAngka.apel4,
       value: "4",
       colorBorder: pink800,
       textValue: "EMPAT",
@@ -278,6 +298,7 @@ class MateriController extends State<MateriView> {
       onTap: () => MateriController.instance._setMencocokanAngka(3),
     ),
     MencocokanAngkaModel(
+      sound: MediaRes.audio.numerasi.mencocokanAngka.apel5,
       value: "5",
       colorBorder: purple800,
       textValue: "LIMA",
@@ -285,6 +306,7 @@ class MateriController extends State<MateriView> {
       onTap: () => MateriController.instance._setMencocokanAngka(4),
     ),
     MencocokanAngkaModel(
+      sound: MediaRes.audio.numerasi.mencocokanAngka.telur6,
       value: "6",
       colorBorder: red800,
       textValue: "ENAM",
@@ -292,6 +314,7 @@ class MateriController extends State<MateriView> {
       onTap: () => MateriController.instance._setMencocokanAngka(5),
     ),
     MencocokanAngkaModel(
+      sound: MediaRes.audio.numerasi.mencocokanAngka.sapi7,
       value: "7",
       colorBorder: gray800,
       textValue: "TUJUH",
@@ -299,6 +322,7 @@ class MateriController extends State<MateriView> {
       onTap: () => MateriController.instance._setMencocokanAngka(6),
     ),
     MencocokanAngkaModel(
+      sound: MediaRes.audio.numerasi.mencocokanAngka.payung8,
       value: "8",
       colorBorder: purple800,
       textValue: "DELAPAN",
@@ -306,6 +330,7 @@ class MateriController extends State<MateriView> {
       onTap: () => MateriController.instance._setMencocokanAngka(7),
     ),
     MencocokanAngkaModel(
+      sound: MediaRes.audio.numerasi.mencocokanAngka.ular9,
       value: "9",
       colorBorder: const Color(0xff20A95A),
       textValue: "SEMBILAN",
@@ -313,6 +338,7 @@ class MateriController extends State<MateriView> {
       onTap: () => MateriController.instance._setMencocokanAngka(8),
     ),
     MencocokanAngkaModel(
+      sound: MediaRes.audio.numerasi.mencocokanAngka.wortel10,
       value: "10",
       colorBorder: yellow900,
       textValue: "SEPULUH",
@@ -324,8 +350,12 @@ class MateriController extends State<MateriView> {
   List<MencocokanAngkaModel> listMencocokanAngka() => _mencocokanAngkaList;
 
   void _setMencocokanAngka(int index) {
+    SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
+
     pageState = EnumMateriState.mencocokanAngka;
     modelMencocokanAngka = _mencocokanAngkaList[index];
+    SoundUtils.playSound(modelMencocokanAngka.sound);
+
     update();
   }
 
@@ -347,6 +377,13 @@ class MateriController extends State<MateriView> {
 
   // Mengenal Bentuk
   MengenalBentukModel modelMengenalBentuk = MengenalBentukModel(
+    sound: [
+      MediaRes.audio.numerasi.mengenalBentuk.belajarMengenalBentuk,
+      MediaRes.audio.numerasi.mengenalBentuk.persegi,
+      MediaRes.audio.numerasi.mengenalBentuk.persegiPanjang,
+      MediaRes.audio.numerasi.mengenalBentuk.segi3,
+      MediaRes.audio.numerasi.mengenalBentuk.lingkaran,
+    ],
     listBentuk: [
       MediaRes.images.persegi,
       MediaRes.images.persegiPanjang,
@@ -359,6 +396,13 @@ class MateriController extends State<MateriView> {
 
   final List<MengenalBentukModel> _mengenalBentukList = [
     MengenalBentukModel(
+      sound: [
+        MediaRes.audio.numerasi.mengenalBentuk.belajarMengenalBentuk,
+        MediaRes.audio.numerasi.mengenalBentuk.persegi,
+        MediaRes.audio.numerasi.mengenalBentuk.persegiPanjang,
+        MediaRes.audio.numerasi.mengenalBentuk.segi3,
+        MediaRes.audio.numerasi.mengenalBentuk.lingkaran,
+      ],
       listBentuk: [
         MediaRes.images.persegi,
         MediaRes.images.persegiPanjang,
@@ -369,6 +413,10 @@ class MateriController extends State<MateriView> {
       title: "Mengenal Bentuk",
     ),
     MengenalBentukModel(
+      sound: [
+        MediaRes.audio.numerasi.mengenalBentuk.mengenalPola,
+        MediaRes.audio.numerasi.mengenalBentuk.persegiLingkaranPersegiLingkaran,
+      ],
       listBentuk: [
         MediaRes.images.persegi,
         MediaRes.images.lingkaran,
@@ -379,6 +427,9 @@ class MateriController extends State<MateriView> {
       title: "Mengenal Pola",
     ),
     MengenalBentukModel(
+      sound: [
+        MediaRes.audio.numerasi.mengenalBentuk.lingkaranSegi3LingkaranSegi3,
+      ],
       listBentuk: [
         MediaRes.images.lingkaran,
         MediaRes.images.segitiga,
@@ -394,6 +445,7 @@ class MateriController extends State<MateriView> {
 
   void _setMengenalBentuk(int index) {
     modelMengenalBentuk = _mengenalBentukList[index];
+    playSoundsSequentially(modelMengenalBentuk.sound);
     update();
   }
 
@@ -444,6 +496,8 @@ class MateriController extends State<MateriView> {
 
   void _setMengenalPerbandingan(int index) {
     modelMengenalPerbandingan = _mengenalPerbandinganList[index];
+    SoundUtils.playSound(MediaRes.audio.numerasi.mengenalPerbandingan.manaLebihSedikit);
+
     update();
   }
 
@@ -458,6 +512,7 @@ class MateriController extends State<MateriView> {
             isCorrect: true,
             isLast: false,
             onPressed: () {
+              SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
               _setMengenalPerbandingan(currentIndex + 1);
               Get.back();
             },
@@ -469,6 +524,7 @@ class MateriController extends State<MateriView> {
             isCorrect: true,
             isLast: true,
             onPressed: () {
+              SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
               setDefaultBackground();
               modelMengenalPerbandingan = MengenalPerbandinganModel(
                 soal: "Ayo kita bandingkan, yang manakah yang lebih banyak !",
@@ -491,6 +547,7 @@ class MateriController extends State<MateriView> {
           isCorrect: false,
           isLast: false,
           onPressed: () {
+            SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
             Get.back();
           },
         ),
@@ -500,6 +557,10 @@ class MateriController extends State<MateriView> {
 
   // Mengenal Posisi Urutan
   MengenalPosisiUrutanModel modelMengenalPosisiUrutan = MengenalPosisiUrutanModel(
+    sound: [
+      MediaRes.audio.numerasi.mengenalPosisiUrutan.mengenalPosisiUrutan,
+      MediaRes.audio.numerasi.mengenalPosisiUrutan.mengenalUrutan,
+    ],
     soal: "1",
     background: MediaRes.background.perbandingan1,
     image: [],
@@ -511,6 +572,10 @@ class MateriController extends State<MateriView> {
 
   final List<MengenalPosisiUrutanModel> _mengenalPosisiUrutanList = [
     MengenalPosisiUrutanModel(
+      sound: [
+        MediaRes.audio.numerasi.mengenalPosisiUrutan.mengenalPosisiUrutan,
+        MediaRes.audio.numerasi.mengenalPosisiUrutan.mengenalUrutan,
+      ],
       soal: "1",
       background: MediaRes.background.perbandingan1,
       image: [],
@@ -520,6 +585,9 @@ class MateriController extends State<MateriView> {
       pilC: 0,
     ),
     MengenalPosisiUrutanModel(
+      sound: [
+        MediaRes.audio.numerasi.mengenalPosisiUrutan.ceritaUrutan,
+      ],
       soal: "2",
       background: MediaRes.background.perbandingan2,
       image: [],
@@ -529,6 +597,9 @@ class MateriController extends State<MateriView> {
       pilC: 0,
     ),
     MengenalPosisiUrutanModel(
+      sound: [
+        MediaRes.audio.numerasi.mengenalPosisiUrutan.manaPosisiSegi3Kuning,
+      ],
       soal: "Segitiga Kuning berada pada urutan ke berapa?",
       background: MediaRes.background.perbandingan3,
       image: [
@@ -550,6 +621,7 @@ class MateriController extends State<MateriView> {
     // pageState = EnumMateriState.MengenalPosisiUrutan;
     changeBackground(_mengenalPosisiUrutanList[index].background);
     modelMengenalPosisiUrutan = _mengenalPosisiUrutanList[index];
+    playSoundsSequentially(modelMengenalPosisiUrutan.sound);
     update();
   }
 
@@ -581,6 +653,7 @@ class MateriController extends State<MateriView> {
             isCorrect: true,
             isLast: false,
             onPressed: () {
+              SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
               _setMengenalPosisiUrutan(currentIndex + 1);
               Get.back();
             },
@@ -592,8 +665,13 @@ class MateriController extends State<MateriView> {
             isCorrect: true,
             isLast: true,
             onPressed: () {
+              SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
               setDefaultBackground();
               modelMengenalPosisiUrutan = MengenalPosisiUrutanModel(
+                sound: [
+                  MediaRes.audio.numerasi.mengenalPosisiUrutan.mengenalPosisiUrutan,
+                  MediaRes.audio.numerasi.mengenalPosisiUrutan.mengenalUrutan,
+                ],
                 soal: "1",
                 background: MediaRes.background.perbandingan1,
                 image: [],
@@ -615,6 +693,7 @@ class MateriController extends State<MateriView> {
           isCorrect: false,
           isLast: false,
           onPressed: () {
+            SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
             Get.back();
           },
         ),
@@ -624,20 +703,24 @@ class MateriController extends State<MateriView> {
 
   // Mengenal Posisi
   MengenalPosisiModel modelMengenalPosisi = MengenalPosisiModel(
+    sound: MediaRes.audio.numerasi.mengenalPosisi.atasMeja,
     image: MediaRes.images.diatasMeja,
     level: 1,
   );
 
   final List<MengenalPosisiModel> _mengenalPosisiList = [
     MengenalPosisiModel(
+      sound: MediaRes.audio.numerasi.mengenalPosisi.atasMeja,
       image: MediaRes.images.diatasMeja,
       level: 1,
     ),
     MengenalPosisiModel(
+      sound: MediaRes.audio.numerasi.mengenalPosisi.bawahMeja,
       image: MediaRes.images.dibawahMeja,
       level: 2,
     ),
     MengenalPosisiModel(
+      sound: MediaRes.audio.numerasi.mengenalPosisi.sampingMeja,
       image: MediaRes.images.disampingMeja,
       level: 3,
     ),
@@ -647,6 +730,7 @@ class MateriController extends State<MateriView> {
 
   void _setMengenalPosisi(int index) {
     modelMengenalPosisi = _mengenalPosisiList[index];
+    playSoundsSequentially([modelMengenalPosisi.sound]);
     update();
   }
 
@@ -667,6 +751,7 @@ class MateriController extends State<MateriView> {
 
   // Mengenal Perbandingan
   BerhitungModel modelBerhitung = BerhitungModel(
+    sound: MediaRes.audio.numerasi.berhitung.kupu,
     level: "1",
     imageA: MediaRes.images.kupuKupu,
     imageB: MediaRes.images.kupuKupu,
@@ -682,6 +767,7 @@ class MateriController extends State<MateriView> {
 
   final List<BerhitungModel> _berhitungList = [
     BerhitungModel(
+      sound: MediaRes.audio.numerasi.berhitung.kupu,
       level: "1",
       imageA: MediaRes.images.kupuKupu,
       imageB: MediaRes.images.kupuKupu,
@@ -695,6 +781,7 @@ class MateriController extends State<MateriView> {
       ],
     ),
     BerhitungModel(
+      sound: MediaRes.audio.numerasi.berhitung.wortel,
       level: "2",
       imageA: MediaRes.images.wortel1,
       imageB: MediaRes.images.wortel2,
@@ -708,6 +795,7 @@ class MateriController extends State<MateriView> {
       ],
     ),
     BerhitungModel(
+      sound: MediaRes.audio.numerasi.berhitung.wortel,
       level: "3",
       imageA: MediaRes.images.buahNaga,
       imageB: MediaRes.images.buahNaga,
@@ -740,7 +828,10 @@ class MateriController extends State<MateriView> {
             isCorrect: true,
             isLast: false,
             onPressed: () {
+              SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
               _setBerhitung(currentIndex + 1);
+              SoundUtils.playSound(modelBerhitung.sound);
+
               Get.back();
             },
           ),
@@ -751,8 +842,10 @@ class MateriController extends State<MateriView> {
             isCorrect: true,
             isLast: true,
             onPressed: () {
+              SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
               setDefaultBackground();
               modelBerhitung = BerhitungModel(
+                sound: MediaRes.audio.numerasi.berhitung.kupu,
                 level: "1",
                 imageA: MediaRes.images.kupuKupu,
                 imageB: MediaRes.images.kupuKupu,
@@ -778,6 +871,7 @@ class MateriController extends State<MateriView> {
           isCorrect: false,
           isLast: false,
           onPressed: () {
+            SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
             Get.back();
           },
         ),
@@ -786,6 +880,10 @@ class MateriController extends State<MateriView> {
   }
 
   void changePageState(EnumMateriState state) {
+    if (state == EnumMateriState.ayoBelajar) {
+      setDefaultBackground();
+    }
+
     pageState = state;
     update();
   }
@@ -798,6 +896,12 @@ class MateriController extends State<MateriView> {
   void changeBackground(String image) {
     background = image;
     update();
+  }
+
+  Future<void> playSoundsSequentially(List<String> sounds) async {
+    for (final sound in sounds) {
+      await SoundUtils.playSound(sound);
+    }
   }
 
   @override

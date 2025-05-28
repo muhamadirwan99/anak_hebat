@@ -17,6 +17,15 @@ class MengenalPosisiView extends StatefulWidget {
 
 class MengenalPosisiState extends State<MengenalPosisiView> {
   @override
+  void initState() {
+    super.initState();
+    widget.controller.playSoundsSequentially([
+      MediaRes.audio.numerasi.mengenalPosisi.mengenalPosisi,
+      MediaRes.audio.numerasi.mengenalPosisi.atasMeja,
+    ]);
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Column(
       children: [
@@ -24,6 +33,7 @@ class MengenalPosisiState extends State<MengenalPosisiView> {
           children: [
             InkWell(
               onTap: () {
+                SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
                 widget.controller.changePageState(EnumMateriState.ayoBelajar);
               },
               child: SvgPicture.asset(
@@ -61,6 +71,7 @@ class MengenalPosisiState extends State<MengenalPosisiView> {
                     top: (766 / 2) - 62.5, // 125 / 2 (tinggi tombol)
                     child: InkWell(
                       onTap: () {
+                        SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
                         widget.controller.backMengenalPosisi();
                       },
                       child: SvgPicture.asset(
@@ -91,6 +102,7 @@ class MengenalPosisiState extends State<MengenalPosisiView> {
       top: (766 / 2) - 62.5, // 125 / 2 (tinggi tombol)
       child: InkWell(
         onTap: () {
+          SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
           widget.controller.nextMengenalPosisi();
         },
         child: Transform.rotate(
@@ -108,10 +120,11 @@ class MengenalPosisiState extends State<MengenalPosisiView> {
 
 class MengenalPosisiModel {
   final int level;
-  final String image;
+  final String image, sound;
 
   MengenalPosisiModel({
     required this.level,
     required this.image,
+    required this.sound,
   });
 }

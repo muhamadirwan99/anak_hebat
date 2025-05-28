@@ -1,3 +1,4 @@
+import 'package:anak_hebat/core.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -62,6 +63,7 @@ class _CustomFormFieldState extends State<CustomFormField> {
                       size: 20,
                     ),
                     onPressed: () {
+                      SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
                       setState(() {
                         _obscure = !_obscure;
                       });

@@ -18,6 +18,12 @@ class MengenalAngkaView extends StatefulWidget {
 
 class _MengenalAngkaViewState extends State<MengenalAngkaView> {
   @override
+  void initState() {
+    super.initState();
+    SoundUtils.playSound(MediaRes.audio.introMateri.mengenalAngka);
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Column(
       children: [
@@ -26,6 +32,7 @@ class _MengenalAngkaViewState extends State<MengenalAngkaView> {
           children: [
             InkWell(
               onTap: () {
+                SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
                 widget.controller.changePageState(EnumMateriState.ayoBelajar);
               },
               child: SvgPicture.asset(

@@ -18,6 +18,13 @@ class BerhitungView extends StatefulWidget {
 
 class BerhitungViewState extends State<BerhitungView> {
   @override
+  void initState() {
+    super.initState();
+    SoundUtils.playSound(MediaRes.audio.numerasi.berhitung.belajarBerhitung)
+        .whenComplete(() => SoundUtils.playSound(widget.controller.modelBerhitung.sound));
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Column(
       children: [
@@ -26,6 +33,8 @@ class BerhitungViewState extends State<BerhitungView> {
           children: [
             InkWell(
               onTap: () {
+                SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
+
                 widget.controller.changePageState(EnumMateriState.ayoBelajar);
               },
               child: SvgPicture.asset(
@@ -125,6 +134,7 @@ class BerhitungViewState extends State<BerhitungView> {
     bool isSelected = selectedPil == pil;
     return InkWell(
       onTap: () {
+        SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
         setState(() {
           selectedPil = pil;
         });
@@ -181,11 +191,12 @@ class BerhitungViewState extends State<BerhitungView> {
 }
 
 class BerhitungModel {
-  final String level, imageA, imageB;
+  final String level, imageA, imageB, sound;
   final int soalA, soalB, jawaban;
   final List<int> pil;
 
   BerhitungModel({
+    required this.sound,
     required this.level,
     required this.imageA,
     required this.imageB,

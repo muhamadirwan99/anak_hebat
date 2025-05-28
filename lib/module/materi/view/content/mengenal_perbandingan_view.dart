@@ -18,6 +18,15 @@ class MengenalPerbandinganView extends StatefulWidget {
 
 class MengenalPerbandinganViewState extends State<MengenalPerbandinganView> {
   @override
+  void initState() {
+    super.initState();
+    widget.controller.playSoundsSequentially([
+      MediaRes.audio.numerasi.mengenalPerbandingan.perbandinganJumlahBenda,
+      MediaRes.audio.numerasi.mengenalPerbandingan.manaLebihBanyak,
+    ]);
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Column(
       children: [
@@ -26,6 +35,7 @@ class MengenalPerbandinganViewState extends State<MengenalPerbandinganView> {
           children: [
             InkWell(
               onTap: () {
+                SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
                 widget.controller.changePageState(EnumMateriState.ayoBelajar);
               },
               child: SvgPicture.asset(
@@ -110,6 +120,7 @@ class MengenalPerbandinganViewState extends State<MengenalPerbandinganView> {
     bool isSelected = selectedPil == pil;
     return InkWell(
       onTap: () {
+        SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
         setState(() {
           selectedPil = pil;
         });

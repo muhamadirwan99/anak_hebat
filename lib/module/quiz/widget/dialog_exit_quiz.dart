@@ -120,6 +120,7 @@ class _DialogExitQuizState extends State<DialogExitQuiz> {
                 child: CustomHomeButton(
                   text: "Batal",
                   onPressed: () {
+                    SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
                     Navigator.pop(context);
                   },
                   isPrimary: false,
@@ -132,6 +133,8 @@ class _DialogExitQuizState extends State<DialogExitQuiz> {
                 child: CustomHomeButton(
                   text: "Keluar",
                   onPressed: () async {
+                    SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
+
                     await SoundUtils.stopSound();
                     newRouter.go(RouterUtils.home);
                   },

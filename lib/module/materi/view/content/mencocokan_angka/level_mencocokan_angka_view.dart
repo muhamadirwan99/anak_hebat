@@ -18,6 +18,12 @@ class LevelMencocokanAngkaView extends StatefulWidget {
 
 class LevelMencocokanAngkaViewState extends State<LevelMencocokanAngkaView> {
   @override
+  void initState() {
+    super.initState();
+    SoundUtils.playSound(MediaRes.audio.numerasi.mencocokanAngka.belajarMenghitungJumlahBenda);
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Column(
       children: [
@@ -26,6 +32,7 @@ class LevelMencocokanAngkaViewState extends State<LevelMencocokanAngkaView> {
           children: [
             InkWell(
               onTap: () {
+                SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
                 widget.controller.changePageState(EnumMateriState.ayoBelajar);
               },
               child: SvgPicture.asset(

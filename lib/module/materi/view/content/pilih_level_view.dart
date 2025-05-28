@@ -18,6 +18,13 @@ class PilihLevelView extends StatefulWidget {
 
 class _PilihLevelViewState extends State<PilihLevelView> {
   @override
+  void initState() {
+    super.initState();
+    SoundUtils.playSound(MediaRes.audio.numerasi.mengenalAngka.mengenalAngkaJumlahBenda)
+        .whenComplete(() => SoundUtils.playSound(MediaRes.audio.numerasi.mengenalAngka.pilihLevel));
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Column(
       children: [
@@ -26,6 +33,7 @@ class _PilihLevelViewState extends State<PilihLevelView> {
           children: [
             InkWell(
               onTap: () {
+                SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
                 widget.controller.changePageState(EnumMateriState.ayoBelajar);
               },
               child: SvgPicture.asset(

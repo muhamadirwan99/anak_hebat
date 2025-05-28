@@ -18,6 +18,12 @@ class MencocokanAngkaView extends StatefulWidget {
 
 class _MencocokanAngkaViewState extends State<MencocokanAngkaView> {
   @override
+  void initState() {
+    super.initState();
+    SoundUtils.playSound(widget.controller.modelMencocokanAngka.sound);
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Column(
       children: [
@@ -27,6 +33,7 @@ class _MencocokanAngkaViewState extends State<MencocokanAngkaView> {
           children: [
             InkWell(
               onTap: () {
+                SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
                 widget.controller.changePageState(EnumMateriState.ayoBelajar);
               },
               child: SvgPicture.asset(
@@ -45,6 +52,7 @@ class _MencocokanAngkaViewState extends State<MencocokanAngkaView> {
             ),
             InkWell(
               onTap: () {
+                SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
                 widget.controller.changePageState(EnumMateriState.levelMencocokanAngka);
               },
               child: SvgPicture.asset(
@@ -138,6 +146,7 @@ class _MencocokanAngkaViewState extends State<MencocokanAngkaView> {
             children: [
               InkWell(
                 onTap: () {
+                  SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
                   widget.controller.backMencocokanAngka();
                 },
                 child: Transform.rotate(
@@ -160,6 +169,7 @@ class _MencocokanAngkaViewState extends State<MencocokanAngkaView> {
               ),
               InkWell(
                 onTap: () {
+                  SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
                   widget.controller.nextMencocokanAngka();
                 },
                 child: SvgPicture.asset(
