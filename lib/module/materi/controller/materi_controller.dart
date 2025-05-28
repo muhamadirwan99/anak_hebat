@@ -124,6 +124,8 @@ class MateriController extends State<MateriView> {
     pageState = EnumMateriState.menghitung;
     modelMenghitungAngka = _menghitungAngkaList[index];
     isAnswerCorrect = false;
+
+    playSoundsSequentially([modelMenghitungAngka.sound]);
     update();
   }
 
