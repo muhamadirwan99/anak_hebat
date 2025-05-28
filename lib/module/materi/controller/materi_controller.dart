@@ -142,7 +142,6 @@ class MateriController extends State<MateriView> {
             isCorrect: true,
             isLast: false,
             onPressed: () {
-              SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
               _setMenghitungAngka(currentIndex + 1);
               Get.back();
             },
