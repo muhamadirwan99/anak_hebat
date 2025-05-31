@@ -560,10 +560,10 @@ class MateriController extends State<MateriView> {
   MengenalPosisiUrutanModel modelMengenalPosisiUrutan = MengenalPosisiUrutanModel(
     sound: [
       MediaRes.audio.numerasi.mengenalPosisiUrutan.mengenalPosisiUrutan,
-      MediaRes.audio.numerasi.mengenalPosisiUrutan.mengenalUrutan,
+      MediaRes.audio.numerasi.mengenalPosisiUrutan.ceritaUrutan,
     ],
     soal: "1",
-    background: MediaRes.background.perbandingan1,
+    background: MediaRes.background.perbandingan2,
     image: [],
     jawaban: 0,
     pilA: 0,
@@ -575,10 +575,10 @@ class MateriController extends State<MateriView> {
     MengenalPosisiUrutanModel(
       sound: [
         MediaRes.audio.numerasi.mengenalPosisiUrutan.mengenalPosisiUrutan,
-        MediaRes.audio.numerasi.mengenalPosisiUrutan.mengenalUrutan,
+        MediaRes.audio.numerasi.mengenalPosisiUrutan.ceritaUrutan,
       ],
       soal: "1",
-      background: MediaRes.background.perbandingan1,
+      background: MediaRes.background.perbandingan2,
       image: [],
       jawaban: 0,
       pilA: 0,
@@ -587,10 +587,10 @@ class MateriController extends State<MateriView> {
     ),
     MengenalPosisiUrutanModel(
       sound: [
-        MediaRes.audio.numerasi.mengenalPosisiUrutan.ceritaUrutan,
+        MediaRes.audio.numerasi.mengenalPosisiUrutan.ceritaUrutan2,
       ],
       soal: "2",
-      background: MediaRes.background.perbandingan2,
+      background: MediaRes.background.perbandingan1,
       image: [],
       jawaban: 0,
       pilA: 0,
@@ -796,7 +796,7 @@ class MateriController extends State<MateriView> {
       ],
     ),
     BerhitungModel(
-      sound: MediaRes.audio.numerasi.berhitung.wortel,
+      sound: MediaRes.audio.numerasi.berhitung.buahNaga,
       level: "3",
       imageA: MediaRes.images.buahNaga,
       imageB: MediaRes.images.buahNaga,
@@ -883,10 +883,92 @@ class MateriController extends State<MateriView> {
   void changePageState(EnumMateriState state) {
     if (state == EnumMateriState.ayoBelajar) {
       setDefaultBackground();
+      setDefaultData();
     }
 
     pageState = state;
     update();
+  }
+
+  //buatkan fungsi setDefault data untuk semua materi
+  void setDefaultData() {
+    pageState = EnumMateriState.ayoBelajar;
+    modelMengenalAngka = MengenalModel(title: "", subtitle: "", audio: "", onTap: () {});
+    modelMengenalHuruf = MengenalModel(title: "", subtitle: "", audio: "", onTap: () {});
+    modelMenghitungAngka = MenghitungAngkaModel(
+      sound: "",
+      level: "",
+      gambar: "",
+      jawaban: 0,
+      pilihan: [],
+      onTap: () {},
+    );
+    modelMencocokanAngka = MencocokanAngkaModel(
+      sound: "",
+      value: "",
+      textValue: "",
+      image: "",
+      colorBorder: Colors.transparent,
+      onTap: () {},
+    );
+    modelMengenalBentuk = MengenalBentukModel(
+      sound: [
+        MediaRes.audio.numerasi.mengenalBentuk.belajarMengenalBentuk,
+        MediaRes.audio.numerasi.mengenalBentuk.persegi,
+        MediaRes.audio.numerasi.mengenalBentuk.persegiPanjang,
+        MediaRes.audio.numerasi.mengenalBentuk.segi3,
+        MediaRes.audio.numerasi.mengenalBentuk.lingkaran,
+      ],
+      listBentuk: [
+        MediaRes.images.persegi,
+        MediaRes.images.persegiPanjang,
+        MediaRes.images.segitiga,
+        MediaRes.images.lingkaran,
+      ],
+      soal: 1,
+      title: "Mengenal Bentuk",
+    );
+    modelMengenalPerbandingan = modelMengenalPerbandingan = MengenalPerbandinganModel(
+      soal: "Ayo kita bandingkan, yang manakah yang lebih banyak !",
+      imageA: MediaRes.materi.a,
+      imageB: MediaRes.materi.n,
+      jawaban: 6,
+      pilA: 3,
+      pilB: 6,
+    );
+    modelMengenalPosisiUrutan = MengenalPosisiUrutanModel(
+      sound: [
+        MediaRes.audio.numerasi.mengenalPosisiUrutan.mengenalPosisiUrutan,
+        MediaRes.audio.numerasi.mengenalPosisiUrutan.ceritaUrutan,
+      ],
+      soal: "1",
+      background: MediaRes.background.perbandingan2,
+      image: [],
+      jawaban: 0,
+      pilA: 0,
+      pilB: 0,
+      pilC: 0,
+    );
+    modelMengenalPosisi = MengenalPosisiModel(
+      sound: MediaRes.audio.numerasi.mengenalPosisi.atasMeja,
+      image: MediaRes.images.diatasMeja,
+      level: 1,
+    );
+    modelBerhitung = modelBerhitung = BerhitungModel(
+      sound: MediaRes.audio.numerasi.berhitung.kupu,
+      level: "1",
+      imageA: MediaRes.images.kupuKupu,
+      imageB: MediaRes.images.kupuKupu,
+      soalA: 3,
+      soalB: 3,
+      jawaban: 6,
+      pil: [
+        6,
+        4,
+        3,
+      ],
+    );
+    isAnswerCorrect = false;
   }
 
   void setDefaultBackground() {

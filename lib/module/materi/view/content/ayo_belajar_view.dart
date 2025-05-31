@@ -63,7 +63,7 @@ class _AyoBelajarViewState extends State<AyoBelajarView> {
         image: MediaRes.button.mengenalPosisiUrutan,
         onTap: () {
           SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
-          widget.controller.changeBackground(MediaRes.background.perbandingan1);
+          widget.controller.changeBackground(MediaRes.background.perbandingan2);
           widget.controller.changePageState(EnumMateriState.mengenalPosisiUrutan);
         },
       ),
