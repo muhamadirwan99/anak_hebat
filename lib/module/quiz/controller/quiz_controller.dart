@@ -106,7 +106,8 @@ class QuizController extends State<QuizView> {
     final docId = "${userId}_$quizName";
 
     CollectionReference users = _firestore.collection('users');
-    DocumentReference leaderboards = _firestore.collection('leaderboards').doc(docId);
+    DocumentReference leaderboards =
+        _firestore.collection('leaderboards').doc(docId);
 
     try {
       // Update user history_quiz as a list (append if exists, else create)
@@ -129,7 +130,8 @@ class QuizController extends State<QuizView> {
               'point': point,
               'jawabanBenar': jawabanBenar,
               'jawabanSalah': jawabanSalah,
-              'listQuizPayload': listQuizPayload.map((e) => e.toJson()).toList(),
+              'listQuizPayload':
+                  listQuizPayload.map((e) => e.toJson()).toList(),
             }
           ]),
         });
@@ -142,7 +144,8 @@ class QuizController extends State<QuizView> {
               'point': point,
               'jawaban_benar': jawabanBenar,
               'jawaban_salah': jawabanSalah,
-              'list_jawaban_salah': listQuizPayload.map((e) => e.toJson()).toList(),
+              'list_jawaban_salah':
+                  listQuizPayload.map((e) => e.toJson()).toList(),
             }
           ],
         });
@@ -167,7 +170,8 @@ class QuizController extends State<QuizView> {
             "point": int.parse(point),
             "jawaban_benar": jawabanBenar,
             "jawaban_salah": jawabanSalah,
-            "list_jawaban_salah": listQuizPayload.map((e) => e.toJson()).toList(),
+            "list_jawaban_salah":
+                listQuizPayload.map((e) => e.toJson()).toList(),
           });
         }
       } else {

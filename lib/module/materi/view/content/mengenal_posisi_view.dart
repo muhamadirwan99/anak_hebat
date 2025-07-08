@@ -71,7 +71,8 @@ class MengenalPosisiState extends State<MengenalPosisiView> {
                     top: (766 / 2) - 62.5, // 125 / 2 (tinggi tombol)
                     child: InkWell(
                       onTap: () {
-                        SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
+                        SoundUtils.playSoundWithoutWaiting(
+                            MediaRes.audio.click);
                         widget.controller.backMengenalPosisi();
                       },
                       child: SvgPicture.asset(
@@ -90,7 +91,8 @@ class MengenalPosisiState extends State<MengenalPosisiView> {
   Widget _buildButtonNext() {
     final model = widget.controller.modelMengenalPosisi;
     final list = widget.controller.listMengenalPosisi();
-    int currentIndex = list.indexWhere((element) => element.level == model.level);
+    int currentIndex =
+        list.indexWhere((element) => element.level == model.level);
     final isLast = currentIndex == list.length - 1;
 
     if (isLast) {

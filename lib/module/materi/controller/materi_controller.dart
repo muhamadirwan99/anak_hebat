@@ -49,14 +49,16 @@ class MateriController extends State<MateriView> {
   }
 
   void nextMengenalAngka() {
-    int currentIndex = _mengenalAngkaList.indexWhere((e) => e.title == modelMengenalAngka.title);
+    int currentIndex = _mengenalAngkaList
+        .indexWhere((e) => e.title == modelMengenalAngka.title);
     if (currentIndex != -1 && currentIndex < _mengenalAngkaList.length - 1) {
       _setMengenalAngka(currentIndex + 1);
     }
   }
 
   void backMengenalAngka() {
-    int currentIndex = _mengenalAngkaList.indexWhere((e) => e.title == modelMengenalAngka.title);
+    int currentIndex = _mengenalAngkaList
+        .indexWhere((e) => e.title == modelMengenalAngka.title);
     if (currentIndex > 0) {
       _setMengenalAngka(currentIndex - 1);
     }
@@ -131,10 +133,11 @@ class MateriController extends State<MateriView> {
 
   void checkAnswerMenghitungAngka(String answer) {
     if (answer == modelMenghitungAngka.jawaban.toString()) {
-      int currentIndex =
-          _menghitungAngkaList.indexWhere((e) => e.level == modelMenghitungAngka.level);
+      int currentIndex = _menghitungAngkaList
+          .indexWhere((e) => e.level == modelMenghitungAngka.level);
 
-      if (currentIndex != -1 && currentIndex < _menghitungAngkaList.length - 1) {
+      if (currentIndex != -1 &&
+          currentIndex < _menghitungAngkaList.length - 1) {
         isAnswerCorrect = !isAnswerCorrect;
         update();
         showDialogBase(
@@ -242,14 +245,16 @@ class MateriController extends State<MateriView> {
   }
 
   void nextMengenalHuruf() {
-    int currentIndex = _mengenalHurufList.indexWhere((e) => e.title == modelMengenalHuruf.title);
+    int currentIndex = _mengenalHurufList
+        .indexWhere((e) => e.title == modelMengenalHuruf.title);
     if (currentIndex != -1 && currentIndex < _mengenalHurufList.length - 1) {
       _setMengenalHuruf(currentIndex + 1);
     }
   }
 
   void backMengenalHuruf() {
-    int currentIndex = _mengenalHurufList.indexWhere((e) => e.title == modelMengenalHuruf.title);
+    int currentIndex = _mengenalHurufList
+        .indexWhere((e) => e.title == modelMengenalHuruf.title);
     if (currentIndex > 0) {
       _setMengenalHuruf(currentIndex - 1);
     }
@@ -361,16 +366,16 @@ class MateriController extends State<MateriView> {
   }
 
   void nextMencocokanAngka() {
-    int currentIndex =
-        _mencocokanAngkaList.indexWhere((e) => e.value == modelMencocokanAngka.value);
+    int currentIndex = _mencocokanAngkaList
+        .indexWhere((e) => e.value == modelMencocokanAngka.value);
     if (currentIndex != -1 && currentIndex < _mencocokanAngkaList.length - 1) {
       _setMencocokanAngka(currentIndex + 1);
     }
   }
 
   void backMencocokanAngka() {
-    int currentIndex =
-        _mencocokanAngkaList.indexWhere((e) => e.value == modelMencocokanAngka.value);
+    int currentIndex = _mencocokanAngkaList
+        .indexWhere((e) => e.value == modelMencocokanAngka.value);
     if (currentIndex > 0) {
       _setMencocokanAngka(currentIndex - 1);
     }
@@ -451,21 +456,24 @@ class MateriController extends State<MateriView> {
   }
 
   void nextMengenalBentuk() {
-    int currentIndex = _mengenalBentukList.indexWhere((e) => e.soal == modelMengenalBentuk.soal);
+    int currentIndex = _mengenalBentukList
+        .indexWhere((e) => e.soal == modelMengenalBentuk.soal);
     if (currentIndex != -1 && currentIndex < _mengenalBentukList.length - 1) {
       _setMengenalBentuk(currentIndex + 1);
     }
   }
 
   void backMengenalBentuk() {
-    int currentIndex = _mengenalBentukList.indexWhere((e) => e.soal == modelMengenalBentuk.soal);
+    int currentIndex = _mengenalBentukList
+        .indexWhere((e) => e.soal == modelMengenalBentuk.soal);
     if (currentIndex > 0) {
       _setMengenalBentuk(currentIndex - 1);
     }
   }
 
   // Mengenal Perbandingan
-  MengenalPerbandinganModel modelMengenalPerbandingan = MengenalPerbandinganModel(
+  MengenalPerbandinganModel modelMengenalPerbandingan =
+      MengenalPerbandinganModel(
     soal: "Ayo kita bandingkan, yang manakah yang lebih banyak !",
     imageA: MediaRes.materi.a,
     imageB: MediaRes.materi.n,
@@ -493,21 +501,24 @@ class MateriController extends State<MateriView> {
     ),
   ];
 
-  List<MengenalPerbandinganModel> listMengenalPerbandingan() => _mengenalPerbandinganList;
+  List<MengenalPerbandinganModel> listMengenalPerbandingan() =>
+      _mengenalPerbandinganList;
 
   void _setMengenalPerbandingan(int index) {
     modelMengenalPerbandingan = _mengenalPerbandinganList[index];
-    SoundUtils.playSound(MediaRes.audio.numerasi.mengenalPerbandingan.manaLebihSedikit);
+    SoundUtils.playSound(
+        MediaRes.audio.numerasi.mengenalPerbandingan.manaLebihSedikit);
 
     update();
   }
 
   void checkAnswerMengenalPerbandingan(int answer) {
     if (answer == modelMengenalPerbandingan.jawaban) {
-      int currentIndex =
-          _mengenalPerbandinganList.indexWhere((e) => e.soal == modelMengenalPerbandingan.soal);
+      int currentIndex = _mengenalPerbandinganList
+          .indexWhere((e) => e.soal == modelMengenalPerbandingan.soal);
 
-      if (currentIndex != -1 && currentIndex < _mengenalPerbandinganList.length - 1) {
+      if (currentIndex != -1 &&
+          currentIndex < _mengenalPerbandinganList.length - 1) {
         showDialogBase(
           content: DialogHasilJawaban(
             isCorrect: true,
@@ -557,7 +568,8 @@ class MateriController extends State<MateriView> {
   }
 
   // Mengenal Posisi Urutan
-  MengenalPosisiUrutanModel modelMengenalPosisiUrutan = MengenalPosisiUrutanModel(
+  MengenalPosisiUrutanModel modelMengenalPosisiUrutan =
+      MengenalPosisiUrutanModel(
     sound: [
       MediaRes.audio.numerasi.mengenalPosisiUrutan.mengenalPosisiUrutan,
       MediaRes.audio.numerasi.mengenalPosisiUrutan.ceritaUrutan,
@@ -616,7 +628,8 @@ class MateriController extends State<MateriView> {
     ),
   ];
 
-  List<MengenalPosisiUrutanModel> listMengenalPosisiUrutan() => _mengenalPosisiUrutanList;
+  List<MengenalPosisiUrutanModel> listMengenalPosisiUrutan() =>
+      _mengenalPosisiUrutanList;
 
   void _setMengenalPosisiUrutan(int index) {
     // pageState = EnumMateriState.MengenalPosisiUrutan;
@@ -627,17 +640,18 @@ class MateriController extends State<MateriView> {
   }
 
   void nextMengenalPosisiUrutan() {
-    int currentIndex =
-        _mengenalPosisiUrutanList.indexWhere((e) => e.soal == modelMengenalPosisiUrutan.soal);
+    int currentIndex = _mengenalPosisiUrutanList
+        .indexWhere((e) => e.soal == modelMengenalPosisiUrutan.soal);
 
-    if (currentIndex != -1 && currentIndex < _mengenalPosisiUrutanList.length - 1) {
+    if (currentIndex != -1 &&
+        currentIndex < _mengenalPosisiUrutanList.length - 1) {
       _setMengenalPosisiUrutan(currentIndex + 1);
     }
   }
 
   void backMengenalPosisiUrutan() {
-    int currentIndex =
-        _mengenalPosisiUrutanList.indexWhere((e) => e.soal == modelMengenalPosisiUrutan.soal);
+    int currentIndex = _mengenalPosisiUrutanList
+        .indexWhere((e) => e.soal == modelMengenalPosisiUrutan.soal);
     if (currentIndex > 0) {
       _setMengenalPosisiUrutan(currentIndex - 1);
     }
@@ -645,10 +659,11 @@ class MateriController extends State<MateriView> {
 
   void checkAnswerMengenalPosisiUrutan(int answer) {
     if (answer == modelMengenalPosisiUrutan.jawaban) {
-      int currentIndex =
-          _mengenalPosisiUrutanList.indexWhere((e) => e.soal == modelMengenalPosisiUrutan.soal);
+      int currentIndex = _mengenalPosisiUrutanList
+          .indexWhere((e) => e.soal == modelMengenalPosisiUrutan.soal);
 
-      if (currentIndex != -1 && currentIndex < _mengenalPosisiUrutanList.length - 1) {
+      if (currentIndex != -1 &&
+          currentIndex < _mengenalPosisiUrutanList.length - 1) {
         showDialogBase(
           content: DialogHasilJawaban(
             isCorrect: true,
@@ -670,7 +685,8 @@ class MateriController extends State<MateriView> {
               setDefaultBackground();
               modelMengenalPosisiUrutan = MengenalPosisiUrutanModel(
                 sound: [
-                  MediaRes.audio.numerasi.mengenalPosisiUrutan.mengenalPosisiUrutan,
+                  MediaRes
+                      .audio.numerasi.mengenalPosisiUrutan.mengenalPosisiUrutan,
                   MediaRes.audio.numerasi.mengenalPosisiUrutan.mengenalUrutan,
                 ],
                 soal: "1",
@@ -736,7 +752,8 @@ class MateriController extends State<MateriView> {
   }
 
   void nextMengenalPosisi() {
-    int currentIndex = _mengenalPosisiList.indexWhere((e) => e.level == modelMengenalPosisi.level);
+    int currentIndex = _mengenalPosisiList
+        .indexWhere((e) => e.level == modelMengenalPosisi.level);
 
     if (currentIndex != -1 && currentIndex < _mengenalPosisiList.length - 1) {
       _setMengenalPosisi(currentIndex + 1);
@@ -744,7 +761,8 @@ class MateriController extends State<MateriView> {
   }
 
   void backMengenalPosisi() {
-    int currentIndex = _mengenalPosisiList.indexWhere((e) => e.level == modelMengenalPosisi.level);
+    int currentIndex = _mengenalPosisiList
+        .indexWhere((e) => e.level == modelMengenalPosisi.level);
     if (currentIndex > 0) {
       _setMengenalPosisi(currentIndex - 1);
     }
@@ -821,7 +839,8 @@ class MateriController extends State<MateriView> {
 
   void checkAnswerBerhitung(int answer) {
     if (answer == modelBerhitung.jawaban) {
-      int currentIndex = _berhitungList.indexWhere((e) => e.level == modelBerhitung.level);
+      int currentIndex =
+          _berhitungList.indexWhere((e) => e.level == modelBerhitung.level);
 
       if (currentIndex != -1 && currentIndex < _berhitungList.length - 1) {
         showDialogBase(
@@ -893,8 +912,10 @@ class MateriController extends State<MateriView> {
   //buatkan fungsi setDefault data untuk semua materi
   void setDefaultData() {
     pageState = EnumMateriState.ayoBelajar;
-    modelMengenalAngka = MengenalModel(title: "", subtitle: "", audio: "", onTap: () {});
-    modelMengenalHuruf = MengenalModel(title: "", subtitle: "", audio: "", onTap: () {});
+    modelMengenalAngka =
+        MengenalModel(title: "", subtitle: "", audio: "", onTap: () {});
+    modelMengenalHuruf =
+        MengenalModel(title: "", subtitle: "", audio: "", onTap: () {});
     modelMenghitungAngka = MenghitungAngkaModel(
       sound: "",
       level: "",
@@ -928,7 +949,8 @@ class MateriController extends State<MateriView> {
       soal: 1,
       title: "Mengenal Bentuk",
     );
-    modelMengenalPerbandingan = modelMengenalPerbandingan = MengenalPerbandinganModel(
+    modelMengenalPerbandingan =
+        modelMengenalPerbandingan = MengenalPerbandinganModel(
       soal: "Ayo kita bandingkan, yang manakah yang lebih banyak !",
       imageA: MediaRes.materi.a,
       imageB: MediaRes.materi.n,

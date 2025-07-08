@@ -21,7 +21,8 @@ class BerhitungViewState extends State<BerhitungView> {
   void initState() {
     super.initState();
     SoundUtils.playSound(MediaRes.audio.numerasi.berhitung.belajarBerhitung)
-        .whenComplete(() => SoundUtils.playSound(widget.controller.modelBerhitung.sound));
+        .whenComplete(
+            () => SoundUtils.playSound(widget.controller.modelBerhitung.sound));
   }
 
   @override
@@ -65,14 +66,18 @@ class BerhitungViewState extends State<BerhitungView> {
             children: [
               Expanded(
                 child: StaggeredGrid.count(
-                  crossAxisCount: getCrossAxisCount(widget.controller.modelBerhitung.soalA),
+                  crossAxisCount:
+                      getCrossAxisCount(widget.controller.modelBerhitung.soalA),
                   mainAxisSpacing: 8,
                   crossAxisSpacing: 8,
                   children: [
-                    for (var i = 0; i < widget.controller.modelBerhitung.soalA; i++)
+                    for (var i = 0;
+                        i < widget.controller.modelBerhitung.soalA;
+                        i++)
                       Image.asset(
                         widget.controller.modelBerhitung.imageA,
-                        height: getHeight(widget.controller.modelBerhitung.imageA),
+                        height:
+                            getHeight(widget.controller.modelBerhitung.imageA),
                       ),
                   ],
                 ),
@@ -93,14 +98,18 @@ class BerhitungViewState extends State<BerhitungView> {
               ),
               Expanded(
                 child: StaggeredGrid.count(
-                  crossAxisCount: getCrossAxisCount(widget.controller.modelBerhitung.soalB),
+                  crossAxisCount:
+                      getCrossAxisCount(widget.controller.modelBerhitung.soalB),
                   mainAxisSpacing: 8,
                   crossAxisSpacing: 8,
                   children: [
-                    for (var i = 0; i < widget.controller.modelBerhitung.soalB; i++)
+                    for (var i = 0;
+                        i < widget.controller.modelBerhitung.soalB;
+                        i++)
                       Image.asset(
                         widget.controller.modelBerhitung.imageB,
-                        height: getHeight(widget.controller.modelBerhitung.imageB),
+                        height:
+                            getHeight(widget.controller.modelBerhitung.imageB),
                       ),
                   ],
                 ),
@@ -117,7 +126,9 @@ class BerhitungViewState extends State<BerhitungView> {
             crossAxisCount: 3,
             crossAxisSpacing: 52,
             children: [
-              for (var i = 0; i < widget.controller.modelBerhitung.pil.length; i++)
+              for (var i = 0;
+                  i < widget.controller.modelBerhitung.pil.length;
+                  i++)
                 containerJawaban(
                   widget.controller.modelBerhitung.pil[i],
                 ),

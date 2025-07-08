@@ -13,7 +13,8 @@ class MengenalPosisiUrutanView extends StatefulWidget {
   });
 
   @override
-  State<MengenalPosisiUrutanView> createState() => MengenalPerbaPosisiUrutantate();
+  State<MengenalPosisiUrutanView> createState() =>
+      MengenalPerbaPosisiUrutantate();
 }
 
 class MengenalPerbaPosisiUrutantate extends State<MengenalPosisiUrutanView> {
@@ -57,7 +58,8 @@ class MengenalPerbaPosisiUrutantate extends State<MengenalPosisiUrutanView> {
                 color: gray900,
               ),
             ),
-            widget.controller.modelMengenalPosisiUrutan.soal.contains("Segitiga")
+            widget.controller.modelMengenalPosisiUrutan.soal
+                    .contains("Segitiga")
                 ? const SizedBox.shrink()
                 : InkWell(
                     onTap: () {
@@ -108,11 +110,16 @@ class MengenalPerbaPosisiUrutantate extends State<MengenalPosisiUrutanView> {
                 crossAxisCount: 4,
                 crossAxisSpacing: 16,
                 children: [
-                  for (var i = 0; i < widget.controller.modelMengenalPosisiUrutan.image.length; i++)
+                  for (var i = 0;
+                      i <
+                          widget.controller.modelMengenalPosisiUrutan.image
+                              .length;
+                      i++)
                     ClipRect(
                       child: Align(
                         alignment: Alignment.topCenter,
-                        heightFactor: 178 / 225, // 225 - 47 = 178, so crop 47px from bottom
+                        heightFactor: 178 /
+                            225, // 225 - 47 = 178, so crop 47px from bottom
                         child: Image.asset(
                           widget.controller.modelMengenalPosisiUrutan.image[i],
                           height: 225,

@@ -22,10 +22,13 @@ class ButtonRes {
   String get quizNumerasi => '${ButtonRes.basePath}/quiz_numerasi.png';
   String get tandaSeru => '${ButtonRes.basePath}/tanda_seru.svg';
   String get mengenalBentuk => '${ButtonRes.basePath}/mengenal_bentuk.png';
-  String get mengenalPerbandingan => '${ButtonRes.basePath}/mengenal_perbandingan.png';
-  String get mengenalPosisiUrutan => '${ButtonRes.basePath}/mengenal_posisi_urutan.png';
+  String get mengenalPerbandingan =>
+      '${ButtonRes.basePath}/mengenal_perbandingan.png';
+  String get mengenalPosisiUrutan =>
+      '${ButtonRes.basePath}/mengenal_posisi_urutan.png';
   String get mengenalPosisi => '${ButtonRes.basePath}/mengenal_posisi.png';
-  String get mengenalAngkaBenda => '${ButtonRes.basePath}/mengenal_angka_benda.png';
+  String get mengenalAngkaBenda =>
+      '${ButtonRes.basePath}/mengenal_angka_benda.png';
   String get berhitung => '${ButtonRes.basePath}/berhitung.png';
   String get pola => '${ButtonRes.basePath}/pola.svg';
   String get nextBentuk => '${ButtonRes.basePath}/next_bentuk.svg';

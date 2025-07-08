@@ -13,14 +13,16 @@ class LevelMencocokanAngkaView extends StatefulWidget {
   });
 
   @override
-  State<LevelMencocokanAngkaView> createState() => LevelMencocokanAngkaViewState();
+  State<LevelMencocokanAngkaView> createState() =>
+      LevelMencocokanAngkaViewState();
 }
 
 class LevelMencocokanAngkaViewState extends State<LevelMencocokanAngkaView> {
   @override
   void initState() {
     super.initState();
-    SoundUtils.playSound(MediaRes.audio.numerasi.mencocokanAngka.belajarMenghitungJumlahBenda);
+    SoundUtils.playSound(
+        MediaRes.audio.numerasi.mencocokanAngka.belajarMenghitungJumlahBenda);
   }
 
   @override

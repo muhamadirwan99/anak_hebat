@@ -13,7 +13,8 @@ class MengenalPerbandinganView extends StatefulWidget {
   });
 
   @override
-  State<MengenalPerbandinganView> createState() => MengenalPerbandinganViewState();
+  State<MengenalPerbandinganView> createState() =>
+      MengenalPerbandinganViewState();
 }
 
 class MengenalPerbandinganViewState extends State<MengenalPerbandinganView> {

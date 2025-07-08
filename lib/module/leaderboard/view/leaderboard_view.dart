@@ -34,7 +34,8 @@ class LeaderboardView extends StatefulWidget {
                     InkWell(
                       onTap: () async {
                         await SoundUtils.stopSound();
-                        SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
+                        SoundUtils.playSoundWithoutWaiting(
+                            MediaRes.audio.click);
                         newRouter.go(RouterUtils.home);
                       },
                       child: SvgPicture.asset(
@@ -81,15 +82,22 @@ class LeaderboardView extends StatefulWidget {
                             child: ListView.builder(
                                 itemCount: controller.leaderboardList.length,
                                 itemBuilder: (context, index) {
-                                  final item = controller.leaderboardList[index];
-                                  final currentUserId = FirebaseAuth.instance.currentUser?.uid;
-                                  final isSelectedUser = item.idUser == currentUserId;
+                                  final item =
+                                      controller.leaderboardList[index];
+                                  final currentUserId =
+                                      FirebaseAuth.instance.currentUser?.uid;
+                                  final isSelectedUser =
+                                      item.idUser == currentUserId;
 
                                   return _content(
                                     index: index,
                                     name: item.name,
-                                    literasi: item.literasi.isEmpty ? "0" : item.literasi,
-                                    numerasi: item.numerasi.isEmpty ? "0" : item.numerasi,
+                                    literasi: item.literasi.isEmpty
+                                        ? "0"
+                                        : item.literasi,
+                                    numerasi: item.numerasi.isEmpty
+                                        ? "0"
+                                        : item.numerasi,
                                     rataRata: item.rataRata.toString(),
                                     isSelectedUser: isSelectedUser,
                                   );
@@ -212,7 +220,8 @@ class LeaderboardView extends StatefulWidget {
     required String rataRata,
     bool isSelectedUser = false,
   }) {
-    Color color = index % 2 == 0 ? const Color(0xffF9E7CA) : const Color(0xffFCEED7);
+    Color color =
+        index % 2 == 0 ? const Color(0xffF9E7CA) : const Color(0xffFCEED7);
     Color textColor = const Color(0xff000000);
     Widget image = Container(
       width: 50,

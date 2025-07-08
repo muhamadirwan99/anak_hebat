@@ -89,7 +89,9 @@ class _MenghitungViewState extends State<MenghitungView> {
                     mainAxisSpacing: 8,
                     crossAxisSpacing: 8,
                     children: [
-                      for (var i = 0; i < widget.controller.modelMenghitungAngka.jawaban; i++)
+                      for (var i = 0;
+                          i < widget.controller.modelMenghitungAngka.jawaban;
+                          i++)
                         Image.asset(
                           widget.controller.modelMenghitungAngka.gambar,
                           height: 150,
@@ -113,7 +115,8 @@ class _MenghitungViewState extends State<MenghitungView> {
                 ),
                 widget.controller.isAnswerCorrect
                     ? Text(
-                        widget.controller.modelMenghitungAngka.jawaban.toString(),
+                        widget.controller.modelMenghitungAngka.jawaban
+                            .toString(),
                         style: GoogleFonts.balsamiqSans(
                           fontSize: 250,
                           fontWeight: FontWeight.w700,
@@ -128,7 +131,8 @@ class _MenghitungViewState extends State<MenghitungView> {
                     : Transform.translate(
                         offset: const Offset(0, -30),
                         child: Text(
-                          widget.controller.modelMenghitungAngka.jawaban.toString(),
+                          widget.controller.modelMenghitungAngka.jawaban
+                              .toString(),
                           style: GoogleFonts.ralewayDots(
                             fontSize: 250,
                             color: gray900,
@@ -154,7 +158,9 @@ class _MenghitungViewState extends State<MenghitungView> {
               crossAxisCount: 2,
               crossAxisSpacing: 351,
               children: [
-                for (var i = 0; i < widget.controller.modelMenghitungAngka.pilihan.length; i++)
+                for (var i = 0;
+                    i < widget.controller.modelMenghitungAngka.pilihan.length;
+                    i++)
                   containerJawaban(i),
               ],
             ),

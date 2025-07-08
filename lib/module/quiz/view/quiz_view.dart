@@ -42,7 +42,8 @@ class QuizView extends StatefulWidget {
                       children: [
                         InkWell(
                           onTap: () {
-                            SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
+                            SoundUtils.playSoundWithoutWaiting(
+                                MediaRes.audio.click);
                             showDialogBase(
                               maxWidth: 600,
                               barrierDismissible: true,
@@ -71,7 +72,8 @@ class QuizView extends StatefulWidget {
                               children: [
                                 InkWell(
                                   onTap: () {
-                                    SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
+                                    SoundUtils.playSoundWithoutWaiting(
+                                        MediaRes.audio.click);
                                     showDialogBase(
                                       maxWidth: 1548,
                                       barrierDismissible: true,
@@ -116,7 +118,8 @@ class QuizView extends StatefulWidget {
                                 color: blue700,
                                 width: 1,
                               ),
-                              borderRadius: const BorderRadius.all(Radius.circular(12)),
+                              borderRadius:
+                                  const BorderRadius.all(Radius.circular(12)),
                             ),
                             padding: const EdgeInsets.all(12),
                             child: Center(
@@ -160,8 +163,10 @@ class QuizView extends StatefulWidget {
                               Expanded(
                                 child: _jawaban(
                                   context,
-                                  onTap: () => controller.selectAnswer(answer.jawabanA),
-                                  isSelected: controller.isSelected(answer.jawabanA),
+                                  onTap: () =>
+                                      controller.selectAnswer(answer.jawabanA),
+                                  isSelected:
+                                      controller.isSelected(answer.jawabanA),
                                   value: answer.jawabanA,
                                 ),
                               ),
@@ -169,8 +174,10 @@ class QuizView extends StatefulWidget {
                               Expanded(
                                 child: _jawaban(
                                   context,
-                                  onTap: () => controller.selectAnswer(answer.jawabanB),
-                                  isSelected: controller.isSelected(answer.jawabanB),
+                                  onTap: () =>
+                                      controller.selectAnswer(answer.jawabanB),
+                                  isSelected:
+                                      controller.isSelected(answer.jawabanB),
                                   value: answer.jawabanB,
                                 ),
                               ),
@@ -178,8 +185,10 @@ class QuizView extends StatefulWidget {
                               Expanded(
                                 child: _jawaban(
                                   context,
-                                  onTap: () => controller.selectAnswer(answer.jawabanC),
-                                  isSelected: controller.isSelected(answer.jawabanC),
+                                  onTap: () =>
+                                      controller.selectAnswer(answer.jawabanC),
+                                  isSelected:
+                                      controller.isSelected(answer.jawabanC),
                                   value: answer.jawabanC,
                                 ),
                               ),

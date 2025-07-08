@@ -106,7 +106,8 @@ class MengenalBentukViewState extends State<MengenalBentukView> {
                   ? const SizedBox()
                   : InkWell(
                       onTap: () {
-                        SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
+                        SoundUtils.playSoundWithoutWaiting(
+                            MediaRes.audio.click);
                         widget.controller.backMengenalBentuk();
                       },
                       child: SvgPicture.asset(

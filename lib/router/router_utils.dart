@@ -7,4 +7,6 @@ class RouterUtils {
   static const String materi = '/materi';
   static const String quiz = '/quiz';
   static const String leaderboard = '/leaderboard';
+  static const String credit = '/credit';
+  static const String panduan = '/panduan';
 }

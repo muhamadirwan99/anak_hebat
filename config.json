@@ -1,14 +1,16 @@
 {
-    "modules": [
-        "login",
-        "home",
-        "materi",
-        "quiz",
-        "leaderboard"
-    ],
-    "module_directory_name": "module",
-    "experimental_mode": false,
-    "learning_mode": false,
-    "unfreezed": true,
-    "use_cubit": false
+  "modules": [
+    "login",
+    "home",
+    "materi",
+    "quiz",
+    "leaderboard",
+    "credit",
+    "panduan"
+  ],
+  "module_directory_name": "module",
+  "experimental_mode": false,
+  "learning_mode": false,
+  "unfreezed": true,
+  "use_cubit": false
 }

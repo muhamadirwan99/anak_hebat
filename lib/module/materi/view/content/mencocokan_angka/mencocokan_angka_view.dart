@@ -53,7 +53,8 @@ class _MencocokanAngkaViewState extends State<MencocokanAngkaView> {
             InkWell(
               onTap: () {
                 SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
-                widget.controller.changePageState(EnumMateriState.levelMencocokanAngka);
+                widget.controller
+                    .changePageState(EnumMateriState.levelMencocokanAngka);
               },
               child: SvgPicture.asset(
                 MediaRes.button.dashboard,
@@ -111,7 +112,9 @@ class _MencocokanAngkaViewState extends State<MencocokanAngkaView> {
                         crossAxisSpacing: 8,
                         children: [
                           for (var i = 0;
-                              i < int.parse(widget.controller.modelMencocokanAngka.value);
+                              i <
+                                  int.parse(widget
+                                      .controller.modelMencocokanAngka.value);
                               i++)
                             Image.asset(
                               widget.controller.modelMencocokanAngka.image,

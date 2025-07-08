@@ -19,6 +19,8 @@ export 'package:anak_hebat/core/utils/show_circle_dialog_loading.dart';
 export 'package:anak_hebat/core/utils/sound_utils.dart';
 export 'package:anak_hebat/firebase_options.dart';
 export 'package:anak_hebat/load_image.dart';
+export 'package:anak_hebat/module/credit/controller/credit_controller.dart';
+export 'package:anak_hebat/module/credit/view/credit_view.dart';
 export 'package:anak_hebat/module/home/controller/home_controller.dart';
 export 'package:anak_hebat/module/home/view/home_view.dart';
 export 'package:anak_hebat/module/home/widget/custom_home_button.dart';
@@ -54,6 +56,8 @@ export 'package:anak_hebat/module/materi/widget/container_menghitung_angka.dart'
 export 'package:anak_hebat/module/materi/widget/dialog_mengenal_perbandingan.dart';
 export 'package:anak_hebat/module/model/mengenal_model.dart';
 export 'package:anak_hebat/module/model/menghitung_angka_model.dart';
+export 'package:anak_hebat/module/panduan/controller/panduan_controller.dart';
+export 'package:anak_hebat/module/panduan/view/panduan_view.dart';
 export 'package:anak_hebat/module/quiz/controller/quiz_controller.dart';
 export 'package:anak_hebat/module/quiz/models/quiz_model.dart';
 export 'package:anak_hebat/module/quiz/utils/quiz_utils.dart';

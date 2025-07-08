@@ -41,12 +41,14 @@ class HomeView extends StatefulWidget {
                             ),
                           ),
                         ),
-                        padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 24),
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 8, horizontal: 24),
                         child: Row(
                           children: [
                             InkWell(
                               onTap: () {
-                                SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
+                                SoundUtils.playSoundWithoutWaiting(
+                                    MediaRes.audio.click);
                               },
                               child: Text(
                                 "Home",
@@ -62,7 +64,8 @@ class HomeView extends StatefulWidget {
                             ),
                             InkWell(
                               onTap: () async {
-                                await SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
+                                await SoundUtils.playSoundWithoutWaiting(
+                                    MediaRes.audio.click);
                                 await SoundUtils.stopSound();
                                 await FlameAudio.bgm.pause();
 
@@ -70,6 +73,48 @@ class HomeView extends StatefulWidget {
                               },
                               child: Text(
                                 "Leaderboard",
+                                style: GoogleFonts.roboto(
+                                  fontSize: 24,
+                                  fontWeight: FontWeight.w600,
+                                  color: yellow900,
+                                ),
+                              ),
+                            ),
+                            const SizedBox(
+                              width: 24.0,
+                            ),
+                            InkWell(
+                              onTap: () async {
+                                await SoundUtils.playSoundWithoutWaiting(
+                                    MediaRes.audio.click);
+                                await SoundUtils.stopSound();
+                                await FlameAudio.bgm.pause();
+
+                                newRouter.go(RouterUtils.credit);
+                              },
+                              child: Text(
+                                "Credit",
+                                style: GoogleFonts.roboto(
+                                  fontSize: 24,
+                                  fontWeight: FontWeight.w600,
+                                  color: yellow900,
+                                ),
+                              ),
+                            ),
+                            const SizedBox(
+                              width: 24.0,
+                            ),
+                            InkWell(
+                              onTap: () async {
+                                await SoundUtils.playSoundWithoutWaiting(
+                                    MediaRes.audio.click);
+                                await SoundUtils.stopSound();
+                                await FlameAudio.bgm.pause();
+
+                                newRouter.go(RouterUtils.panduan);
+                              },
+                              child: Text(
+                                "Panduan",
                                 style: GoogleFonts.roboto(
                                   fontSize: 24,
                                   fontWeight: FontWeight.w600,
@@ -95,7 +140,8 @@ class HomeView extends StatefulWidget {
                         children: [
                           InkWell(
                             onTap: () {
-                              SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
+                              SoundUtils.playSoundWithoutWaiting(
+                                  MediaRes.audio.click);
                               controller.toggleMute();
                             },
                             child: SvgPicture.asset(
@@ -110,7 +156,8 @@ class HomeView extends StatefulWidget {
                           ),
                           InkWell(
                             onTap: () {
-                              SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
+                              SoundUtils.playSoundWithoutWaiting(
+                                  MediaRes.audio.click);
                               controller.logout();
                             },
                             child: SvgPicture.asset(
@@ -131,7 +178,8 @@ class HomeView extends StatefulWidget {
                   children: [
                     InkWell(
                       onTap: () {
-                        SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
+                        SoundUtils.playSoundWithoutWaiting(
+                            MediaRes.audio.click);
                         showDialogBase(
                           maxWidth: 700,
                           barrierDismissible: true,
@@ -147,7 +195,8 @@ class HomeView extends StatefulWidget {
                     ),
                     InkWell(
                       onTap: () {
-                        SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
+                        SoundUtils.playSoundWithoutWaiting(
+                            MediaRes.audio.click);
                         showDialogBase(
                           maxWidth: 700,
                           barrierDismissible: true,

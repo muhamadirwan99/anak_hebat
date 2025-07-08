@@ -38,8 +38,10 @@ class _AyoBelajarViewState extends State<AyoBelajarView> {
         image: MediaRes.button.mencocokanAngka,
         onTap: () {
           SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
-          widget.controller.changeBackground(MediaRes.background.mencocokanAngka);
-          widget.controller.changePageState(EnumMateriState.levelMencocokanAngka);
+          widget.controller
+              .changeBackground(MediaRes.background.mencocokanAngka);
+          widget.controller
+              .changePageState(EnumMateriState.levelMencocokanAngka);
           // widget.controller.changePageState(EnumMateriState.pilihLevel);
         },
       ),
@@ -47,7 +49,8 @@ class _AyoBelajarViewState extends State<AyoBelajarView> {
         image: MediaRes.button.mengenalBentuk,
         onTap: () {
           SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
-          widget.controller.changeBackground(MediaRes.background.mencocokanAngka);
+          widget.controller
+              .changeBackground(MediaRes.background.mencocokanAngka);
           widget.controller.changePageState(EnumMateriState.mengenalBentuk);
         },
       ),
@@ -55,8 +58,10 @@ class _AyoBelajarViewState extends State<AyoBelajarView> {
         image: MediaRes.button.mengenalPerbandingan,
         onTap: () {
           SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
-          widget.controller.changeBackground(MediaRes.background.mencocokanAngka);
-          widget.controller.changePageState(EnumMateriState.mengenalPerbandingan);
+          widget.controller
+              .changeBackground(MediaRes.background.mencocokanAngka);
+          widget.controller
+              .changePageState(EnumMateriState.mengenalPerbandingan);
         },
       ),
       PilihMateriModel(
@@ -64,14 +69,16 @@ class _AyoBelajarViewState extends State<AyoBelajarView> {
         onTap: () {
           SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
           widget.controller.changeBackground(MediaRes.background.perbandingan2);
-          widget.controller.changePageState(EnumMateriState.mengenalPosisiUrutan);
+          widget.controller
+              .changePageState(EnumMateriState.mengenalPosisiUrutan);
         },
       ),
       PilihMateriModel(
         image: MediaRes.button.mengenalPosisi,
         onTap: () {
           SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
-          widget.controller.changeBackground(MediaRes.background.mengenalPosisi);
+          widget.controller
+              .changeBackground(MediaRes.background.mengenalPosisi);
           widget.controller.changePageState(EnumMateriState.mengenalPosisi);
         },
       ),

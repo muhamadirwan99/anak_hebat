@@ -25,7 +25,8 @@ class LeaderboardController extends State<LeaderboardView> {
         final name = data['name'];
         final quiz = data['quiz'];
         final pointRaw = data['point'];
-        final point = pointRaw is int ? pointRaw : int.tryParse(pointRaw.toString()) ?? 0;
+        final point =
+            pointRaw is int ? pointRaw : int.tryParse(pointRaw.toString()) ?? 0;
 
         if (!userMap.containsKey(idUser)) {
           userMap[idUser] = {
@@ -53,8 +54,8 @@ class LeaderboardController extends State<LeaderboardView> {
         final litInt = int.tryParse(literasi) ?? 0;
         final numInt = int.tryParse(numerasi) ?? 0;
 
-        final rataRata =
-            (litInt + numInt) ~/ ((literasi != '' ? 1 : 0) + (numerasi != '' ? 1 : 0)).clamp(1, 2);
+        final rataRata = (litInt + numInt) ~/
+            ((literasi != '' ? 1 : 0) + (numerasi != '' ? 1 : 0)).clamp(1, 2);
 
         list.add(LeaderboardModel(
           idUser: value['id_user'],

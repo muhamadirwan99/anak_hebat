@@ -20,8 +20,10 @@ class _PilihLevelViewState extends State<PilihLevelView> {
   @override
   void initState() {
     super.initState();
-    SoundUtils.playSound(MediaRes.audio.numerasi.mengenalAngka.mengenalAngkaJumlahBenda)
-        .whenComplete(() => SoundUtils.playSound(MediaRes.audio.numerasi.mengenalAngka.pilihLevel));
+    SoundUtils.playSound(
+            MediaRes.audio.numerasi.mengenalAngka.mengenalAngkaJumlahBenda)
+        .whenComplete(() => SoundUtils.playSound(
+            MediaRes.audio.numerasi.mengenalAngka.pilihLevel));
   }
 
   @override

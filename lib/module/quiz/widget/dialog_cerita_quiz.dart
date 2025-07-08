@@ -24,7 +24,8 @@ class _DialogCeritaQuizState extends State<DialogCeritaQuiz> {
       child: Stack(
         children: [
           Padding(
-            padding: const EdgeInsets.fromLTRB(24, 24, 24, 100), // Sisakan ruang bawah
+            padding: const EdgeInsets.fromLTRB(
+                24, 24, 24, 100), // Sisakan ruang bawah
             child: SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -44,9 +45,11 @@ class _DialogCeritaQuizState extends State<DialogCeritaQuiz> {
                       ),
                       InkWell(
                         onTap: () async {
-                          SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
+                          SoundUtils.playSoundWithoutWaiting(
+                              MediaRes.audio.click);
 
-                          await SoundUtils.playSound(MediaRes.quiz.literasi.quiz910);
+                          await SoundUtils.playSound(
+                              MediaRes.quiz.literasi.quiz910);
                         },
                         child: SvgPicture.asset(
                           MediaRes.button.speakerOn,

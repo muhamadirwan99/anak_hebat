@@ -47,5 +47,17 @@ final GoRouter newRouter = GoRouter(
         return const LeaderboardView();
       },
     ),
+    GoRoute(
+      path: RouterUtils.credit,
+      builder: (BuildContext context, GoRouterState state) {
+        return const CreditView();
+      },
+    ),
+    GoRoute(
+      path: RouterUtils.panduan,
+      builder: (BuildContext context, GoRouterState state) {
+        return const PanduanView();
+      },
+    ),
   ],
 );

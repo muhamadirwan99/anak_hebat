@@ -24,15 +24,19 @@ class _Numerasi {
   final mengenalPosisi = _MengenalPosisi();
   final mengenalPosisiUrutan = _MengenalPosisiUrutan();
 
-  String get ayoBelajarAngka => '${AudioRes.basePath}/${_Numerasi.subPath}/ayo_belajar_angka.mp3';
+  String get ayoBelajarAngka =>
+      '${AudioRes.basePath}/${_Numerasi.subPath}/ayo_belajar_angka.mp3';
 }
 
 class _Berhitung {
   static String subPathFolder = 'berhitung';
 
-  String get kupu => '${AudioRes.basePath}/${_Numerasi.subPath}/$subPathFolder/6_kupu2.mp3';
-  String get wortel => '${AudioRes.basePath}/${_Numerasi.subPath}/$subPathFolder/7_wortel.mp3';
-  String get buahNaga => '${AudioRes.basePath}/${_Numerasi.subPath}/$subPathFolder/buah_naga.mp3';
+  String get kupu =>
+      '${AudioRes.basePath}/${_Numerasi.subPath}/$subPathFolder/6_kupu2.mp3';
+  String get wortel =>
+      '${AudioRes.basePath}/${_Numerasi.subPath}/$subPathFolder/7_wortel.mp3';
+  String get buahNaga =>
+      '${AudioRes.basePath}/${_Numerasi.subPath}/$subPathFolder/buah_naga.mp3';
   String get belajarBerhitung =>
       '${AudioRes.basePath}/${_Numerasi.subPath}/$subPathFolder/belajar_berhitung.mp3';
 }
@@ -40,16 +44,26 @@ class _Berhitung {
 class _MencocokanAngka {
   static String subPathFolder = 'mencocokan_angka';
 
-  String get wortel10 => '${AudioRes.basePath}/${_Numerasi.subPath}/$subPathFolder/10_wortel.mp3';
-  String get apel1 => '${AudioRes.basePath}/${_Numerasi.subPath}/$subPathFolder/1_apel.mp3';
-  String get nanas2 => '${AudioRes.basePath}/${_Numerasi.subPath}/$subPathFolder/2_nanas.mp3';
-  String get telur3 => '${AudioRes.basePath}/${_Numerasi.subPath}/$subPathFolder/3_telur.mp3';
-  String get apel4 => '${AudioRes.basePath}/${_Numerasi.subPath}/$subPathFolder/4_apel.mp3';
-  String get apel5 => '${AudioRes.basePath}/${_Numerasi.subPath}/$subPathFolder/5_apel.mp3';
-  String get telur6 => '${AudioRes.basePath}/${_Numerasi.subPath}/$subPathFolder/6_telur.mp3';
-  String get sapi7 => '${AudioRes.basePath}/${_Numerasi.subPath}/$subPathFolder/7_sapi.mp3';
-  String get payung8 => '${AudioRes.basePath}/${_Numerasi.subPath}/$subPathFolder/8_payung.mp3';
-  String get ular9 => '${AudioRes.basePath}/${_Numerasi.subPath}/$subPathFolder/9_ular.mp3';
+  String get wortel10 =>
+      '${AudioRes.basePath}/${_Numerasi.subPath}/$subPathFolder/10_wortel.mp3';
+  String get apel1 =>
+      '${AudioRes.basePath}/${_Numerasi.subPath}/$subPathFolder/1_apel.mp3';
+  String get nanas2 =>
+      '${AudioRes.basePath}/${_Numerasi.subPath}/$subPathFolder/2_nanas.mp3';
+  String get telur3 =>
+      '${AudioRes.basePath}/${_Numerasi.subPath}/$subPathFolder/3_telur.mp3';
+  String get apel4 =>
+      '${AudioRes.basePath}/${_Numerasi.subPath}/$subPathFolder/4_apel.mp3';
+  String get apel5 =>
+      '${AudioRes.basePath}/${_Numerasi.subPath}/$subPathFolder/5_apel.mp3';
+  String get telur6 =>
+      '${AudioRes.basePath}/${_Numerasi.subPath}/$subPathFolder/6_telur.mp3';
+  String get sapi7 =>
+      '${AudioRes.basePath}/${_Numerasi.subPath}/$subPathFolder/7_sapi.mp3';
+  String get payung8 =>
+      '${AudioRes.basePath}/${_Numerasi.subPath}/$subPathFolder/8_payung.mp3';
+  String get ular9 =>
+      '${AudioRes.basePath}/${_Numerasi.subPath}/$subPathFolder/9_ular.mp3';
   String get belajarMenghitungJumlahBenda =>
       '${AudioRes.basePath}/${_Numerasi.subPath}/$subPathFolder/belajar_menghitung_jumlah_benda.mp3';
 }
@@ -78,17 +92,20 @@ class _MengenalBentuk {
 
   String get belajarMengenalBentuk =>
       '${AudioRes.basePath}/${_Numerasi.subPath}/$subPathFolder/belajar_mengenal_bentuk.mp3';
-  String get lingkaran => '${AudioRes.basePath}/${_Numerasi.subPath}/$subPathFolder/lingkaran.mp3';
+  String get lingkaran =>
+      '${AudioRes.basePath}/${_Numerasi.subPath}/$subPathFolder/lingkaran.mp3';
   String get lingkaranSegi3LingkaranSegi3 =>
       '${AudioRes.basePath}/${_Numerasi.subPath}/$subPathFolder/lingkaran_segi3_lingkaran_segi3.mp3';
   String get mengenalPola =>
       '${AudioRes.basePath}/${_Numerasi.subPath}/$subPathFolder/mengenal_pola.mp3';
-  String get persegi => '${AudioRes.basePath}/${_Numerasi.subPath}/$subPathFolder/persegi.mp3';
+  String get persegi =>
+      '${AudioRes.basePath}/${_Numerasi.subPath}/$subPathFolder/persegi.mp3';
   String get persegiLingkaranPersegiLingkaran =>
       '${AudioRes.basePath}/${_Numerasi.subPath}/$subPathFolder/persegi_lingkaran_persegi_lingkaran_.mp3';
   String get persegiPanjang =>
       '${AudioRes.basePath}/${_Numerasi.subPath}/$subPathFolder/persegi_panjang.mp3';
-  String get segi3 => '${AudioRes.basePath}/${_Numerasi.subPath}/$subPathFolder/segu3.mp3';
+  String get segi3 =>
+      '${AudioRes.basePath}/${_Numerasi.subPath}/$subPathFolder/segu3.mp3';
 }
 
 class _MengenalPerbandingan {
@@ -105,8 +122,10 @@ class _MengenalPerbandingan {
 class _MengenalPosisi {
   static String subPathFolder = 'mengenal_posisi';
 
-  String get atasMeja => '${AudioRes.basePath}/${_Numerasi.subPath}/$subPathFolder/atas_meja.mp3';
-  String get bawahMeja => '${AudioRes.basePath}/${_Numerasi.subPath}/$subPathFolder/bawah_meja.mp3';
+  String get atasMeja =>
+      '${AudioRes.basePath}/${_Numerasi.subPath}/$subPathFolder/atas_meja.mp3';
+  String get bawahMeja =>
+      '${AudioRes.basePath}/${_Numerasi.subPath}/$subPathFolder/bawah_meja.mp3';
   String get mengenalPosisi =>
       '${AudioRes.basePath}/${_Numerasi.subPath}/$subPathFolder/mengenal_posisi.mp3';
   String get sampingMeja =>
@@ -183,8 +202,10 @@ class _Home {
 class _IntroMateri {
   static String subPath = 'intro_materi';
 
-  String get mengenalAngka => '${AudioRes.basePath}/$subPath/mengenal_angka.mp3';
-  String get mengenalHuruf => '${AudioRes.basePath}/$subPath/mengenal_huruf.mp3';
+  String get mengenalAngka =>
+      '${AudioRes.basePath}/$subPath/mengenal_angka.mp3';
+  String get mengenalHuruf =>
+      '${AudioRes.basePath}/$subPath/mengenal_huruf.mp3';
 }
 
 class _SoalLiterasi {
