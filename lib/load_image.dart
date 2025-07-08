@@ -36,6 +36,8 @@ Future<void> loadImage() async {
         MediaRes.background.outside,
         MediaRes.background.leaderboard,
         MediaRes.background.berhitung,
+        MediaRes.background.credit,
+        MediaRes.background.panduan,
         MediaRes.background.mencocokanAngka,
         MediaRes.background.mengenalPosisi,
         MediaRes.background.perbandingan1,
@@ -161,11 +163,9 @@ Future<void> loadImage() async {
         MediaRes.quiz.numerasi.soal6B,
       ];
 
-      final rasterImages = allAssets
-          .where((path) => path.endsWith('.png') || path.endsWith('.jpg'))
-          .toList();
-      final svgImages =
-          allAssets.where((path) => path.endsWith('.svg')).toList();
+      final rasterImages =
+          allAssets.where((path) => path.endsWith('.png') || path.endsWith('.jpg')).toList();
+      final svgImages = allAssets.where((path) => path.endsWith('.svg')).toList();
 
       // Precache raster (PNG/JPG)
       for (final path in rasterImages) {
@@ -175,8 +175,7 @@ Future<void> loadImage() async {
       // Precache SVG
       for (final path in svgImages) {
         final loader = SvgAssetLoader(path);
-        await svg.cache
-            .putIfAbsent(loader.cacheKey(null), () => loader.loadBytes(null));
+        await svg.cache.putIfAbsent(loader.cacheKey(null), () => loader.loadBytes(null));
       }
     } catch (e) {
       debugPrint('Error preloading assets: $e');

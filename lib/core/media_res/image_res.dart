@@ -11,6 +11,7 @@ class ImageRes {
   String get gold => '${ImageRes.basePath}/gold.svg';
   String get silver => '${ImageRes.basePath}/silver.svg';
   String get bronze => '${ImageRes.basePath}/bronze.svg';
+  String get panduan => '${ImageRes.basePath}/panduan.svg';
   String get leaderboard => '${ImageRes.basePath}/leaderboard.svg';
   String get lingkaran => '${ImageRes.basePath}/lingkaran.png';
   String get persegi => '${ImageRes.basePath}/persegi.png';
