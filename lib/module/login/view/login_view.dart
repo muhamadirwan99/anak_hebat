@@ -13,11 +13,34 @@ class LoginView extends StatefulWidget {
         children: [
           Expanded(
             flex: 1,
-            child: SizedBox(
+            child: Container(
               height: double.infinity,
-              child: Image.asset(
-                MediaRes.images.login,
-                fit: BoxFit.cover,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage(
+                    MediaRes.images.login,
+                  ),
+                  fit: BoxFit.cover,
+                ),
+              ),
+              padding: const EdgeInsets.all(10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white.withOpacity(0.5),
+                      borderRadius: const BorderRadius.all(
+                        Radius.circular(27),
+                      ),
+                    ),
+                    child: Image.asset(
+                      MediaRes.logo.logo,
+                      height: 125,
+                      width: 125,
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
@@ -26,23 +49,21 @@ class LoginView extends StatefulWidget {
               padding: const EdgeInsets.all(32),
               child: Column(
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Image.asset(
-                        MediaRes.logo.undiksha,
-                        height: 100,
-                        width: 100,
-                      ),
-                      const SizedBox(
-                        width: 24.0,
-                      ),
-                      Image.asset(
-                        MediaRes.logo.logo,
-                        height: 100,
-                        width: 100,
-                      ),
-                    ],
+                  Image.asset(
+                    MediaRes.logo.undiksha,
+                    height: 100,
+                    width: 100,
+                  ),
+                  const SizedBox(
+                    height: 16.0,
+                  ),
+                  Text(
+                    "Media pembelajaran interaktif berdiferensiasi berbasis gaya belajar untuk meningkatkan kemampuan literasi dan numerasi anak TK",
+                    style: GoogleFonts.baloo2(
+                      fontSize: 26,
+                      fontWeight: FontWeight.w800,
+                    ),
+                    textAlign: TextAlign.center,
                   ),
                   const Spacer(),
                   controller.isContentLogin
