@@ -90,17 +90,6 @@ class LoginView extends StatefulWidget {
   _contentLogin(LoginController controller) {
     return Column(
       children: [
-        Text(
-          'Masuk',
-          style: GoogleFonts.baloo2(
-            fontSize: 24,
-            fontWeight: FontWeight.bold,
-            color: const Color(0xff212121),
-          ),
-        ),
-        const SizedBox(
-          height: 40.0,
-        ),
         CustomFormField(
           label: 'Username',
           hint: 'Masukkan username',
@@ -173,17 +162,6 @@ class LoginView extends StatefulWidget {
   _contentSignup(LoginController controller) {
     return Column(
       children: [
-        Text(
-          'Buat Akun',
-          style: GoogleFonts.baloo2(
-            fontSize: 24,
-            fontWeight: FontWeight.bold,
-            color: const Color(0xff212121),
-          ),
-        ),
-        const SizedBox(
-          height: 40.0,
-        ),
         CustomFormField(
           key: const ValueKey("signup_name"),
           label: 'Nama Lengkap',
