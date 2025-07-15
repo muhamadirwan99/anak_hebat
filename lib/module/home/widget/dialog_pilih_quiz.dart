@@ -22,7 +22,7 @@ class _DialogPilihQuizState extends State<DialogPilihQuiz> {
       child: Column(
         children: [
           Text(
-            "PILIH QUIZ!",
+            "PILIH KUIS!",
             style: GoogleFonts.baloo2(
               fontSize: 36,
               fontWeight: FontWeight.bold,
@@ -30,7 +30,7 @@ class _DialogPilihQuizState extends State<DialogPilihQuiz> {
             ),
           ),
           Text(
-            "Kamu mau quiz apa hari ini?",
+            "Kamu mau kuis apa hari ini?",
             style: GoogleFonts.baloo2(
               fontSize: 20,
               fontWeight: FontWeight.w400,

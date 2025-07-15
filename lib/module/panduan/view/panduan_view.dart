@@ -109,7 +109,7 @@ class PanduanView extends StatefulWidget {
                               isExpanded: controller.isQuizExpanded,
                               onTap: () => controller.toggleQuizSection(),
                               content: const [
-                                '1. Klik tombol "Ayo Quiz!"',
+                                '1. Klik tombol "Ayo Kuis!"',
                                 '2. Jawab pertanyaan tentang angka, bentuk, dan huruf.',
                                 '3. Pilih jawaban yang benar.',
                                 '4. Hasil akan langsung muncul setelah selesai.',

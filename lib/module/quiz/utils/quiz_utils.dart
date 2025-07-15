@@ -282,7 +282,7 @@ class QuizUtils {
       backsound: MediaRes.audio.soalLiterasi.satu,
       soal: Center(
         child: Text(
-          "Pilihlah gambar yang berawal dari huruf “A” ",
+          "Pilih gambar yang namanya diawali dengan huruf A",
           style: GoogleFonts.baloo2(
             fontSize: 48,
             fontWeight: FontWeight.bold,
@@ -300,7 +300,7 @@ class QuizUtils {
       backsound: MediaRes.audio.soalLiterasi.dua,
       soal: Center(
         child: Text(
-          "Pilih hewan yang suka makan wortel!",
+          "Pilih gambar binatang yang suka makan wortel",
           style: GoogleFonts.baloo2(
             fontSize: 48,
             fontWeight: FontWeight.bold,
@@ -318,7 +318,7 @@ class QuizUtils {
       backsound: MediaRes.audio.soalLiterasi.tiga,
       soal: Center(
         child: Text(
-          "Yang manakah 2 hewan yang hidupnya di air?",
+          "Tunjukkan dua hewan yang hidup di air.",
           style: GoogleFonts.baloo2(
             fontSize: 48,
             fontWeight: FontWeight.bold,
@@ -336,7 +336,7 @@ class QuizUtils {
       backsound: MediaRes.audio.soalLiterasi.empat,
       soal: Center(
         child: Text(
-          "Manakah dari gambar berikut yang menunjukkan  huruf A ?",
+          "Pilih gambar huruf yang mewakili bunyi A",
           style: GoogleFonts.baloo2(
             fontSize: 48,
             fontWeight: FontWeight.bold,
@@ -354,7 +354,7 @@ class QuizUtils {
       backsound: MediaRes.audio.soalLiterasi.lima,
       soal: Center(
         child: Text(
-          "Coba tunjuk huruf 'O' di antara huruf-huruf berikut:",
+          "Pilih gambar huruf yang mewakili bunyi O",
           style: GoogleFonts.baloo2(
             fontSize: 48,
             fontWeight: FontWeight.bold,
@@ -400,7 +400,7 @@ class QuizUtils {
       backsound: MediaRes.audio.soalLiterasi.tujuh,
       soal: Center(
         child: Text(
-          "Gambar mana saja yang namanya dimulai dengan huruf 'S'?",
+          "Gambar apa saja yang namanya diawali dengan huruf “S”?",
           style: GoogleFonts.baloo2(
             fontSize: 48,
             fontWeight: FontWeight.bold,
@@ -420,7 +420,7 @@ class QuizUtils {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            "Bunyi huruf  apakah ini?",
+            "Bunyi huruf apakah ini?",
             style: GoogleFonts.baloo2(
               fontSize: 48,
               fontWeight: FontWeight.bold,
