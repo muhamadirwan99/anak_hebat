@@ -71,7 +71,7 @@ class LoginView extends StatefulWidget {
                       : _contentSignup(controller),
                   const Spacer(),
                   Text(
-                    "© Copyright by Anak Hebat Universal",
+                    "© Hak Cipta oleh Anak Hebat Universal",
                     style: GoogleFonts.inter(
                       fontSize: 14,
                       fontWeight: FontWeight.w500,
