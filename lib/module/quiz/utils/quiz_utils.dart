@@ -308,7 +308,7 @@ class QuizUtils {
         ),
       ),
       jawaban: QuizAnswerModel(
-        jawabanA: MediaRes.quiz.literasi.jawaban2A,
+        jawabanA: MediaRes.quiz.literasi.jawaban9A,
         jawabanB: MediaRes.quiz.literasi.jawaban2B,
         jawabanC: MediaRes.quiz.literasi.jawaban2C,
       ),

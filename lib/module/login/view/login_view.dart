@@ -51,8 +51,8 @@ class LoginView extends StatefulWidget {
                 children: [
                   Image.asset(
                     MediaRes.logo.undiksha,
-                    height: 100,
-                    width: 100,
+                    height: 150,
+                    width: 150,
                   ),
                   const SizedBox(
                     height: 16.0,
