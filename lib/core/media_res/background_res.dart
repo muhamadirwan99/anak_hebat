@@ -6,6 +6,7 @@ class BackgroundRes {
   String get leaderboard => '${BackgroundRes.basePath}/leaderboard.png';
   String get berhitung => '${BackgroundRes.basePath}/berhitung.png';
   String get credit => '${BackgroundRes.basePath}/credit.png';
+  String get creditPolos => '${BackgroundRes.basePath}/credit_polos.png';
   String get panduan => '${BackgroundRes.basePath}/panduan.png';
   String get mencocokanAngka => '${BackgroundRes.basePath}/mencocokan_angka.png';
   String get mengenalPosisi => '${BackgroundRes.basePath}/mengenal_posisi.png';
