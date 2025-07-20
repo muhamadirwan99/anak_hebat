@@ -10,4 +10,5 @@ class MediaRes {
   static final materi = MateriRes();
   static final audio = AudioRes();
   static final quiz = QuizRes();
+  static final panduan = PanduanRes();
 }

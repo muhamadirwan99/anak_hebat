@@ -12,6 +12,7 @@ export 'package:anak_hebat/core/media_res/logo_res.dart';
 export 'package:anak_hebat/core/media_res/materi_res.dart';
 export 'package:anak_hebat/core/media_res/media_res.dart';
 export 'package:anak_hebat/core/media_res/music_res.dart';
+export 'package:anak_hebat/core/media_res/panduan_res.dart';
 export 'package:anak_hebat/core/media_res/quiz_res.dart';
 export 'package:anak_hebat/core/utils/scaffold_message.dart';
 export 'package:anak_hebat/core/utils/show_base_dialog.dart';

@@ -92,6 +92,17 @@ flutter:
     - assets/audio/numerasi/mengenal_posisi_urutan/
     - assets/quiz/numerasi/
     - assets/quiz/literasi/
+    - assets/panduan/belajar_angka/
+    - assets/panduan/belajar_berhitung/
+    - assets/panduan/belajar_mencocokan_angka/
+    - assets/panduan/belajar_mengenal_angka_dan_benda/
+    - assets/panduan/belajar_mengenal_bentuk/
+    - assets/panduan/belajar_mengenal_perbandingan/
+    - assets/panduan/belajar_mengenal_posisi/
+    - assets/panduan/belajar_mengenal_posisi_urutan/
+    - assets/panduan/kuis/
+    - assets/panduan/materi_huruf/
+    - assets/panduan/peringkat/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
