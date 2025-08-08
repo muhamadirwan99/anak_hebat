@@ -24,4 +24,6 @@ class ImageRes {
   String get kupuKupu => '${ImageRes.basePath}/kupu_kupu.png';
   String get wortel1 => '${ImageRes.basePath}/wortel_1.png';
   String get wortel2 => '${ImageRes.basePath}/wortel_2.png';
+  String get arrow => '${ImageRes.basePath}/arrow.svg';
+  String get meja => '${ImageRes.basePath}/meja.png';
 }

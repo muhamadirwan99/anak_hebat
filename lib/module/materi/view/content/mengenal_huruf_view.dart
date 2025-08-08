@@ -31,9 +31,10 @@ class _MengenalHurufViewState extends State<MengenalHurufView> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             InkWell(
-              onTap: () {
+              onTap: () async {
+                await SoundUtils.stopSound();
                 SoundUtils.playSoundWithoutWaiting(MediaRes.audio.click);
-                widget.controller.changePageState(EnumMateriState.ayoBelajar);
+                newRouter.go(RouterUtils.home);
               },
               child: SvgPicture.asset(
                 MediaRes.button.back,
